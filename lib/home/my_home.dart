@@ -1,4 +1,6 @@
 import 'package:flutixapp/home/home.dart';
+import 'package:flutixapp/home/profile.dart';
+import 'package:flutixapp/home/ticket.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -8,13 +10,16 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-// ignore: use_full_hex_values_for_flutter_colors
-Color buttonColor = const Color(0xE1A20B);
+Color buttonColor = const Color(0xFFE1A20B);
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [const HomePage()];
+  final List<Widget> _pages = [
+    const HomePage(),
+    const TicketPage(),
+    const ProfilPage()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Profile',
           ),
         ],
-        selectedItemColor: Colors.blue,
+        selectedItemColor: buttonColor,
         currentIndex: _selectedIndex,
         onTap: (int index) {
           setState(() {
