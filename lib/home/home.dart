@@ -9,6 +9,7 @@ class HomePage extends StatefulWidget {
 
 Color bgColor = const Color(0xFFFBFAF9);
 Color cardsColor = const Color(0xFFEAE9E7);
+Color textColor = const Color(0xFFF4EDE6);
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -71,10 +72,39 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Row(
                           children: [
-                            Container(
-                              width: 150,
-                              margin: const EdgeInsets.only(left: 20),
-                              child: Image.asset("images/card/minji.jpg"),
+                            Stack(
+                              children: [
+                                Container(
+                                  width: 150,
+                                  margin: const EdgeInsets.only(left: 20),
+                                  child: Image.asset("images/card/minji.jpg"),
+                                ),
+                                Positioned(
+                                  left: 30,
+                                  top: 70,
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "Avengers",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                          color: textColor,
+                                        ),
+                                      ),
+                                      Row(
+                                        children: List.generate(5, (index) {
+                                          return Icon(
+                                            Icons.star,
+                                            color: textColor,
+                                            size: 14,
+                                          );
+                                        }),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
                             ),
                             const SizedBox(width: 20),
                             SizedBox(
@@ -115,38 +145,58 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        color: cardsColor,
-                        child: Image.asset("images/card/action.png"),
+                      Column(
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            color: cardsColor,
+                            child: Image.asset("images/card/action.png"),
+                          ),
+                          const Text("Action"),
+                        ],
                       ),
                       const SizedBox(width: 20),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        color: cardsColor,
-                        child: Image.asset("images/card/battle.png"),
+                      Column(
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            color: cardsColor,
+                            child: Image.asset("images/card/battle.png"),
+                          ),
+                          const Text("Battle"),
+                        ],
                       ),
                       const SizedBox(width: 20),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        color: cardsColor,
-                        child: Image.asset("images/card/sci-fi.png"),
+                      Column(
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            color: cardsColor,
+                            child: Image.asset("images/card/sci-fi.png"),
+                          ),
+                          const Text("Sci-fi"),
+                        ],
                       ),
                       const SizedBox(width: 20),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        color: cardsColor,
-                        child: Image.asset("images/card/kids.png"),
+                      Column(
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            color: cardsColor,
+                            child: Image.asset("images/card/kids.png"),
+                          ),
+                          const Text("Fantasy"),
+                        ],
                       ),
                     ],
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               SizedBox(
                 height: 240,
                 child: ListView(
