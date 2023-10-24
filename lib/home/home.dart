@@ -72,54 +72,253 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Row(
                           children: [
-                            Stack(
-                              children: [
-                                Container(
-                                  width: 150,
-                                  margin: const EdgeInsets.only(left: 20),
-                                  child: Image.asset("images/card/minji.jpg"),
-                                ),
-                                Positioned(
-                                  left: 30,
-                                  top: 70,
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        "Avengers",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                          color: textColor,
-                                        ),
-                                      ),
-                                      Row(
-                                        children: List.generate(5, (index) {
-                                          return Icon(
-                                            Icons.star,
-                                            color: textColor,
-                                            size: 14,
-                                          );
-                                        }),
-                                      ),
-                                    ],
+                            InkWell(
+                              onTap: () {},
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    width: 160,
+                                    height: 112,
+                                    margin: const EdgeInsets.only(left: 20),
+                                    child: Image.asset(
+                                      "images/card/avengers.png",
+                                      fit: BoxFit.fill,
+                                      color: Colors.black.withOpacity(0.4),
+                                      colorBlendMode: BlendMode.darken,
+                                    ),
                                   ),
-                                )
-                              ],
+                                  Positioned(
+                                    left: 30,
+                                    top: 70,
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          padding:
+                                              const EdgeInsets.only(right: 10),
+                                          child: Text(
+                                            "Avengers",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16,
+                                              color: textColor,
+                                            ),
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Row(
+                                              children:
+                                                  List.generate(2, (index) {
+                                                return Icon(
+                                                  Icons.star,
+                                                  color: textColor,
+                                                  size: 14,
+                                                );
+                                              }),
+                                            ),
+                                            Icon(
+                                              Icons.star_half,
+                                              color: textColor,
+                                              size: 14,
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Text(
+                                              "7/10",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12,
+                                                color: textColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                             const SizedBox(width: 20),
-                            SizedBox(
-                              width: 150,
-                              child: Image.asset("images/card/minji.jpg"),
+                            InkWell(
+                              onTap: () {},
+                              child: Stack(
+                                children: [
+                                  SizedBox(
+                                    width: 160,
+                                    height: 112,
+                                    child: Image.asset(
+                                      "images/card/despicable-me.png",
+                                      fit: BoxFit.fill,
+                                      color: Colors.black.withOpacity(0.4),
+                                      colorBlendMode: BlendMode.darken,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 10,
+                                    top: 70,
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Despicabe Me",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            color: textColor,
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Row(
+                                              children:
+                                                  List.generate(3, (index) {
+                                                return Icon(
+                                                  Icons.star,
+                                                  color: textColor,
+                                                  size: 14,
+                                                );
+                                              }),
+                                            ),
+                                            Icon(
+                                              Icons.star_half,
+                                              color: textColor,
+                                              size: 14,
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Text(
+                                              "8.5/10",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12,
+                                                color: textColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                             const SizedBox(width: 20),
-                            SizedBox(
-                              width: 150,
-                              child: Image.asset("images/card/minji.jpg"),
+                            InkWell(
+                              onTap: () {},
+                              child: Stack(
+                                children: [
+                                  SizedBox(
+                                    width: 160,
+                                    height: 112,
+                                    child: Image.asset(
+                                      "images/card/monster.png",
+                                      fit: BoxFit.fill,
+                                      color: Colors.black.withOpacity(0.4),
+                                      colorBlendMode: BlendMode.darken,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 10,
+                                    top: 70,
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Monster, inc.",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            color: textColor,
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Row(
+                                              children:
+                                                  List.generate(4, (index) {
+                                                return Icon(
+                                                  Icons.star,
+                                                  color: textColor,
+                                                  size: 14,
+                                                );
+                                              }),
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Text(
+                                              "8/10",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12,
+                                                color: textColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                             const SizedBox(width: 20),
-                            SizedBox(
-                              width: 150,
-                              child: Image.asset("images/card/minji.jpg"),
+                            InkWell(
+                              onTap: () {},
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    width: 160,
+                                    height: 112,
+                                    margin: const EdgeInsets.only(right: 20),
+                                    child: Image.asset(
+                                      "images/card/despicable-me.png",
+                                      fit: BoxFit.fill,
+                                      color: Colors.black.withOpacity(0.4),
+                                      colorBlendMode: BlendMode.darken,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 10,
+                                    top: 70,
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          "Despicabe Me",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            color: textColor,
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Row(
+                                              children:
+                                                  List.generate(3, (index) {
+                                                return Icon(
+                                                  Icons.star,
+                                                  color: textColor,
+                                                  size: 14,
+                                                );
+                                              }),
+                                            ),
+                                            Icon(
+                                              Icons.star_half,
+                                              color: textColor,
+                                              size: 14,
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Text(
+                                              "8.5/10",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12,
+                                                color: textColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ],
                         ),
