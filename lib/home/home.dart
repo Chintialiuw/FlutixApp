@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                               child: Stack(
                                 children: [
                                   Container(
-                                    width: 160,
+                                    width: 180,
                                     height: 112,
                                     margin: const EdgeInsets.only(left: 20),
                                     child: Image.asset(
@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                               child: Stack(
                                 children: [
                                   SizedBox(
-                                    width: 160,
+                                    width: 180,
                                     height: 112,
                                     child: Image.asset(
                                       "images/card/despicable-me.png",
@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Column(
                                       children: [
                                         Text(
-                                          "Despicabe Me",
+                                          "Despicable Me",
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
@@ -206,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                               child: Stack(
                                 children: [
                                   SizedBox(
-                                    width: 160,
+                                    width: 180,
                                     height: 112,
                                     child: Image.asset(
                                       "images/card/monster.png",
@@ -221,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Column(
                                       children: [
                                         Text(
-                                          "Monster, inc.",
+                                          "Monster, Inc.",
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
@@ -263,11 +263,11 @@ class _HomePageState extends State<HomePage> {
                               child: Stack(
                                 children: [
                                   Container(
-                                    width: 160,
+                                    width: 180,
                                     height: 112,
                                     margin: const EdgeInsets.only(right: 20),
                                     child: Image.asset(
-                                      "images/card/despicable-me.png",
+                                      "images/card/transformers.webp",
                                       fit: BoxFit.fill,
                                       color: Colors.black.withOpacity(0.4),
                                       colorBlendMode: BlendMode.darken,
@@ -279,7 +279,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Column(
                                       children: [
                                         Text(
-                                          "Despicabe Me",
+                                          "Transformers    ",
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
@@ -290,7 +290,7 @@ class _HomePageState extends State<HomePage> {
                                           children: [
                                             Row(
                                               children:
-                                                  List.generate(3, (index) {
+                                                  List.generate(5, (index) {
                                                 return Icon(
                                                   Icons.star,
                                                   color: textColor,
@@ -298,14 +298,9 @@ class _HomePageState extends State<HomePage> {
                                                 );
                                               }),
                                             ),
-                                            Icon(
-                                              Icons.star_half,
-                                              color: textColor,
-                                              size: 14,
-                                            ),
                                             const SizedBox(width: 10),
                                             Text(
-                                              "8.5/10",
+                                              "10/10",
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 12,
@@ -346,11 +341,14 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Column(
                         children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            color: cardsColor,
-                            child: Image.asset("images/card/action.png"),
+                          InkWell(
+                            onTap: () {},
+                            child: Container(
+                              width: 50,
+                              height: 50,
+                              color: cardsColor,
+                              child: Image.asset("images/card/action.png"),
+                            ),
                           ),
                           const Text("Action"),
                         ],
@@ -358,11 +356,14 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(width: 20),
                       Column(
                         children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            color: cardsColor,
-                            child: Image.asset("images/card/battle.png"),
+                          InkWell(
+                            onTap: () {},
+                            child: Container(
+                              width: 50,
+                              height: 50,
+                              color: cardsColor,
+                              child: Image.asset("images/card/battle.png"),
+                            ),
                           ),
                           const Text("Battle"),
                         ],
@@ -370,11 +371,14 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(width: 20),
                       Column(
                         children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            color: cardsColor,
-                            child: Image.asset("images/card/sci-fi.png"),
+                          InkWell(
+                            onTap: () {},
+                            child: Container(
+                              width: 50,
+                              height: 50,
+                              color: cardsColor,
+                              child: Image.asset("images/card/sci-fi.png"),
+                            ),
                           ),
                           const Text("Sci-fi"),
                         ],
@@ -382,11 +386,14 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(width: 20),
                       Column(
                         children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            color: cardsColor,
-                            child: Image.asset("images/card/kids.png"),
+                          InkWell(
+                            onTap: () {},
+                            child: Container(
+                              width: 50,
+                              height: 50,
+                              color: cardsColor,
+                              child: Image.asset("images/card/kids.png"),
+                            ),
                           ),
                           const Text("Fantasy"),
                         ],
@@ -419,33 +426,46 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Row(
                           children: [
-                            Container(
-                              width: 150,
-                              height: 200,
-                              margin: const EdgeInsets.only(left: 20),
-                              child: Image.asset("images/card/minji.jpg",
-                                  fit: BoxFit.fitHeight),
+                            InkWell(
+                              onTap: () {},
+                              child: Container(
+                                width: 150,
+                                height: 200,
+                                margin: const EdgeInsets.only(left: 20),
+                                child: Image.asset(
+                                    "images/card/Carl's-date.png",
+                                    fit: BoxFit.fill),
+                              ),
                             ),
                             const SizedBox(width: 20),
-                            SizedBox(
-                              width: 150,
-                              height: 200,
-                              child: Image.asset("images/card/minji.jpg",
-                                  fit: BoxFit.fitHeight),
+                            InkWell(
+                              onTap: () {},
+                              child: SizedBox(
+                                width: 150,
+                                height: 200,
+                                child: Image.asset("images/card/Hotal.png",
+                                    fit: BoxFit.fill),
+                              ),
                             ),
                             const SizedBox(width: 20),
-                            SizedBox(
-                              width: 150,
-                              height: 200,
-                              child: Image.asset("images/card/minji.jpg",
-                                  fit: BoxFit.fitHeight),
+                            InkWell(
+                              onTap: () {},
+                              child: SizedBox(
+                                width: 150,
+                                height: 200,
+                                child: Image.asset("images/card/The-Lorax.png",
+                                    fit: BoxFit.fill),
+                              ),
                             ),
                             const SizedBox(width: 20),
-                            SizedBox(
-                              width: 150,
-                              height: 200,
-                              child: Image.asset("images/card/minji.jpg",
-                                  fit: BoxFit.fitHeight),
+                            InkWell(
+                              onTap: () {},
+                              child: SizedBox(
+                                width: 150,
+                                height: 200,
+                                child: Image.asset("images/card/Up.png",
+                                    fit: BoxFit.fill),
+                              ),
                             ),
                           ],
                         ),
@@ -455,12 +475,41 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 30),
-              SizedBox(
-                width: 300,
-                height: 100,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(4),
-                  child: Image.asset("images/card/minji.jpg", fit: BoxFit.fill),
+              InkWell(
+                onTap: () {},
+                child: Stack(
+                  children: [
+                    SizedBox(
+                      width: 300,
+                      height: 100,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: Image.asset(
+                          "images/card/holiday-promo.png",
+                          fit: BoxFit.fill,
+                          color: Colors.black.withOpacity(0.4),
+                          colorBlendMode: BlendMode.darken,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                        left: 10,
+                        top: 60,
+                        child: Column(
+                          children: [
+                            Text("Holiday Promo",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: textColor)),
+                            Text("Min. Four User        ",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: textColor))
+                          ],
+                        )),
+                  ],
                 ),
               )
             ],
