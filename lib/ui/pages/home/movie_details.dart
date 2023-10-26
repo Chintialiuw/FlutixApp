@@ -1,4 +1,5 @@
 import 'package:flutixapp/ui/pages/home/home.dart';
+import 'package:flutixapp/ui/pages/home/places_date.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -136,13 +137,13 @@ class _movie_details_State extends State<movie_details> {
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   for (int i = 0; i < 5; i++)
                     Container(
                       width: 80,
                       height: 80,
-                      margin: EdgeInsets.only(top: 10.0),
+                      margin: EdgeInsets.only(left: 20.0, top: 10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         color: Colors.grey,
@@ -153,7 +154,16 @@ class _movie_details_State extends State<movie_details> {
               Padding(
                 padding: const EdgeInsets.all(50.0),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return placesdate();
+                        },
+                      ),
+                    );
+                  },
                   child: Text(
                     "Continue to Book",
                     style: TextStyle(
@@ -163,7 +173,7 @@ class _movie_details_State extends State<movie_details> {
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    foregroundColor: Colors.black,
+                    foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),

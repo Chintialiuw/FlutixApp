@@ -141,16 +141,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             const SizedBox(width: 20),
                             InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return movie_details();
-                                    },
-                                  ),
-                                );
-                              },
+                              onTap: () {},
                               child: Stack(
                                 children: [
                                   SizedBox(
@@ -212,7 +203,16 @@ class _HomePageState extends State<HomePage> {
                             ),
                             const SizedBox(width: 20),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return movie_details();
+                                    },
+                                  ),
+                                );
+                              },
                               child: Stack(
                                 children: [
                                   SizedBox(
