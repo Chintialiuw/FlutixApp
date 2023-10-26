@@ -1,3 +1,4 @@
+import 'package:flutixapp/ui/pages/home/movie_details.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -140,7 +141,16 @@ class _HomePageState extends State<HomePage> {
                             ),
                             const SizedBox(width: 20),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return movie_details();
+                                    },
+                                  ),
+                                );
+                              },
                               child: Stack(
                                 children: [
                                   SizedBox(

@@ -1,6 +1,6 @@
-import 'package:flutixapp/home/home.dart';
-import 'package:flutixapp/home/profile.dart';
-import 'package:flutixapp/home/ticket.dart';
+import 'package:flutixapp/ui/pages/home/home.dart';
+import 'package:flutixapp/ui/pages/home/profile.dart';
+import 'package:flutixapp/ui/pages/home/ticket.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
