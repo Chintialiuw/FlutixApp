@@ -30,6 +30,77 @@ class _ProfilePageState extends State<ProfilPage> {
                     Text(
                       "chintialiuw@gmail.com",
                       style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(height: 25),
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {}, icon: Icon(Icons.settings)),
+                        TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                                foregroundColor: Colors.black),
+                            child: Text(
+                              "Edit Profile",
+                              style: TextStyle(fontSize: 16),
+                            )),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {}, icon: Icon(Icons.settings)),
+                        TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                                foregroundColor: Colors.black),
+                            child: Text(
+                              "My Wallet",
+                              style: TextStyle(fontSize: 16),
+                            )),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {}, icon: Icon(Icons.settings)),
+                        TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                                foregroundColor: Colors.black),
+                            child: Text(
+                              "Change Language",
+                              style: TextStyle(fontSize: 16),
+                            )),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {}, icon: Icon(Icons.settings)),
+                        TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                                foregroundColor: Colors.black),
+                            child: Text(
+                              "Help Center",
+                              style: TextStyle(fontSize: 16),
+                            )),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {}, icon: Icon(Icons.settings)),
+                        TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                                foregroundColor: Colors.black),
+                            child: Text(
+                              "Rate Flutix App",
+                              style: TextStyle(fontSize: 16),
+                            )),
+                      ],
                     )
                   ],
                 ),
