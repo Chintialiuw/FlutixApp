@@ -15,6 +15,7 @@ class _TicketPageState extends State<TicketPage> {
         children: [
           Text(
             "My Tickets",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           Row(
             children: [
