@@ -1,4 +1,4 @@
-import 'package:flutixapp/ui/pages/home/movie_details.dart';
+import 'package:flutixapp/ui/pages/home/seat.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,14 +20,7 @@ class _placesdateState extends State<placesdate> {
           padding: const EdgeInsets.only(top: 10.0),
           child: InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return movie_details();
-                  },
-                ),
-              );
+              Navigator.pop(context);
             },
             child: Icon(
               CupertinoIcons.back,
@@ -165,21 +158,36 @@ class _placesdateState extends State<placesdate> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20.0, top: 50.0, bottom: 50.0, right: 240.0),
+                    padding: const EdgeInsets.only(
+                        left: 20.0, top: 50.0, bottom: 50.0, right: 240.0),
                     child: Text(
                       "Select You Seat",
                       style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontWeight: FontWeight.normal),
+                          color: Colors.black,
+                          fontSize: 24,
+                          fontWeight: FontWeight.normal),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20.0),
-                    child: Icon(
-                      CupertinoIcons.arrow_right_circle_fill,
-                      color: Colors.orange,
-                      size: 50,
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return seat();
+                            },
+                          ),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 20.0),
+                        child: Icon(
+                          CupertinoIcons.arrow_right_circle_fill,
+                          color: Colors.orange,
+                          size: 50,
+                        ),
+                      ),
                     ),
                   ),
                 ],
