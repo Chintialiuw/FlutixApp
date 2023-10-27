@@ -1,4 +1,4 @@
-import 'package:flutixapp/ui/pages/home/movie_details.dart';
+import 'package:flutixapp/ui/pages/home/checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -31,13 +31,23 @@ class _seatState extends State<seat> {
       ),
       body: ListView(
         children: [
-          Text("INI BAGIAN HADIE OCE"),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "INI BAGIAN HADIE OCE",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 20.0, top: 50.0, bottom: 50.0, right: 240.0),
+                    left: 20.0, top: 50.0, bottom: 50.0, right: 200.0),
                 child: Text(
                   "Confirm Your Book",
                   style: TextStyle(
@@ -49,14 +59,14 @@ class _seatState extends State<seat> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) {
-                    //       return movie_details();
-                    //     },
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return checkout();
+                        },
+                      ),
+                    );
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(right: 20.0),
