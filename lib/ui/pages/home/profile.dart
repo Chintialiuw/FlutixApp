@@ -31,7 +31,7 @@ class _ProfilePageState extends State<ProfilPage> {
                       "chintialiuw@gmail.com",
                       style: TextStyle(fontSize: 16),
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 35),
                     Row(
                       children: [
                         IconButton(
@@ -48,8 +48,7 @@ class _ProfilePageState extends State<ProfilPage> {
                     ),
                     Row(
                       children: [
-                        IconButton(
-                            onPressed: () {}, icon: Icon(Icons.settings)),
+                        IconButton(onPressed: () {}, icon: Icon(Icons.wallet)),
                         TextButton(
                             onPressed: () {},
                             style: TextButton.styleFrom(
@@ -63,7 +62,7 @@ class _ProfilePageState extends State<ProfilPage> {
                     Row(
                       children: [
                         IconButton(
-                            onPressed: () {}, icon: Icon(Icons.settings)),
+                            onPressed: () {}, icon: Icon(Icons.language)),
                         TextButton(
                             onPressed: () {},
                             style: TextButton.styleFrom(
@@ -77,7 +76,7 @@ class _ProfilePageState extends State<ProfilPage> {
                     Row(
                       children: [
                         IconButton(
-                            onPressed: () {}, icon: Icon(Icons.settings)),
+                            onPressed: () {}, icon: Icon(Icons.help_center)),
                         TextButton(
                             onPressed: () {},
                             style: TextButton.styleFrom(
@@ -91,7 +90,7 @@ class _ProfilePageState extends State<ProfilPage> {
                     Row(
                       children: [
                         IconButton(
-                            onPressed: () {}, icon: Icon(Icons.settings)),
+                            onPressed: () {}, icon: Icon(Icons.rate_review)),
                         TextButton(
                             onPressed: () {},
                             style: TextButton.styleFrom(
