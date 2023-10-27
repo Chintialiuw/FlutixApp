@@ -30,16 +30,25 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.grey[100],
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.movie, size: 32),
-            label: 'Movies',
+            icon: Padding(
+              padding: EdgeInsets.only(top: 10.0, bottom: 3.0),
+              child: Icon(Icons.movie, size: 32),
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.airplane_ticket, size: 32),
-            label: 'Tickets',
+            icon: Padding(
+              padding: EdgeInsets.only(top: 10.0, bottom: 3.0),
+              child: Icon(Icons.shopping_cart, size: 32),
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.boy_outlined, size: 32),
-            label: 'Profile',
+            icon: Padding(
+              padding: EdgeInsets.only(top: 10.0, bottom: 3.0),
+              child: Icon(Icons.person, size: 32),
+            ),
+            label: '',
           ),
         ],
         selectedItemColor: buttonColor,
