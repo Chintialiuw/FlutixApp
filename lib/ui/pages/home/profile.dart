@@ -1,3 +1,4 @@
+import 'package:flutixapp/ui/pages/home/edit_profile.dart';
 import 'package:flutter/material.dart';
 
 class ProfilPage extends StatefulWidget {
@@ -37,7 +38,13 @@ class _ProfilePageState extends State<ProfilPage> {
                         IconButton(
                             onPressed: () {}, icon: Icon(Icons.settings)),
                         TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditProfile()),
+                              );
+                            },
                             style: TextButton.styleFrom(
                                 foregroundColor: Colors.black),
                             child: Text(
