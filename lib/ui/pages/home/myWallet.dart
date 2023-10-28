@@ -1,3 +1,4 @@
+import 'package:flutixapp/ui/pages/home/wallettopup.dart';
 import 'package:flutter/material.dart';
 
 class myWallet extends StatefulWidget {
@@ -119,7 +120,13 @@ class _myWalletState extends State<myWallet> {
                       ],
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => wallettopup()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Color.fromARGB(255, 26, 18, 11),
                           foregroundColor: Color.fromARGB(255, 229, 229, 203),
