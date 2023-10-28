@@ -77,16 +77,13 @@ class _TicketPageState extends State<TicketPage> {
                       child: Container(
                         width: 75,
                         height: 100,
-                        margin: const EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(left: 20, bottom: 20),
                         child: Image.asset("images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
                     TextButton(onPressed: () {}, child: Text("Carl's Date"))
                   ],
-                ),
-                SizedBox(
-                  height: 20,
                 ),
                 Row(
                   children: [
@@ -95,16 +92,13 @@ class _TicketPageState extends State<TicketPage> {
                       child: Container(
                         width: 75,
                         height: 100,
-                        margin: const EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(left: 20, bottom: 20),
                         child: Image.asset("images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
                     TextButton(onPressed: () {}, child: Text("Carl's Date"))
                   ],
-                ),
-                SizedBox(
-                  height: 20,
                 ),
                 Row(
                   children: [
@@ -113,16 +107,13 @@ class _TicketPageState extends State<TicketPage> {
                       child: Container(
                         width: 75,
                         height: 100,
-                        margin: const EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(left: 20, bottom: 20),
                         child: Image.asset("images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
                     TextButton(onPressed: () {}, child: Text("Carl's Date"))
                   ],
-                ),
-                SizedBox(
-                  height: 20,
                 ),
                 Row(
                   children: [
@@ -131,16 +122,13 @@ class _TicketPageState extends State<TicketPage> {
                       child: Container(
                         width: 75,
                         height: 100,
-                        margin: const EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(left: 20, bottom: 20),
                         child: Image.asset("images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
                     TextButton(onPressed: () {}, child: Text("Carl's Date"))
                   ],
-                ),
-                SizedBox(
-                  height: 20,
                 ),
                 Row(
                   children: [
@@ -149,7 +137,7 @@ class _TicketPageState extends State<TicketPage> {
                       child: Container(
                         width: 75,
                         height: 100,
-                        margin: const EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(left: 20, bottom: 20),
                         child: Image.asset("images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),

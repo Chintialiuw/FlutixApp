@@ -1,4 +1,5 @@
 import 'package:flutixapp/ui/pages/home/edit_profile.dart';
+import 'package:flutixapp/ui/pages/home/myWallet.dart';
 import 'package:flutter/material.dart';
 
 class ProfilPage extends StatefulWidget {
@@ -57,7 +58,13 @@ class _ProfilePageState extends State<ProfilPage> {
                       children: [
                         IconButton(onPressed: () {}, icon: Icon(Icons.wallet)),
                         TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => myWallet()),
+                              );
+                            },
                             style: TextButton.styleFrom(
                                 foregroundColor: Colors.black),
                             child: Text(
