@@ -22,11 +22,12 @@ class _splashState extends State<splash> {
               width: 290,
               height: 220,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  image: DecorationImage(
-                    image: AssetImage("assets/splash/flutix-logo.png"),
-                    fit: BoxFit.cover,
-                  )),
+                color: Colors.white,
+                image: DecorationImage(
+                  image: AssetImage("assets/splash/flutix-logo.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ),
           Padding(
@@ -60,7 +61,7 @@ class _splashState extends State<splash> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 50, left: 20),
+            padding: const EdgeInsets.only(top: 50, left: 5),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: ElevatedButton(
@@ -68,7 +69,7 @@ class _splashState extends State<splash> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => signIn(),
-                      ),
+                    ),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -88,7 +89,7 @@ class _splashState extends State<splash> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 100, top: 15),
+                padding: const EdgeInsets.only(left: 90, top: 15),
                 child: Text(
                   "Already have an account?",
                   style: TextStyle(
@@ -99,11 +100,9 @@ class _splashState extends State<splash> {
                 ),
               ),
               GestureDetector(
-                onTap: (){
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => signUp())
-                  );
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => signUp()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(left: 5, top: 15),

@@ -10,6 +10,8 @@ class signUp extends StatefulWidget {
 class _signUpState extends State<signUp> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      
+    );
   }
 }
