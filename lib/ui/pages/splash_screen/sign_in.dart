@@ -10,6 +10,7 @@ class signIn extends StatefulWidget {
 
 class _signInState extends State<signIn> {
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
@@ -130,13 +131,21 @@ class _signInState extends State<signIn> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 90, left: 30),
+                padding: const EdgeInsets.only(top: 85, left: 30),
                 child: Text("Continue to Sign In",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
                 ),
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 130, top: 80),
+                child: Icon(
+                  Icons.arrow_circle_right,
+                  color: Colors.yellow,
+                  size: 60,
+                  ),
               ),
             ],
           ),
