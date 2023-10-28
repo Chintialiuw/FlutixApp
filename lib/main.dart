@@ -1,9 +1,6 @@
 import 'package:flutixapp/ui/pages/home/my_home.dart';
 import 'package:flutter/material.dart';
 
-
-import 'package:flutixapp/ui/pages/splash_screen/splash-screen.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -21,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: splash(),
+      home: MyHomePage(),
     );
   }
 }
