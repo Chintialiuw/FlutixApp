@@ -1,8 +1,6 @@
-import 'package:flutixapp/ui/pages/home/home.dart';
 import 'package:flutixapp/ui/pages/home/places_date.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class movie_details extends StatefulWidget {
   movie_details({super.key});
