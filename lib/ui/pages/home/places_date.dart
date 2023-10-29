@@ -44,21 +44,24 @@ class _placesdateState extends State<placesdate> {
                       fontWeight: FontWeight.normal),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  for (int i = 0; i < 5; i++)
-                    Container(
-                      width: 80,
-                      height: 90,
-                      margin:
-                          EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.grey,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    for (int i = 0; i < 6; i++)
+                      Container(
+                        width: 80,
+                        height: 90,
+                        margin: EdgeInsets.only(
+                            left: 20.0, top: 10.0, bottom: 10.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Colors.grey,
+                        ),
                       ),
-                    ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(height: 20),
               Column(
@@ -84,15 +87,16 @@ class _placesdateState extends State<placesdate> {
                           fontWeight: FontWeight.normal),
                     ),
                   ),
-                  Row(
+                  SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      for (int i = 0; i < 4; i++)
+                      for (int i = 0; i < 6; i++)
                         Container(
                           width: 100,
                           height: 50,
-                          margin: EdgeInsets.only(
-                              left: 20.0, top: 5.0, bottom: 15.0),
+                          margin: EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             color: Colors.grey,
@@ -100,6 +104,7 @@ class _placesdateState extends State<placesdate> {
                         ),
                     ],
                   ),
+                ),
                 ],
               ),
               Padding(
@@ -112,22 +117,24 @@ class _placesdateState extends State<placesdate> {
                       fontWeight: FontWeight.normal),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  for (int i = 0; i < 4; i++)
-                    Container(
-                      width: 100,
-                      height: 50,
-                      margin:
-                          EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.grey,
-                      ),
-                    ),
-                ],
-              ),
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      for (int i = 0; i < 6; i++)
+                        Container(
+                          width: 100,
+                          height: 50,
+                          margin: EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.grey,
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
                 child: Text(
@@ -138,22 +145,24 @@ class _placesdateState extends State<placesdate> {
                       fontWeight: FontWeight.normal),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  for (int i = 0; i < 4; i++)
-                    Container(
-                      width: 100,
-                      height: 50,
-                      margin:
-                          EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.grey,
-                      ),
-                    ),
-                ],
-              ),
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      for (int i = 0; i < 6; i++)
+                        Container(
+                          width: 100,
+                          height: 50,
+                          margin: EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.grey,
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
