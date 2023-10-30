@@ -20,7 +20,7 @@ class _TicketPageState extends State<TicketPage> {
             padding: const EdgeInsets.only(
               top: 20,
             ),
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width - 90,
               child: Column(
                 children: [
