@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types
 
+import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
+import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
 import 'package:flutter/material.dart';
 
 class signIn extends StatefulWidget {
@@ -11,43 +13,37 @@ class signIn extends StatefulWidget {
 
 class _signInState extends State<signIn> {
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
           Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(
-                      top: 60, left:20
-                    ),
-                    child: Text("Welcome back,",
-                    style: TextStyle(
-                      fontSize: 26,
-                      color: Colors.black,
-                    ),
+                    padding: const EdgeInsets.only(top: 60, left: 20),
+                    child: Text(
+                      "Welcome back,",
+                      style: TextStyle(
+                        fontSize: 26,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
-                  
                   Padding(
-                    padding: const EdgeInsets.only(
-                       top: 70, left:85
-                    ),
+                    padding: const EdgeInsets.only(top: 70, left: 85),
                     child: Container(
                       width: 80,
                       height: 80,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        image: DecorationImage(
-                          image: AssetImage("assets/splash/logo-black.png"),
-                          fit: BoxFit.cover,
-                          )
-                      ),
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          image: DecorationImage(
+                            image: AssetImage("assets/splash/logo-black.png"),
+                            fit: BoxFit.cover,
+                          )),
                     ),
                   ),
                 ],
@@ -56,30 +52,23 @@ class _signInState extends State<signIn> {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              left: 25, 
+              left: 25,
             ),
-            child: Text("Explorer!",
-            style: TextStyle(
-              fontSize: 26,
-              color: Colors.black,
-            ),
+            child: Text(
+              "Explorer!",
+              style: TextStyle(
+                fontSize: 26,
+                color: Colors.black,
+              ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              top: 80,left: 20,right: 20
-            ),
+            padding: const EdgeInsets.only(top: 80, left: 20, right: 20),
             child: TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide()
-                ),
+                border: OutlineInputBorder(borderSide: BorderSide()),
                 labelText: "Email Address",
-
-                labelStyle: TextStyle(
-                  color: Colors.black
-                ),
-
+                labelStyle: TextStyle(color: Colors.black),
                 hintText: "chintialiuw@gmail.com",
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
@@ -87,31 +76,22 @@ class _signInState extends State<signIn> {
                     width: 3,
                   ),
                 ),
-                
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Color.fromARGB(255, 170, 145, 31),
                     width: 3,
-                    ),
+                  ),
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              top: 40,left: 20,right: 20
-            ),
+            padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
             child: TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide()
-                ),
+                border: OutlineInputBorder(borderSide: BorderSide()),
                 labelText: "Password",
-
-                labelStyle: TextStyle(
-                  color: Colors.black
-                ),
-
+                labelStyle: TextStyle(color: Colors.black),
                 hintText: "*********",
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
@@ -119,12 +99,11 @@ class _signInState extends State<signIn> {
                     width: 3,
                   ),
                 ),
-                
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Color.fromARGB(255, 170, 145, 31),
                     width: 3,
-                    ),
+                  ),
                 ),
               ),
             ),
@@ -133,20 +112,58 @@ class _signInState extends State<signIn> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 85, left: 30),
-                child: Text("Continue to Sign In",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                ),
+                child: Text(
+                  "Continue to Sign In",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                  ),
                 ),
               ),
-              Padding(
+               GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => confir()));
+                },
+                child:Padding(
                 padding: const EdgeInsets.only(left: 130, top: 80),
                 child: Icon(
                   Icons.arrow_circle_right,
                   color: Colors.yellow,
                   size: 60,
+                ),
+              ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 100, top: 80),
+                child: Text(
+                  "Start fresh now?",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 17,
                   ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => signUp()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, top: 80),
+                  child: Text(
+                    "Sign Up",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 171, 158, 37),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
