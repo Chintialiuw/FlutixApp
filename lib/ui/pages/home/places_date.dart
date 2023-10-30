@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_constructors_in_immutables
+
 import 'package:flutixapp/ui/pages/home/seat.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

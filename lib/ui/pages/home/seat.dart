@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_literals_to_create_immutables
+
 import 'package:flutixapp/ui/pages/home/checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

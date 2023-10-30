@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutixapp/ui/pages/home/edit_profile.dart';
 import 'package:flutixapp/ui/pages/home/myWallet.dart';
 import 'package:flutter/material.dart';

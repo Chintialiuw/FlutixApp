@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_constructors_in_immutables
+
 import 'package:flutixapp/ui/pages/home/places_date.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -95,9 +97,9 @@ class _movie_details_State extends State<movie_details> {
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+                  children: const [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
+                      padding: EdgeInsets.only(left: 20.0),
                       child: Text(
                         "StoryLine",
                         style: TextStyle(
@@ -123,9 +125,9 @@ class _movie_details_State extends State<movie_details> {
                 ),
                 SizedBox(height: 20),
                 Row(
-                  children: [
+                  children: const [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
+                      padding: EdgeInsets.only(left: 20.0),
                       child: Text(
                         "Cast",
                         style: TextStyle(
@@ -168,13 +170,6 @@ class _movie_details_State extends State<movie_details> {
                         ),
                       );
                     },
-                    child: Text(
-                      "Continue to Book",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange,
                       foregroundColor: Colors.white,
@@ -182,6 +177,13 @@ class _movie_details_State extends State<movie_details> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       minimumSize: Size(200, 50),
+                    ),
+                    child: Text(
+                      "Continue to Book",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),

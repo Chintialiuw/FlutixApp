@@ -1,4 +1,4 @@
-import 'package:flutixapp/ui/pages/home/my_home.dart';
+import 'package:flutixapp/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: BottomNav(),
     );
   }
 }

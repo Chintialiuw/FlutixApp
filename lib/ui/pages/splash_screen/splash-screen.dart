@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, prefer_const_constructors, file_names
+
 import 'package:flutixapp/ui/pages/splash_screen/sign_in.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
 import 'package:flutter/material.dart';
