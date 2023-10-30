@@ -1,3 +1,6 @@
+import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
+import 'package:flutixapp/ui/pages/splash_screen/sign_in.dart';
+import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
 import 'package:flutixapp/ui/pages/splash_screen/splash-screen.dart';
 import 'package:flutixapp/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';

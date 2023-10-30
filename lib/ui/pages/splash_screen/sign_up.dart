@@ -14,7 +14,7 @@ class _signUpState extends State<signUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(
+      body: ListView(
       scrollDirection: Axis.vertical,
       children: [
         GestureDetector(
@@ -54,20 +54,32 @@ class _signUpState extends State<signUp> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 140, top: 10),
-              child: Container(
-                width: 130,
-                height: 130,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 20, 16, 16),
-                  borderRadius: BorderRadius.circular(90),
-                  // image: DecorationImage(
-                  //   image: AssetImage("assets/splash/logo-black.png"),
-                  //   fit: BoxFit.cover,
-                  //   )
+            Stack(
+              children:[
+              Padding(
+                padding: const EdgeInsets.only(left: 140, top: 10),
+                child: Container(
+                  width: 130,
+                  height: 130,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 20, 16, 16),
+                    borderRadius: BorderRadius.circular(90),
+                    // image: DecorationImage(
+                    //   image: AssetImage("assets/splash/logo-black.png"),
+                    //   fit: BoxFit.cover,
+                    //   )
+                  ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(left: 220, top: 115),
+                child: Icon(
+                  Icons.add_circle,
+                  color: Color.fromARGB(255, 42, 33, 97),
+                  size: 40,
+                ),
+              ),
+              ]
             ),
             Padding(
               padding: const EdgeInsets.only(top: 45, left: 20, right: 20),
