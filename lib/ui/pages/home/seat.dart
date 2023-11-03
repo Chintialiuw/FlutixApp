@@ -91,25 +91,70 @@ class _seatState extends State<seat> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Row(
-              children: [
-                Container(
-                  width: 20,
-                  height: 20,
-                  margin: EdgeInsets.only(left: 50, right: 10, top: 10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadiusDirectional.circular(4),
-                    color: seatBookedColor,
+          Row(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 20,
+                    height: 20,
+                    margin: EdgeInsets.only(left: 50, right: 10, top: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      color: seatBookedColor,
+                    ),
                   ),
-                ),
-                Text(
-                  "Booked",
-                  style: TextStyle(fontSize: 12),
-                )
-              ],
-            ),
+                  Container(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text(
+                      "Booked",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 20,
+                    height: 20,
+                    margin: EdgeInsets.only(left: 10, right: 10, top: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Color(0xFFF8D061), width: 1),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text(
+                      "Available",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 20,
+                    height: 20,
+                    margin: EdgeInsets.only(left: 10, top: 10),
+                    decoration: BoxDecoration(
+                      color: seatSelectedColor,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 10, left: 10),
+                    child: Text(
+                      "Selected",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,

@@ -1,3 +1,7 @@
+// ignore_for_file: unused_import
+
+import 'package:flutixapp/ui/pages/home/home.dart';
+import 'package:flutixapp/ui/pages/home/seat.dart';
 import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_in.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
@@ -22,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: splash(),
+      home: seat(),
     );
   }
 }
