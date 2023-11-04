@@ -24,7 +24,7 @@ class _successtopupState extends State<successtopup> {
           children: [
             Padding(
               padding: EdgeInsets.only(top: 100, bottom: 50),
-              child: Image.asset("assets/GAMBARUANGMU"),
+              child: Image.asset("images/money.png"),
             ),
             Text(
               "Wallet is Ready!",
