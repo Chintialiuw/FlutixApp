@@ -56,10 +56,10 @@ class _confirState extends State<confir> {
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 20, 16, 16),
               borderRadius: BorderRadius.circular(90),
-              // image: DecorationImage(
-              //   image: AssetImage("assets/splash/logo-black.png"),
-              //   fit: BoxFit.cover,
-              //   )
+              image: DecorationImage(
+                image: AssetImage("assets/images/card/minji.jpg"),
+                fit: BoxFit.cover,
+                )
             ),
           ),
         ),

@@ -63,6 +63,18 @@ flutter:
       - assets/
       - assets/splash/flutix-logo.png
       - assets/splash/logo-black.png
+      - assets/images/card/minji.jpg
+      - assets/splash/indo.jpg
+      - assets/splash/english.jpg
+      - assets/splash/japan.jpeg
+      - assets/splash/korea.jpg
+      - assets/splash/horror.jpeg
+      - assets/splash/music.jpeg
+      - assets/splash/actionn.jpeg
+      - assets/splash/drama.jpeg
+      - assets/splash/adventure.jpeg
+      - assets/splash/crime.jpeg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
