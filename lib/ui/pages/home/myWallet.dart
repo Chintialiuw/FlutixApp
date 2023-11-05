@@ -3,6 +3,8 @@
 import 'package:flutixapp/ui/pages/home/wallettopup.dart';
 import 'package:flutter/material.dart';
 
+import 'profile.dart';
+
 class myWallet extends StatefulWidget {
   const myWallet({super.key});
 
@@ -22,10 +24,31 @@ class _myWalletState extends State<myWallet> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    Text(
-                      "My Wallet",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ProfilPage()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 20, left: 20),
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.yellow,
+                              size: 40,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 220),
+                          child: Text(
+                            "My Wallet",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
                     ),
                     InkWell(
                       onTap: () {},

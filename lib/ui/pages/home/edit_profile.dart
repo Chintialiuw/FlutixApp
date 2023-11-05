@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutixapp/ui/pages/home/profile.dart';
 import 'package:flutter/material.dart';
 
 class EditProfile extends StatefulWidget {
@@ -26,10 +27,31 @@ class _EditProfileState extends State<EditProfile> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    Text(
-                      "Edit Profile",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ProfilPage()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 20, left: 20),
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.yellow,
+                              size: 40,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 220),
+                          child: Text(
+                            "Edit Profile",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 20,
