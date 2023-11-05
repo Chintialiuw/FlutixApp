@@ -72,7 +72,7 @@ class _uprofState extends State<uprof> {
                     child: Center(
                       child: Text("Horror",
                       style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 23,
                       fontWeight: FontWeight.bold
                     ),
@@ -95,7 +95,7 @@ class _uprofState extends State<uprof> {
                     child: Center(
                       child: Text("Music",
                       style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 23,
                       fontWeight: FontWeight.bold
                     ),
@@ -122,7 +122,7 @@ class _uprofState extends State<uprof> {
                     child: Center(
                       child: Text("Action",
                       style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 23,
                       fontWeight: FontWeight.bold
                     ),
@@ -145,7 +145,7 @@ class _uprofState extends State<uprof> {
                     child: Center(
                       child: Text("Drama",
                       style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 23,
                       fontWeight: FontWeight.bold
                     ),
@@ -172,7 +172,7 @@ class _uprofState extends State<uprof> {
                     child: Center(
                       child: Text("Adventure",
                       style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 23,
                       fontWeight: FontWeight.bold
                     ),
@@ -195,7 +195,7 @@ class _uprofState extends State<uprof> {
                     child: Center(
                       child: Text("Crime",
                       style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 23,
                       fontWeight: FontWeight.bold
                     ),
