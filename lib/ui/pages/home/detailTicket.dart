@@ -76,6 +76,9 @@ class _detailTicketState extends State<detailTicket> {
                           color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.normal)),
+                  SizedBox(
+                    width: 285,
+                  ),
                   Text("Paris Van Java Mall",
                       style: TextStyle(
                           color: Colors.black,
@@ -90,6 +93,9 @@ class _detailTicketState extends State<detailTicket> {
                           color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.normal)),
+                  SizedBox(
+                    width: 285,
+                  ),
                   Text("280524 & 20:00",
                       style: TextStyle(
                           color: Colors.black,
@@ -104,6 +110,9 @@ class _detailTicketState extends State<detailTicket> {
                           color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.normal)),
+                  SizedBox(
+                    width: 285,
+                  ),
                   Text("C1, C2",
                       style: TextStyle(
                           color: Colors.black,
@@ -111,7 +120,7 @@ class _detailTicketState extends State<detailTicket> {
                           fontWeight: FontWeight.normal)),
                 ],
               ),
-              Row(
+              Column(
                 children: [
                   Text("Name",
                       style: TextStyle(
@@ -132,6 +141,9 @@ class _detailTicketState extends State<detailTicket> {
                           color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.normal)),
+                  SizedBox(
+                    width: 285,
+                  ),
                   Text("2208199612389",
                       style: TextStyle(
                           color: Colors.black,
