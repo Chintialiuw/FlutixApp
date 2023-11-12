@@ -473,7 +473,7 @@ class _HomePageState extends State<HomePage> {
                               child: SizedBox(
                                 width: 150,
                                 height: 200,
-                                child: Image.asset("images/card/Up.png",
+                                child: Image.asset("images/card/up.jpeg",
                                     fit: BoxFit.fill),
                               ),
                             ),

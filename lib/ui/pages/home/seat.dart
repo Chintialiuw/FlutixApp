@@ -13,18 +13,24 @@ class seat extends StatefulWidget {
 
 Color seatBookedColor = const Color(0xFFA2A69D);
 Color seatSelectedColor = const Color(0xFFE1A20B);
+bool _istap = false;
 
 class _seatState extends State<seat> {
   Widget buildseatContainer(String seatText) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        setState(() {
+          _istap = !_istap;
+        });
+      },
       child: Container(
         width: 50,
         height: 50,
         margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         decoration: BoxDecoration(
+          color: _istap ? Colors.white : seatSelectedColor,
+          border: Border.all(color: Color(0xFFF8D061), width: 1),
           borderRadius: BorderRadius.circular(4),
-          color: seatBookedColor,
         ),
         child: Align(
           alignment: Alignment.center,
@@ -80,14 +86,164 @@ class _seatState extends State<seat> {
                       child: Text("Layar Bioskop")))
             ],
           ),
+          const SizedBox(height: 20),
+          Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 52),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _istap = !_istap;
+                      });
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      margin: EdgeInsets.symmetric(vertical: 6, horizontal: 8),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        border: _istap
+                            ? Border.all(color: Color(0xFFF8D061), width: 1)
+                            : Border.all(color: seatBookedColor, width: 1),
+                        color: _istap ? seatSelectedColor : seatBookedColor,
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text("H6"),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _istap = !_istap;
+                      });
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        border: _istap
+                            ? Border.all(color: Color(0xFFF8D061), width: 1)
+                            : Border.all(color: seatBookedColor, width: 1),
+                        color: _istap ? seatSelectedColor : seatBookedColor,
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text("H5"),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _istap = !_istap;
+                      });
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        border: _istap
+                            ? Border.all(color: Color(0xFFF8D061), width: 1)
+                            : Border.all(color: seatBookedColor, width: 1),
+                        color: _istap ? seatSelectedColor : seatBookedColor,
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text("H4"),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _istap = !_istap;
+                      });
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        border: _istap
+                            ? Border.all(color: Color(0xFFF8D061), width: 1)
+                            : Border.all(color: seatBookedColor, width: 1),
+                        color: _istap ? seatSelectedColor : seatBookedColor,
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text("H3"),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _istap = !_istap;
+                      });
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        border: _istap
+                            ? Border.all(color: Color(0xFFF8D061), width: 1)
+                            : Border.all(color: seatBookedColor, width: 1),
+                        color: _istap ? seatSelectedColor : seatBookedColor,
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text("H2"),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _istap = !_istap;
+                      });
+                    },
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        border: _istap
+                            ? Border.all(color: Color(0xFFF8D061), width: 1)
+                            : Border.all(color: seatBookedColor, width: 1),
+                        color: _istap ? seatSelectedColor : seatBookedColor,
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text("H1"),
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-              8,
+              7,
               (index) => Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: buildseatRow(
-                    String.fromCharCode('H'.codeUnitAt(0) - index)),
+                    String.fromCharCode('G'.codeUnitAt(0) - index)),
               ),
             ),
           ),
