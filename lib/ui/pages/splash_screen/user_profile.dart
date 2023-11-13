@@ -70,12 +70,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("Horror",
-                      style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "Horror",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -93,12 +93,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("Music",
-                      style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "Music",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -120,12 +120,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("Action",
-                      style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "Action",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -143,12 +143,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("Drama",
-                      style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "Drama",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -170,12 +170,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("Adventure",
-                      style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "Adventure",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -193,12 +193,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("Crime",
-                      style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "Crime",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -240,12 +240,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("Indonesian",
-                      style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "Indonesian",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -263,12 +263,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("English",
-                      style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "English",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -290,12 +290,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("Japanase",
-                      style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "Japanase",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -313,12 +313,12 @@ class _uprofState extends State<uprof> {
                       ),
                     ),
                     child: Center(
-                      child: Text("Korean",
-                      style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold
-                    ),
+                      child: Text(
+                        "Korean",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -328,24 +328,30 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 30, left: 30),
+                  padding: const EdgeInsets.only(top: 30, left: 20),
                   child: Text(
-                    "Continue tp Sign Up",
+                    "Continue to Sign Up",
                     style: TextStyle(
                       color: Colors.black,
+                      fontWeight: FontWeight.w400,
                       fontSize: 20,
                     ),
                   ),
                 ),
-              Padding(
-                padding: const EdgeInsets.only(left: 100, top: 30),
-                child: Icon(
-                  Icons.arrow_circle_right,
-                  color: Colors.yellow,
-                  size: 60,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 120, top: 30),
+                    child: Icon(
+                      Icons.arrow_circle_right,
+                      color: Colors.yellow,
+                      size: 60,
+                    ),
+                  ),
                 ),
-              ),
-            
               ],
             ),
           ],

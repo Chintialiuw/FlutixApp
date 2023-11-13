@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutixapp/ui/pages/home/edit_profile.dart';
 import 'package:flutixapp/ui/pages/home/myWallet.dart';
 import 'package:flutter/material.dart';
@@ -113,6 +114,23 @@ class _ProfilePageState extends State<ProfilPage> {
                                 foregroundColor: Colors.black),
                             child: Text(
                               "Rate Flutix App",
+                              style: TextStyle(fontSize: 16),
+                            )),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              FirebaseAuth.instance.signOut();
+                            },
+                            icon: Icon(Icons.logout)),
+                        TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                                foregroundColor: Colors.black),
+                            child: Text(
+                              "Log out",
                               style: TextStyle(fontSize: 16),
                             )),
                       ],

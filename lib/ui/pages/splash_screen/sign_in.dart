@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types
 
+import 'package:flutixapp/auth/auth.dart';
 import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,39 @@ class signIn extends StatefulWidget {
 }
 
 class _signInState extends State<signIn> {
+  bool _loading = false;
+
+  final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _ctrlEmail = TextEditingController();
+  final TextEditingController _ctrlPassword = TextEditingController();
+
+  handleSubmit() async {
+    if (_formKey.currentState!.validate()) {
+      final email = _ctrlEmail.value.text;
+      final password = _ctrlPassword.value.text;
+
+      setState(() => _loading = true);
+
+      try {
+        await Auth().login(email, password);
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => confir()),
+        );
+      } catch (error) {
+        print('Error during login: $error');
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Login failed. Please try again.'),
+          ),
+        );
+      } finally {
+        setState(() => _loading = false);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,11 +73,12 @@ class _signInState extends State<signIn> {
                       width: 80,
                       height: 80,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 255, 255, 255),
-                          image: DecorationImage(
-                            image: AssetImage("assets/splash/logo-black.png"),
-                            fit: BoxFit.cover,
-                          )),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/logo-black.png"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -64,22 +99,32 @@ class _signInState extends State<signIn> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 80, left: 20, right: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(borderSide: BorderSide()),
-                labelText: "Email Address",
-                labelStyle: TextStyle(color: Colors.black),
-                hintText: "chintialiuw@gmail.com",
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.grey,
-                    width: 3,
+            child: Form(
+              key: _formKey,
+              child: TextFormField(
+                controller: _ctrlEmail,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Insert your email address';
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(borderSide: BorderSide()),
+                  labelText: "Email Address",
+                  labelStyle: TextStyle(color: Colors.black),
+                  hintText: "Insert your email address...",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey,
+                      width: 3,
+                    ),
                   ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(255, 170, 145, 31),
-                    width: 3,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 170, 145, 31),
+                      width: 3,
+                    ),
                   ),
                 ),
               ),
@@ -87,22 +132,32 @@ class _signInState extends State<signIn> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(borderSide: BorderSide()),
-                labelText: "Password",
-                labelStyle: TextStyle(color: Colors.black),
-                hintText: "*********",
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.grey,
-                    width: 3,
+            child: Form(
+              child: TextFormField(
+                controller: _ctrlPassword,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Insert your password';
+                  }
+                  return null;
+                },
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(borderSide: BorderSide()),
+                  labelText: "Password",
+                  labelStyle: TextStyle(color: Colors.black),
+                  hintText: "*********",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey,
+                      width: 3,
+                    ),
                   ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(255, 170, 145, 31),
-                    width: 3,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 170, 145, 31),
+                      width: 3,
+                    ),
                   ),
                 ),
               ),
@@ -120,18 +175,25 @@ class _signInState extends State<signIn> {
                   ),
                 ),
               ),
-               GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => confir()));
-                },
-                child:Padding(
-                padding: const EdgeInsets.only(left: 130, top: 80),
-                child: Icon(
-                  Icons.arrow_circle_right,
-                  color: Colors.yellow,
-                  size: 60,
-                ),
-              ),
+              GestureDetector(
+                onTap: () => handleSubmit(),
+                child: _loading
+                    ? const SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                          strokeWidth: 2,
+                        ),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.only(left: 130, top: 80),
+                        child: Icon(
+                          Icons.arrow_circle_right,
+                          color: Colors.yellow,
+                          size: 60,
+                        ),
+                      ),
               ),
             ],
           ),

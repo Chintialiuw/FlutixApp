@@ -28,7 +28,8 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     CircleAvatar(
                       radius: 30,
-                      backgroundImage: AssetImage("images/card/minji.jpg"),
+                      backgroundImage:
+                          AssetImage("assets/images/card/minji.jpg"),
                     ),
                     SizedBox(
                       width: 10,
@@ -82,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                                     height: 112,
                                     margin: const EdgeInsets.only(left: 20),
                                     child: Image.asset(
-                                      "images/card/avengers.png",
+                                      "assets/images/card/avengers.png",
                                       fit: BoxFit.fill,
                                       color: Colors.black.withOpacity(0.4),
                                       colorBlendMode: BlendMode.darken,
@@ -148,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                                     width: 180,
                                     height: 112,
                                     child: Image.asset(
-                                      "images/card/despicable-me.png",
+                                      "assets/images/card/despicable-me.png",
                                       fit: BoxFit.fill,
                                       color: Colors.black.withOpacity(0.4),
                                       colorBlendMode: BlendMode.darken,
@@ -219,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                                     width: 180,
                                     height: 112,
                                     child: Image.asset(
-                                      "images/card/monster.png",
+                                      "assets/images/card/monster.png",
                                       fit: BoxFit.fill,
                                       color: Colors.black.withOpacity(0.4),
                                       colorBlendMode: BlendMode.darken,
@@ -277,7 +278,7 @@ class _HomePageState extends State<HomePage> {
                                     height: 112,
                                     margin: const EdgeInsets.only(right: 20),
                                     child: Image.asset(
-                                      "images/card/transformers.webp",
+                                      "assets/images/card/transformers.webp",
                                       fit: BoxFit.fill,
                                       color: Colors.black.withOpacity(0.4),
                                       colorBlendMode: BlendMode.darken,
@@ -357,7 +358,8 @@ class _HomePageState extends State<HomePage> {
                               width: 50,
                               height: 50,
                               color: cardsColor,
-                              child: Image.asset("images/card/action.png"),
+                              child:
+                                  Image.asset("assets/images/card/action.png"),
                             ),
                           ),
                           const Text("Action"),
@@ -372,7 +374,8 @@ class _HomePageState extends State<HomePage> {
                               width: 50,
                               height: 50,
                               color: cardsColor,
-                              child: Image.asset("images/card/battle.png"),
+                              child:
+                                  Image.asset("assets/images/card/battle.png"),
                             ),
                           ),
                           const Text("Battle"),
@@ -387,7 +390,8 @@ class _HomePageState extends State<HomePage> {
                               width: 50,
                               height: 50,
                               color: cardsColor,
-                              child: Image.asset("images/card/sci-fi.png"),
+                              child:
+                                  Image.asset("assets/images/card/sci-fi.png"),
                             ),
                           ),
                           const Text("Sci-fi"),
@@ -402,7 +406,7 @@ class _HomePageState extends State<HomePage> {
                               width: 50,
                               height: 50,
                               color: cardsColor,
-                              child: Image.asset("images/card/kids.png"),
+                              child: Image.asset("assets/images/card/kids.png"),
                             ),
                           ),
                           const Text("Fantasy"),
@@ -443,7 +447,7 @@ class _HomePageState extends State<HomePage> {
                                 height: 200,
                                 margin: const EdgeInsets.only(left: 20),
                                 child: Image.asset(
-                                    "images/card/Carl's-date.png",
+                                    "assets/images/card/Carl's-date.png",
                                     fit: BoxFit.fill),
                               ),
                             ),
@@ -453,7 +457,8 @@ class _HomePageState extends State<HomePage> {
                               child: SizedBox(
                                 width: 150,
                                 height: 200,
-                                child: Image.asset("images/card/Hotal.png",
+                                child: Image.asset(
+                                    "assets/images/card/Hotal.png",
                                     fit: BoxFit.fill),
                               ),
                             ),
@@ -463,7 +468,8 @@ class _HomePageState extends State<HomePage> {
                               child: SizedBox(
                                 width: 150,
                                 height: 200,
-                                child: Image.asset("images/card/The-Lorax.png",
+                                child: Image.asset(
+                                    "assets/images/card/The-Lorax.png",
                                     fit: BoxFit.fill),
                               ),
                             ),
@@ -473,7 +479,7 @@ class _HomePageState extends State<HomePage> {
                               child: SizedBox(
                                 width: 150,
                                 height: 200,
-                                child: Image.asset("images/card/up.jpeg",
+                                child: Image.asset("assets/images/card/up.jpeg",
                                     fit: BoxFit.fill),
                               ),
                             ),
@@ -495,7 +501,7 @@ class _HomePageState extends State<HomePage> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4),
                         child: Image.asset(
-                          "images/card/holiday-promo.png",
+                          "assets/images/card/holiday-promo.png",
                           fit: BoxFit.fill,
                           color: Colors.black.withOpacity(0.4),
                           colorBlendMode: BlendMode.darken,
