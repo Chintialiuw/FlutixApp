@@ -1,5 +1,6 @@
 import 'package:flutixapp/ui/pages/home/home.dart';
 import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
+import 'package:flutixapp/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class uprof extends StatefulWidget {
@@ -341,7 +342,7 @@ class _uprofState extends State<uprof> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomePage()));
+                        MaterialPageRoute(builder: (context) => BottomNav()));
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(left: 120, top: 30),

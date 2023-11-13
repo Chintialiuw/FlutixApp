@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Auth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -13,6 +14,11 @@ class Auth {
 
       // Set data pengguna Firebase (termasuk nama) setelah registrasi berhasil
       await userCredential.user?.updateDisplayName(fullName);
+
+      // Simpan nama ke SharedPreferences
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('email', email);
+      prefs.setString('nama', fullName);
 
       return userCredential;
     } catch (error) {

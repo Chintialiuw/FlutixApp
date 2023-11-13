@@ -46,8 +46,8 @@ class _detailTicketState extends State<detailTicket> {
                   width: 276,
                   height: 131,
                   margin: const EdgeInsets.only(top: 20, left: 20),
-                  child:
-                      Image.asset("images/card/monster.png", fit: BoxFit.fill),
+                  child: Image.asset("assets/images/card/monster.png",
+                      fit: BoxFit.fill),
                 ),
               ),
               Text("Monster, Inc.",
@@ -94,7 +94,7 @@ class _detailTicketState extends State<detailTicket> {
                           fontSize: 14,
                           fontWeight: FontWeight.normal)),
                   SizedBox(
-                    width: 285,
+                    width: 200,
                   ),
                   Text("280524 & 20:00",
                       style: TextStyle(
@@ -120,7 +120,7 @@ class _detailTicketState extends State<detailTicket> {
                           fontWeight: FontWeight.normal)),
                 ],
               ),
-              Column(
+              Row(
                 children: [
                   Text("Name",
                       style: TextStyle(

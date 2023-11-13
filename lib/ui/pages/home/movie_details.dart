@@ -26,7 +26,7 @@ class _movie_details_State extends State<movie_details> {
                   height: 300,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("images/card/monsInc.png"),
+                      image: AssetImage("assets/images/card/monsInc.png"),
                       fit: BoxFit.cover,
                     ),
                   ),

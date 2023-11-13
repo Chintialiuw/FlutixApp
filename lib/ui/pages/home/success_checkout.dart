@@ -29,7 +29,8 @@ class _success_checkout_State extends State<success_checkout> {
                       height: 300,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("images/card/success-checkout.png"),
+                          image: AssetImage(
+                              "assets/images/card/success-checkout.png"),
                           fit: BoxFit.fitHeight,
                         ),
                       ),

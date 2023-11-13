@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutixapp/ui/pages/home/edit_profile.dart';
 import 'package:flutixapp/ui/pages/home/myWallet.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilPage extends StatefulWidget {
   const ProfilPage({super.key});
@@ -13,6 +14,25 @@ class ProfilPage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilPage> {
+  String username = '';
+  String email = '';
+
+  @override
+  void initState() {
+    super.initState();
+    loadNama(); // Memuat nama saat halaman dimuat
+  }
+
+  Future<void> loadNama() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = prefs.getString('nama') ??
+          ""; // Mendapatkan nama dari SharedPreferences
+      email = prefs.getString('email') ??
+          ""; // Mendapatkan nama dari SharedPreferences
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,11 +49,12 @@ class _ProfilePageState extends State<ProfilPage> {
                       backgroundImage: AssetImage("images/card/minji.jpg"),
                     ),
                     Text(
-                      "Chintia Liu Wintin",
+                      username ?? "Loading...",
                       style: TextStyle(fontSize: 24),
                     ),
+                    const SizedBox(height: 10),
                     Text(
-                      "chintialiuw@gmail.com",
+                      email ?? "Loading...",
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 35),

@@ -90,23 +90,24 @@ class _placesdateState extends State<placesdate> {
                     ),
                   ),
                   SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      for (int i = 0; i < 6; i++)
-                        Container(
-                          width: 100,
-                          height: 50,
-                          margin: EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.grey,
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        for (int i = 0; i < 6; i++)
+                          Container(
+                            width: 100,
+                            height: 50,
+                            margin: EdgeInsets.only(
+                                left: 20.0, top: 5.0, bottom: 15.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Colors.grey,
+                            ),
                           ),
-                        ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
                 ],
               ),
               Padding(
@@ -120,23 +121,24 @@ class _placesdateState extends State<placesdate> {
                 ),
               ),
               SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      for (int i = 0; i < 6; i++)
-                        Container(
-                          width: 100,
-                          height: 50,
-                          margin: EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.grey,
-                          ),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    for (int i = 0; i < 6; i++)
+                      Container(
+                        width: 100,
+                        height: 50,
+                        margin:
+                            EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Colors.grey,
                         ),
-                    ],
-                  ),
+                      ),
+                  ],
                 ),
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
                 child: Text(
@@ -148,29 +150,30 @@ class _placesdateState extends State<placesdate> {
                 ),
               ),
               SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      for (int i = 0; i < 6; i++)
-                        Container(
-                          width: 100,
-                          height: 50,
-                          margin: EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.grey,
-                          ),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    for (int i = 0; i < 6; i++)
+                      Container(
+                        width: 100,
+                        height: 50,
+                        margin:
+                            EdgeInsets.only(left: 20.0, top: 5.0, bottom: 15.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Colors.grey,
                         ),
-                    ],
-                  ),
+                      ),
+                  ],
                 ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                        left: 20.0, top: 50.0, bottom: 50.0, right: 240.0),
+                        left: 20.0, top: 50.0, bottom: 50.0, right: 140.0),
                     child: Text(
                       "Select You Seat",
                       style: TextStyle(

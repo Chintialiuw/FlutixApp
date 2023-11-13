@@ -1,5 +1,6 @@
 import 'package:flutixapp/ui/pages/home/movie_details.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +14,22 @@ Color cardsColor = const Color(0xFFEAE9E7);
 Color textColor = const Color(0xFFF4EDE6);
 
 class _HomePageState extends State<HomePage> {
+  String username = '';
+
+  @override
+  void initState() {
+    super.initState();
+    loadNama(); // Memuat nama saat halaman dimuat
+  }
+
+  Future<void> loadNama() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = prefs.getString('nama') ??
+          ""; // Mendapatkan nama dari SharedPreferences
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,28 +38,28 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 35.0, top: 20.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 35.0, top: 20.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 30,
                       backgroundImage:
                           AssetImage("assets/images/card/minji.jpg"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Chintia Liu Wintin",
-                          style: TextStyle(
+                          username ?? "Loading...", // Tampilkan nama di sini
+                          style: const TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
-                        Text(
+                        const Text(
                           "IDR 500.000",
                           style: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.bold),

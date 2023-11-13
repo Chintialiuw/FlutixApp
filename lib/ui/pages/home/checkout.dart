@@ -132,7 +132,7 @@ class _checkoutState extends State<checkout> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 285),
+                        SizedBox(width: 170),
                         Text(
                           "2208199612389",
                           textAlign: TextAlign.right,
@@ -156,7 +156,7 @@ class _checkoutState extends State<checkout> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 265),
+                        SizedBox(width: 150),
                         Text(
                           "Paris Van Java Mall",
                           textAlign: TextAlign.right,
@@ -180,7 +180,7 @@ class _checkoutState extends State<checkout> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 280),
+                        SizedBox(width: 165),
                         Text(
                           "Sat 21, 12:00",
                           textAlign: TextAlign.right,
@@ -204,7 +204,7 @@ class _checkoutState extends State<checkout> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 349),
+                        SizedBox(width: 233),
                         Text(
                           "C1, C2",
                           textAlign: TextAlign.right,
@@ -228,7 +228,7 @@ class _checkoutState extends State<checkout> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 327),
+                        SizedBox(width: 209),
                         Text(
                           "Rp. 50.000 x 2",
                           textAlign: TextAlign.right,
@@ -252,7 +252,7 @@ class _checkoutState extends State<checkout> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 325),
+                        SizedBox(width: 207),
                         Text(
                           "Rp. 20.000 x 2",
                           textAlign: TextAlign.right,
@@ -276,7 +276,7 @@ class _checkoutState extends State<checkout> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 338),
+                        SizedBox(width: 220),
                         Text(
                           "Rp. 120.000",
                           textAlign: TextAlign.right,
@@ -314,7 +314,7 @@ class _checkoutState extends State<checkout> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 285),
+                        SizedBox(width: 165),
                         Text(
                           "Rp. 560.000",
                           textAlign: TextAlign.right,
@@ -329,7 +329,8 @@ class _checkoutState extends State<checkout> {
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 50.0, bottom: 50.0, right: 243.0),
+                          padding: const EdgeInsets.only(
+                              top: 50.0, bottom: 50.0, right: 130.0),
                           child: Text(
                             "Select You Seat",
                             style: TextStyle(

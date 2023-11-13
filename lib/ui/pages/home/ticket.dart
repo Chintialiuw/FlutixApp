@@ -29,6 +29,7 @@ class _TicketPageState extends State<TicketPage> {
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(20.0),
@@ -67,7 +68,8 @@ class _TicketPageState extends State<TicketPage> {
                           width: 75,
                           height: 100,
                           margin: const EdgeInsets.only(left: 20),
-                          child: Image.asset("images/card/Carl's-date.png",
+                          child: Image.asset(
+                              "assets/images/card/Carl's-date.png",
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -93,7 +95,8 @@ class _TicketPageState extends State<TicketPage> {
                           width: 75,
                           height: 100,
                           margin: const EdgeInsets.only(left: 20, bottom: 20),
-                          child: Image.asset("images/card/Carl's-date.png",
+                          child: Image.asset(
+                              "assets/images/card/Carl's-date.png",
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -108,7 +111,8 @@ class _TicketPageState extends State<TicketPage> {
                           width: 75,
                           height: 100,
                           margin: const EdgeInsets.only(left: 20, bottom: 20),
-                          child: Image.asset("images/card/Carl's-date.png",
+                          child: Image.asset(
+                              "assets/images/card/Carl's-date.png",
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -123,7 +127,8 @@ class _TicketPageState extends State<TicketPage> {
                           width: 75,
                           height: 100,
                           margin: const EdgeInsets.only(left: 20, bottom: 20),
-                          child: Image.asset("images/card/Carl's-date.png",
+                          child: Image.asset(
+                              "assets/images/card/Carl's-date.png",
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -138,7 +143,8 @@ class _TicketPageState extends State<TicketPage> {
                           width: 75,
                           height: 100,
                           margin: const EdgeInsets.only(left: 20, bottom: 20),
-                          child: Image.asset("images/card/Carl's-date.png",
+                          child: Image.asset(
+                              "assets/images/card/Carl's-date.png",
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -153,7 +159,8 @@ class _TicketPageState extends State<TicketPage> {
                           width: 75,
                           height: 100,
                           margin: const EdgeInsets.only(left: 20, bottom: 20),
-                          child: Image.asset("images/card/Carl's-date.png",
+                          child: Image.asset(
+                              "assets/images/card/Carl's-date.png",
                               fit: BoxFit.fill),
                         ),
                       ),
