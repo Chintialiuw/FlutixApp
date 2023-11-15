@@ -1,6 +1,8 @@
 import 'package:flutixapp/ui/pages/home/movie_details.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutixapp/models/models.dart';
+import 'package:flutixapp/services/services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,10 +34,36 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Future<List<Movie>> comingSoon = Api.getMoviesNp(10);
     return Scaffold(
       backgroundColor: bgColor,
       body: ListView(
         children: [
+          FutureBuilder<List<Movie>>(
+              future: comingSoon,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                } else if (snapshot.hasData) {
+                  final movies = snapshot.data!;
+                  return Container(
+                    height: 256,
+                    padding: const EdgeInsets.only(left: 20),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (_, i) {
+                        return MoviePoster(
+                          //nama widget
+                          movie: movies[i], //movies[i].nama dls
+                        ).noRate();
+                      },
+                      itemCount: movies.length,
+                    ),
+                  );
+                } else {
+                  return const Text("there is no data");
+                }
+              }),
           Column(
             children: [
               Padding(
