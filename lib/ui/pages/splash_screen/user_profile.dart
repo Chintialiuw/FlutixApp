@@ -1,6 +1,6 @@
 import 'package:flutixapp/ui/pages/home/home.dart';
 import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
-import 'package:flutixapp/ui/widgets/widgets.dart';
+import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
 
 class uprof extends StatefulWidget {

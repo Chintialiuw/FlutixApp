@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors
 
 import 'package:flutixapp/ui/pages/home/ticket.dart';
-import 'package:flutixapp/ui/widgets/widgets.dart';
+import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
 
 class success_checkout extends StatefulWidget {
