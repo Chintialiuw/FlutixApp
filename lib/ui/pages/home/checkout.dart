@@ -3,6 +3,7 @@
 import 'package:flutixapp/ui/pages/home/success_checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class checkout extends StatefulWidget {
   const checkout({super.key});
@@ -19,14 +20,15 @@ class _checkoutState extends State<checkout> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: Padding(
-          padding: const EdgeInsets.only(top: 10.0),
+          padding: const EdgeInsets.only(top: 10.0, left: 20),
           child: InkWell(
             onTap: () {
               Navigator.pop(context);
             },
             child: Icon(
-              CupertinoIcons.back,
-              color: Colors.black,
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
             ),
           ),
         ),
@@ -37,13 +39,13 @@ class _checkoutState extends State<checkout> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, bottom: 10.0),
+                padding: const EdgeInsets.only(left: 20.0, bottom: 10.0, top: 10, right: 20),
                 child: Text(
                   "Check Details Below Before Checkout",
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                       color: Colors.black,
                       fontSize: 24,
-                      fontWeight: FontWeight.normal),
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               Row(
@@ -61,7 +63,7 @@ class _checkoutState extends State<checkout> {
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Text(
                           "Monster Inc",
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
@@ -72,7 +74,7 @@ class _checkoutState extends State<checkout> {
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Text(
                           "Adventure - Indonesia",
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
@@ -96,7 +98,7 @@ class _checkoutState extends State<checkout> {
                             ),
                             Text(
                               "  8 / 10",
-                              style: TextStyle(
+                              style: GoogleFonts.openSans(
                                 color: Colors.black,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
@@ -126,17 +128,17 @@ class _checkoutState extends State<checkout> {
                         Text(
                           "ID Order",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 170),
+                        SizedBox(width: 135),
                         Text(
                           "2208199612389",
                           textAlign: TextAlign.right,
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
@@ -150,17 +152,17 @@ class _checkoutState extends State<checkout> {
                         Text(
                           "Cinema",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 150),
+                        SizedBox(width: 120),
                         Text(
                           "Paris Van Java Mall",
                           textAlign: TextAlign.right,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
@@ -174,17 +176,17 @@ class _checkoutState extends State<checkout> {
                         Text(
                           "Date & Time",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 165),
+                        SizedBox(width: 130),
                         Text(
                           "Sat 21, 12:00",
                           textAlign: TextAlign.right,
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
@@ -198,17 +200,17 @@ class _checkoutState extends State<checkout> {
                         Text(
                           "2 Tickets",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 233),
+                        SizedBox(width: 205),
                         Text(
                           "C1, C2",
                           textAlign: TextAlign.right,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
@@ -222,17 +224,17 @@ class _checkoutState extends State<checkout> {
                         Text(
                           "Seat",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 209),
+                        SizedBox(width: 180),
                         Text(
                           "Rp. 50.000 x 2",
                           textAlign: TextAlign.right,
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
@@ -246,17 +248,17 @@ class _checkoutState extends State<checkout> {
                         Text(
                           "Fees",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 207),
+                        SizedBox(width: 180),
                         Text(
                           "Rp. 20.000 x 2",
                           textAlign: TextAlign.right,
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
@@ -270,17 +272,17 @@ class _checkoutState extends State<checkout> {
                         Text(
                           "Total",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 220),
+                        SizedBox(width: 195),
                         Text(
                           "Rp. 120.000",
                           textAlign: TextAlign.right,
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
@@ -308,17 +310,17 @@ class _checkoutState extends State<checkout> {
                         Text(
                           "Saldo Wallet",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 165),
+                        SizedBox(width: 135),
                         Text(
                           "Rp. 560.000",
                           textAlign: TextAlign.right,
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -326,43 +328,40 @@ class _checkoutState extends State<checkout> {
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 50.0, bottom: 50.0, right: 130.0),
-                          child: Text(
-                            "Select You Seat",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 24,
-                                fontWeight: FontWeight.normal),
-                          ),
-                        ),
-                        Center(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return success_checkout();
-                                  },
-                                ),
-                              );
-                            },
-                            child: Icon(
-                              CupertinoIcons.arrow_right_circle_fill,
-                              color: Colors.orange,
-                              size: 50,
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
                   ],
                 ),
-              )
+              ),
+              Row(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.only(top: 50, left: 20, bottom: 40),
+                child: Text(
+                  "Select Your Seat",
+                  style: GoogleFonts.raleway(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => success_checkout()));
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      right: 20, top: 50, bottom: 40, left: 105),
+                  child: Icon(
+                    Icons.arrow_circle_right,
+                    color: Color(0xFFE1A20B),
+                    size: 60,
+                  ),
+                ),
+              ),
+            ],
+          )
             ],
           )
         ],
