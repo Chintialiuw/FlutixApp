@@ -3,6 +3,7 @@
 import 'package:flutixapp/ui/pages/home/myWallet.dart';
 import 'package:flutixapp/ui/pages/home/successtopup.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class wallettopup extends StatefulWidget {
   const wallettopup({super.key});
@@ -15,45 +16,35 @@ class _wallettopupState extends State<wallettopup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //     leading: InkWell(
-      //         onLongPress: () {}, child: Icon(Icons.arrow_back_ios_new)),
-      //     titleSpacing: 80,
-      //     title: Text(
-      //       "Top Up",
-      //       style: TextStyle(
-      //           color: Colors.black, fontSize: 25, fontWeight: FontWeight.w600),
-      //     ),
-      //     backgroundColor: Colors.grey[100]),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20.0, top: 10.0),
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
+            ),
+          ),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Text(
+            "Top Up",
+            style: GoogleFonts.raleway(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           Column(
             children: [
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => myWallet()));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 20, left: 20),
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.yellow,
-                        size: 40,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "Top Up",
-                    style: TextStyle(
-                        //color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Column(
@@ -63,7 +54,7 @@ class _wallettopupState extends State<wallettopup> {
                       padding: EdgeInsets.only(),
                       child: Text(
                         "Amount",
-                        style: TextStyle(
+                        style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                             fontSize: 16),
@@ -85,7 +76,7 @@ class _wallettopupState extends State<wallettopup> {
                             )),
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 20, horizontal: 10),
-                            labelStyle: TextStyle(
+                            labelStyle: GoogleFonts.raleway(
                               color: Colors.grey,
                             )),
                       ),
@@ -94,7 +85,7 @@ class _wallettopupState extends State<wallettopup> {
                       padding: EdgeInsets.only(top: 30, bottom: 10),
                       child: Text(
                         "Choose by template",
-                        style: TextStyle(
+                        style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                             fontSize: 16),
@@ -118,14 +109,14 @@ class _wallettopupState extends State<wallettopup> {
                                   children: [
                                     Text(
                                       "IDR",
-                                      style: TextStyle(
+                                      style: GoogleFonts.raleway(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     ),
                                     Text(
                                       "50.000",
-                                      style: TextStyle(
+                                      style: GoogleFonts.openSans(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
@@ -155,14 +146,14 @@ class _wallettopupState extends State<wallettopup> {
                                   children: [
                                     Text(
                                       "IDR",
-                                      style: TextStyle(
+                                      style: GoogleFonts.raleway(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     ),
                                     Text(
                                       "150.000",
-                                      style: TextStyle(
+                                      style: GoogleFonts.openSans(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
@@ -188,14 +179,14 @@ class _wallettopupState extends State<wallettopup> {
                                   children: [
                                     Text(
                                       "IDR",
-                                      style: TextStyle(
+                                      style: GoogleFonts.raleway(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     ),
                                     Text(
                                       "500.000",
-                                      style: TextStyle(
+                                      style: GoogleFonts.openSans(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
@@ -231,14 +222,14 @@ class _wallettopupState extends State<wallettopup> {
                                   children: [
                                     Text(
                                       "IDR",
-                                      style: TextStyle(
+                                      style: GoogleFonts.raleway(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     ),
                                     Text(
                                       "100.000",
-                                      style: TextStyle(
+                                      style: GoogleFonts.openSans(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
@@ -264,14 +255,14 @@ class _wallettopupState extends State<wallettopup> {
                                   children: [
                                     Text(
                                       "IDR",
-                                      style: TextStyle(
+                                      style: GoogleFonts.raleway(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     ),
                                     Text(
                                       "200.000",
-                                      style: TextStyle(
+                                      style: GoogleFonts.openSans(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
@@ -297,14 +288,14 @@ class _wallettopupState extends State<wallettopup> {
                                   children: [
                                     Text(
                                       "IDR",
-                                      style: TextStyle(
+                                      style: GoogleFonts.raleway(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     ),
                                     Text(
                                       "1.000.000",
-                                      style: TextStyle(
+                                      style: GoogleFonts.openSans(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
@@ -337,13 +328,20 @@ class _wallettopupState extends State<wallettopup> {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 191, 203, 20),
-                            foregroundColor: Color.fromARGB(255, 229, 229, 203),
-                            fixedSize: Size(280, 20)),
-                        child: Text(
-                          "Top Up My Wallet",
-                          style: TextStyle(color: Colors.white),
-                        ),
+                      backgroundColor: Color(0xFFE1A20B),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      minimumSize: Size(200, 50),
+                    ),
+                    child: Text(
+                      "Top Up My Wallet",
+                      style: GoogleFonts.raleway(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                       ),
                     )
                   ],
