@@ -4,6 +4,7 @@ import 'package:flutixapp/auth/auth.dart';
 import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class signIn extends StatefulWidget {
   const signIn({super.key});
@@ -58,44 +59,40 @@ class _signInState extends State<signIn> {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 60, left: 20),
+                    padding: const EdgeInsets.only(top: 40, left: 20),
                     child: Text(
                       "Welcome back,",
-                      style: TextStyle(
-                        fontSize: 26,
-                        color: Colors.black,
-                      ),
+                      style: GoogleFonts.raleway(
+                          fontSize: 26,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 70, left: 85),
-                    child: Container(
-                      width: 80,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        image: DecorationImage(
-                          image: AssetImage("assets/splash/logo-black.png"),
-                          fit: BoxFit.cover,
-                        ),
+                  Container(
+                    margin: EdgeInsets.only(left: 60.0, top: 60.0, right: 20.0),
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/splash/logo-black.png"),
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 25,
-            ),
-            child: Text(
-              "Explorer!",
-              style: TextStyle(
-                fontSize: 26,
-                color: Colors.black,
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  "Explorer!",
+                  style: GoogleFonts.raleway(
+                    fontSize: 26,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.only(top: 80, left: 20, right: 20),
@@ -112,8 +109,9 @@ class _signInState extends State<signIn> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(borderSide: BorderSide()),
                   labelText: "Email Address",
-                  labelStyle: TextStyle(color: Colors.black),
+                  labelStyle: GoogleFonts.raleway(color: Colors.black),
                   hintText: "Insert your email address...",
+                  hintStyle: GoogleFonts.raleway(color: Colors.black),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey,
@@ -122,7 +120,7 @@ class _signInState extends State<signIn> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color.fromARGB(255, 170, 145, 31),
+                      color: Color(0xFFE1A20B),
                       width: 3,
                     ),
                   ),
@@ -131,7 +129,7 @@ class _signInState extends State<signIn> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
             child: Form(
               child: TextFormField(
                 controller: _ctrlPassword,
@@ -145,8 +143,9 @@ class _signInState extends State<signIn> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(borderSide: BorderSide()),
                   labelText: "Password",
-                  labelStyle: TextStyle(color: Colors.black),
+                  labelStyle: GoogleFonts.raleway(color: Colors.black),
                   hintText: "*********",
+                  hintStyle: GoogleFonts.raleway(color: Colors.black),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey,
@@ -155,7 +154,7 @@ class _signInState extends State<signIn> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color.fromARGB(255, 170, 145, 31),
+                      color: Color(0xFFE1A20B),
                       width: 3,
                     ),
                   ),
@@ -166,10 +165,10 @@ class _signInState extends State<signIn> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 85, left: 30),
+                padding: const EdgeInsets.only(top: 85, left: 20),
                 child: Text(
                   "Continue to Sign In",
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                     color: Colors.black,
                     fontSize: 18,
                   ),
@@ -187,10 +186,10 @@ class _signInState extends State<signIn> {
                         ),
                       )
                     : Padding(
-                        padding: const EdgeInsets.only(left: 130, top: 80),
+                        padding: const EdgeInsets.only(left: 100, top: 80, right: 20),
                         child: Icon(
                           Icons.arrow_circle_right,
-                          color: Colors.yellow,
+                          color: Color(0xFFE1A20B),
                           size: 60,
                         ),
                       ),
@@ -200,10 +199,10 @@ class _signInState extends State<signIn> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 100, top: 80),
+                padding: const EdgeInsets.only(left: 80, top: 80),
                 child: Text(
                   "Start fresh now?",
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
                     fontSize: 17,
@@ -216,11 +215,11 @@ class _signInState extends State<signIn> {
                       .push(MaterialPageRoute(builder: (context) => signUp()));
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 80),
+                  padding: const EdgeInsets.only(left: 10, top: 80, right: 20),
                   child: Text(
                     "Sign Up",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 171, 158, 37),
+                    style: GoogleFonts.raleway(
+                      color: Color(0xFFE1A20B),
                       fontWeight: FontWeight.w400,
                       fontSize: 17,
                     ),
