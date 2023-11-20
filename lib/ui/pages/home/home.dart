@@ -1,5 +1,6 @@
 import 'package:flutixapp/ui/pages/home/movie_details.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/services/services.dart';
@@ -103,40 +104,40 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Future<List<Movie>> comingSoon = Api.getMoviesNp(10);
+    //Future<List<Movie>> comingSoon = Api.getMoviesNp(10);
     return Scaffold(
       backgroundColor: bgColor,
       body: ListView(
         children: [
-          FutureBuilder<List<Movie>>(
-              future: comingSoon,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const CircularProgressIndicator();
-                } else if (snapshot.hasData) {
-                  final movies = snapshot.data!;
-                  return Container(
-                    height: 256,
-                    padding: const EdgeInsets.only(left: 20),
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (_, i) {
-                        return MoviePoster(
-                          //nama widget
-                          movie: movies[i], //movies[i].nama dls
-                        ).noRate();
-                      },
-                      itemCount: movies.length,
-                    ),
-                  );
-                } else {
-                  return const Text("there is no data");
-                }
-              }),
+          // FutureBuilder<List<Movie>>(
+          //     future: comingSoon,
+          //     builder: (context, snapshot) {
+          //       if (snapshot.connectionState == ConnectionState.waiting) {
+          //         return const CircularProgressIndicator();
+          //       } else if (snapshot.hasData) {
+          //         final movies = snapshot.data!;
+          //         return Container(
+          //           height: 256,
+          //           padding: const EdgeInsets.only(left: 20),
+          //           // child: ListView.builder(
+          //           //   scrollDirection: Axis.horizontal,
+          //           //   itemBuilder: (_, i) {
+          //           //     return MoviePoster(
+          //           //       //nama widget
+          //           //       movie: movies[i], //movies[i].nama dls
+          //           //     ).noRate();
+          //           //   },
+          //           //   itemCount: movies.length,
+          //           // ),
+          //         );
+          //       } else {
+          //         return const Text("there is no data");
+          //       }
+          //     }),
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 35.0, top: 20.0),
+                padding: const EdgeInsets.only(left: 20.0, top: 20.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -146,19 +147,19 @@ class _HomePageState extends State<HomePage> {
                           AssetImage("assets/images/card/minji.jpg"),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 20,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           username ?? "Loading...", // Tampilkan nama di sini
-                          style: const TextStyle(
+                          style: GoogleFonts.raleway(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
-                        const Text(
+                        Text(
                           "IDR 500.000",
-                          style: TextStyle(
+                          style: GoogleFonts.openSans(
                               fontSize: 14, fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -170,9 +171,12 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: 330,
                 child: Container(
-                  child: const Text(
+                  child: Text(
                     "Now Playing",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.raleway(
+                      fontSize: 18, 
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                 ),
               ),
@@ -206,9 +210,9 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Container(
                             width: 200,
-                            height: 150,
+                            height: 170,
                             margin: EdgeInsets.only(
-                              left: index == 0 ? 40 : 20,
+                              left: index == 0 ? 20 : 20,
                               right: index == movies.length - 1 ? 40 : 0,
                             ),
                             child: Image.asset(
@@ -219,8 +223,8 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Positioned(
-                            left: index == 0 ? 50 : 30,
-                            top: 100,
+                            left: index == 0 ? 30 : 30,
+                            top: 90,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -228,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                                   width: 200,
                                   child: Text(
                                     movie.judul,
-                                    style: TextStyle(
+                                    style: GoogleFonts.raleway(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20,
                                       color: textColor,
@@ -258,7 +262,7 @@ class _HomePageState extends State<HomePage> {
                                     const SizedBox(width: 5),
                                     Text(
                                       "${movie.rate}/10",
-                                      style: TextStyle(
+                                      style: GoogleFonts.openSans(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 15,
                                         color: textColor,
@@ -280,15 +284,15 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: const EdgeInsets.only(left: 40),
-                    child: const Text(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Text(
                       "Movie Category",
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          GoogleFonts.raleway(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -305,7 +309,10 @@ class _HomePageState extends State<HomePage> {
                                   Image.asset("assets/images/card/action.png"),
                             ),
                           ),
-                          const Text("Action"),
+                          Text("Action",
+                          style: GoogleFonts.raleway(
+                            fontSize: 12,
+                          ))
                         ],
                       ),
                       const SizedBox(width: 20),
@@ -321,7 +328,10 @@ class _HomePageState extends State<HomePage> {
                                   Image.asset("assets/images/card/battle.png"),
                             ),
                           ),
-                          const Text("Battle"),
+                          Text("Battle",
+                          style: GoogleFonts.raleway(
+                            fontSize: 12,
+                          ))
                         ],
                       ),
                       const SizedBox(width: 20),
@@ -337,7 +347,10 @@ class _HomePageState extends State<HomePage> {
                                   Image.asset("assets/images/card/sci-fi.png"),
                             ),
                           ),
-                          const Text("Sci-fi"),
+                          Text("Sci-fi",
+                          style: GoogleFonts.raleway(
+                            fontSize: 12,
+                          ))
                         ],
                       ),
                       const SizedBox(width: 20),
@@ -352,7 +365,10 @@ class _HomePageState extends State<HomePage> {
                               child: Image.asset("assets/images/card/kids.png"),
                             ),
                           ),
-                          const Text("Fantasy"),
+                          Text("Fantasy",
+                          style: GoogleFonts.raleway(
+                            fontSize: 12,
+                          ))
                         ],
                       ),
                     ],
@@ -360,62 +376,75 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               const SizedBox(height: 20),
-              SizedBox(
-                height: 240,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: comingSoonMovies.length,
-                  itemBuilder: (context, index) {
-                    Movie comingSoonMovie = comingSoonMovies[index];
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0, bottom: 20),
+                    child: Text("Coming Soon",
+                    style: GoogleFonts.raleway(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold
+                    )),
+                  ),
+                  SizedBox(
+                    height: 200,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: comingSoonMovies.length,
+                      itemBuilder: (context, index) {
+                        Movie comingSoonMovie = comingSoonMovies[index];
 
-                    return InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return movie_details();
-                            },
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return movie_details();
+                                },
+                              ),
+                            );
+                          },
+                          child: Stack(
+                            children: [
+                              Container(
+                                width: 150,
+                                height: 200,
+                                margin: EdgeInsets.only(
+                                  left: index == 0 ? 20 : 20,
+                                  right:
+                                      index == comingSoonMovies.length - 1 ? 40 : 0,
+                                ),
+                                child: Image.asset(
+                                  comingSoonMovie.poster,
+                                  fit: BoxFit.fill,
+                                  color: Colors.black.withOpacity(0.2),
+                                  colorBlendMode: BlendMode.darken,
+                                ),
+                              ),
+                              Positioned(
+                                left: index == 0 ? 30 : 30,
+                                top: 145,
+                                child: Container(
+                                  width: 150,
+                                  child: Text(
+                                    comingSoonMovie.judul,
+                                    style: GoogleFonts.raleway(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: textColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         );
                       },
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 150,
-                            height: 200,
-                            margin: EdgeInsets.only(
-                              left: index == 0 ? 40 : 20,
-                              right:
-                                  index == comingSoonMovies.length - 1 ? 40 : 0,
-                            ),
-                            child: Image.asset(
-                              comingSoonMovie.poster,
-                              fit: BoxFit.fill,
-                              color: Colors.black.withOpacity(0.2),
-                              colorBlendMode: BlendMode.darken,
-                            ),
-                          ),
-                          Positioned(
-                            left: index == 0 ? 50 : 30,
-                            top: 160,
-                            child: Container(
-                              width: 150,
-                              child: Text(
-                                comingSoonMovie.judul,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: textColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 30),
               InkWell(
