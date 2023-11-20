@@ -3,6 +3,7 @@
 import 'package:flutixapp/ui/pages/home/seat.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class placesdate extends StatefulWidget {
   placesdate({super.key});
@@ -19,14 +20,15 @@ class _placesdateState extends State<placesdate> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: Padding(
-          padding: const EdgeInsets.only(top: 10.0),
+          padding: const EdgeInsets.only(left: 20.0, top: 10.0),
           child: InkWell(
             onTap: () {
               Navigator.pop(context);
             },
             child: Icon(
-              CupertinoIcons.back,
-              color: Colors.black,
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
             ),
           ),
         ),
@@ -40,10 +42,10 @@ class _placesdateState extends State<placesdate> {
                 padding: const EdgeInsets.only(left: 20.0, bottom: 10.0),
                 child: Text(
                   "Choose Date",
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                       color: Colors.black,
                       fontSize: 24,
-                      fontWeight: FontWeight.normal),
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               SingleChildScrollView(
@@ -73,17 +75,17 @@ class _placesdateState extends State<placesdate> {
                     padding: const EdgeInsets.only(left: 20.0, bottom: 10.0),
                     child: Text(
                       "Where to Watch ?",
-                      style: TextStyle(
+                      style: GoogleFonts.raleway(
                           color: Colors.black,
                           fontSize: 24,
-                          fontWeight: FontWeight.normal),
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
                     child: Text(
                       "CGV Paris Van Java",
-                      style: TextStyle(
+                      style: GoogleFonts.raleway(
                           color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.normal),
@@ -114,7 +116,7 @@ class _placesdateState extends State<placesdate> {
                 padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
                 child: Text(
                   "CGV Plaza Mulia",
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                       color: Colors.black,
                       fontSize: 18,
                       fontWeight: FontWeight.normal),
@@ -143,7 +145,7 @@ class _placesdateState extends State<placesdate> {
                 padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
                 child: Text(
                   "CGV Balikpapan Plaza",
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                       color: Colors.black,
                       fontSize: 18,
                       fontWeight: FontWeight.normal),
@@ -169,43 +171,36 @@ class _placesdateState extends State<placesdate> {
                 ),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20.0, top: 50.0, bottom: 50.0, right: 140.0),
+                    padding:
+                        const EdgeInsets.only(top: 50, left: 20, bottom: 40),
                     child: Text(
-                      "Select You Seat",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 24,
-                          fontWeight: FontWeight.normal),
+                      "Select Your Seat",
+                      style: GoogleFonts.raleway(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
-                  Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return seat();
-                            },
-                          ),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20.0),
-                        child: Icon(
-                          CupertinoIcons.arrow_right_circle_fill,
-                          color: Colors.orange,
-                          size: 50,
-                        ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => seat()));
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: 105, right: 20, top: 50, bottom: 40),
+                      child: Icon(
+                        Icons.arrow_circle_right,
+                        color: Color(0xFFE1A20B),
+                        size: 60,
                       ),
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ],
