@@ -33,8 +33,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'FlutixApp',
       debugShowCheckedModeBanner: false,
-      // home: HomePage(),
+      //home: splash(),
 
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
@@ -42,7 +43,7 @@ class _MyAppState extends State<MyApp> {
           if (snapshot.hasData) {
             return BottomNav();
           } else {
-            return signIn();
+            return splash();
           }
         },
       ),
