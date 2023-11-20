@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutixapp/ui/pages/home/edit_profile.dart';
 import 'package:flutixapp/ui/pages/home/myWallet.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilPage extends StatefulWidget {
@@ -36,28 +37,46 @@ class _ProfilePageState extends State<ProfilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20.0, top: 10.0),
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
+            ),
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           Column(
             children: [
               Padding(
-                padding: EdgeInsets.all(25),
+                padding: EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 50,
                       backgroundImage: AssetImage("images/card/minji.jpg"),
                     ),
+                    const SizedBox(height: 10),
                     Text(
                       username ?? "Loading...",
-                      style: TextStyle(fontSize: 24),
+                      style: GoogleFonts.raleway(fontSize: 24),
                     ),
                     const SizedBox(height: 10),
                     Text(
                       email ?? "Loading...",
-                      style: TextStyle(fontSize: 16),
+                      style: GoogleFonts.raleway(fontSize: 16),
                     ),
-                    SizedBox(height: 35),
+                    SizedBox(height: 20),
                     Row(
                       children: [
                         IconButton(
@@ -74,7 +93,7 @@ class _ProfilePageState extends State<ProfilPage> {
                                 foregroundColor: Colors.black),
                             child: Text(
                               "Edit Profile",
-                              style: TextStyle(fontSize: 16),
+                              style: GoogleFonts.raleway(fontSize: 16),
                             )),
                       ],
                     ),
@@ -93,7 +112,7 @@ class _ProfilePageState extends State<ProfilPage> {
                                 foregroundColor: Colors.black),
                             child: Text(
                               "My Wallet",
-                              style: TextStyle(fontSize: 16),
+                              style: GoogleFonts.raleway(fontSize: 16),
                             )),
                       ],
                     ),
@@ -107,7 +126,7 @@ class _ProfilePageState extends State<ProfilPage> {
                                 foregroundColor: Colors.black),
                             child: Text(
                               "Change Language",
-                              style: TextStyle(fontSize: 16),
+                              style: GoogleFonts.raleway(fontSize: 16),
                             )),
                       ],
                     ),
@@ -121,7 +140,7 @@ class _ProfilePageState extends State<ProfilPage> {
                                 foregroundColor: Colors.black),
                             child: Text(
                               "Help Center",
-                              style: TextStyle(fontSize: 16),
+                              style: GoogleFonts.raleway(fontSize: 16),
                             )),
                       ],
                     ),
@@ -135,7 +154,7 @@ class _ProfilePageState extends State<ProfilPage> {
                                 foregroundColor: Colors.black),
                             child: Text(
                               "Rate Flutix App",
-                              style: TextStyle(fontSize: 16),
+                              style: GoogleFonts.raleway(fontSize: 16),
                             )),
                       ],
                     ),
@@ -152,7 +171,7 @@ class _ProfilePageState extends State<ProfilPage> {
                                 foregroundColor: Colors.black),
                             child: Text(
                               "Log out",
-                              style: TextStyle(fontSize: 16),
+                              style: GoogleFonts.raleway(fontSize: 16),
                             )),
                       ],
                     )
