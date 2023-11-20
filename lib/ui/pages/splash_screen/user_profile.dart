@@ -2,6 +2,7 @@ import 'package:flutixapp/ui/pages/home/home.dart';
 import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class uprof extends StatefulWidget {
   const uprof({super.key});
@@ -14,44 +15,47 @@ class _uprofState extends State<uprof> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.only(top: 10.0, left: 20),
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
+            ),
+          ),
+        ),
+      ),
       body: ListView(scrollDirection: Axis.vertical, children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => confir()));
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(top: 40, left: 30, bottom: 10),
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.yellow,
-                  size: 40,
-                ),
-              ),
-            ),
             Padding(
-              padding: const EdgeInsets.only(left: 30),
+              padding: const EdgeInsets.only(left: 20, top: 20),
               child: Text(
                 "Select Your",
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.black,
-                ),
+                style: GoogleFonts.raleway(
+                    fontSize: 24,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 30),
+                  padding: const EdgeInsets.only(top: 10, left: 20),
                   child: Text(
                     "Genre",
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.black,
-                    ),
+                    style: GoogleFonts.raleway(
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -59,97 +63,62 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/horror.jpeg"),
-                        fit: BoxFit.cover,
-                      ),
+                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.2), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
                     ),
-                    child: Center(
-                      child: Text(
-                        "Horror",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors
+                            .black, // Atur tingkat kegelapan sesuai kebutuhan
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/horror.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/music.jpeg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Music",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/actionn.jpeg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Action",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
+                      child: Center(
+                        child: Text(
+                          "Horror",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/drama.jpeg"),
-                        fit: BoxFit.cover,
-                      ),
+                  padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.2), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
                     ),
-                    child: Center(
-                      child: Text(
-                        "Drama",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/music.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Music",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -159,47 +128,125 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/adventure.jpeg"),
-                        fit: BoxFit.cover,
-                      ),
+                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.2), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
                     ),
-                    child: Center(
-                      child: Text(
-                        "Adventure",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/actionn.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Action",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/crime.jpeg"),
-                        fit: BoxFit.cover,
+                  padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.2), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
+                    ),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/drama.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Drama",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
-                    child: Center(
-                      child: Text(
-                        "Crime",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.2), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
+                    ),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/adventure.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Adventure",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.2), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
+                    ),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/crime.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Crime",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -207,119 +254,83 @@ class _uprofState extends State<uprof> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20, left: 30),
+              padding: const EdgeInsets.only(top: 30, left: 20),
               child: Text(
                 "Which Movie Language",
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.black,
-                ),
+                style: GoogleFonts.raleway(
+                    fontSize: 24,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10, left: 30),
+              padding: const EdgeInsets.only(top: 10, left: 20),
               child: Text(
                 "You Prefer",
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.black,
-                ),
+                style: GoogleFonts.raleway(
+                    fontSize: 24,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/indo.jpg"),
-                        fit: BoxFit.cover,
-                      ),
+                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.3), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
                     ),
-                    child: Center(
-                      child: Text(
-                        "Indonesian",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/indo.jpg"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/english.jpg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "English",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/japan.jpeg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Japanase",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
+                      child: Center(
+                        child: Text(
+                          "Indonesian",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30),
-                  child: Container(
-                    width: 150,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      image: DecorationImage(
-                        image: AssetImage("assets/splash/korea.jpg"),
-                        fit: BoxFit.cover,
-                      ),
+                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.3), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
                     ),
-                    child: Center(
-                      child: Text(
-                        "Korean",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/english.jpg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "English",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -329,10 +340,74 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 30, left: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.3), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
+                    ),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/japan.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Japanase",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(
+                          0.3), // Atur tingkat kegelapan sesuai kebutuhan
+                      BlendMode.darken,
+                    ),
+                    child: Container(
+                      width: 150,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                          image: AssetImage("assets/splash/korea.jpg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Korean",
+                          style: GoogleFonts.raleway(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 40, left: 20, bottom: 40),
                   child: Text(
                     "Continue to Sign Up",
-                    style: TextStyle(
+                    style: GoogleFonts.raleway(
                       color: Colors.black,
                       fontWeight: FontWeight.w400,
                       fontSize: 20,
@@ -345,10 +420,11 @@ class _uprofState extends State<uprof> {
                         MaterialPageRoute(builder: (context) => BottomNav()));
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 120, top: 30),
+                    padding: const EdgeInsets.only(
+                        left: 70, right: 20, top: 40, bottom: 40),
                     child: Icon(
                       Icons.arrow_circle_right,
-                      color: Colors.yellow,
+                      color: Color(0xFFE1A20B),
                       size: 60,
                     ),
                   ),
