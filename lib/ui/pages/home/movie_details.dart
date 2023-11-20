@@ -3,6 +3,7 @@
 import 'package:flutixapp/ui/pages/home/places_date.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class movie_details extends StatefulWidget {
   movie_details({super.key});
@@ -54,7 +55,7 @@ class _movie_details_State extends State<movie_details> {
                 SizedBox(height: 20),
                 Text(
                   "Monster Inc",
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                     color: Colors.black,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -63,7 +64,7 @@ class _movie_details_State extends State<movie_details> {
                 SizedBox(height: 3),
                 Text(
                   "Adventure - Indonesian",
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                     color: Colors.black,
                     fontSize: 14,
                     fontWeight: FontWeight.normal,
@@ -86,7 +87,7 @@ class _movie_details_State extends State<movie_details> {
                     ),
                     Text(
                       "  8 / 10",
-                      style: TextStyle(
+                      style: GoogleFonts.openSans(
                         color: Colors.black,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
@@ -97,12 +98,12 @@ class _movie_details_State extends State<movie_details> {
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20.0),
                       child: Text(
                         "StoryLine",
-                        style: TextStyle(
+                        style: GoogleFonts.raleway(
                           color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.normal,
@@ -117,7 +118,7 @@ class _movie_details_State extends State<movie_details> {
                   child: Text(
                     "Sulli, raksasa dari perusahaan listrik menakutkan yang menemukan kasih sayang dalam diri Boo, seorang anak berusia dua tahun.",
                     textAlign: TextAlign.left,
-                    style: TextStyle(
+                    style: GoogleFonts.raleway(
                       fontSize: 16,
                       fontWeight: FontWeight.normal,
                     ),
@@ -125,12 +126,12 @@ class _movie_details_State extends State<movie_details> {
                 ),
                 SizedBox(height: 20),
                 Row(
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20.0),
                       child: Text(
                         "Cast",
-                        style: TextStyle(
+                        style: GoogleFonts.raleway(
                           color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.normal,
@@ -180,7 +181,7 @@ class _movie_details_State extends State<movie_details> {
                     ),
                     child: Text(
                       "Continue to Book",
-                      style: TextStyle(
+                      style: GoogleFonts.raleway(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
