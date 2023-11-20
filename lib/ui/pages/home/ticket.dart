@@ -34,9 +34,11 @@ class _TicketPageState extends State<TicketPage> {
         ),
         title: Padding(
           padding: const EdgeInsets.only(top: 10.0),
-          child: Text("My Tickets",
-          style: GoogleFonts.raleway(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20)
-          ,),
+          child: Text(
+            "My Tickets",
+            style: GoogleFonts.raleway(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
         ),
       ),
       body: ListView(
@@ -53,11 +55,20 @@ class _TicketPageState extends State<TicketPage> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 26, 18, 11),
-                            foregroundColor:
-                                Color.fromARGB(255, 229, 229, 203),
-                            fixedSize: Size(120, 20)),
-                        child: Text("New"),
+                          backgroundColor: Color(0xFFE1A20B),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          minimumSize: Size(130, 40),
+                        ),
+                        child: Text(
+                          "New",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                     Padding(
@@ -65,11 +76,20 @@ class _TicketPageState extends State<TicketPage> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 26, 18, 11),
-                            foregroundColor:
-                                Color.fromARGB(255, 229, 229, 203),
-                            fixedSize: Size(120, 20)),
-                        child: Text("Used"),
+                          backgroundColor: Color(0xFFE1A20B),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          minimumSize: Size(130, 40),
+                        ),
+                        child: Text(
+                          "Used",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -85,8 +105,7 @@ class _TicketPageState extends State<TicketPage> {
                         width: 75,
                         height: 100,
                         margin: const EdgeInsets.only(left: 20),
-                        child: Image.asset(
-                            "assets/images/card/Carl's-date.png",
+                        child: Image.asset("assets/images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
@@ -98,7 +117,14 @@ class _TicketPageState extends State<TicketPage> {
                                 builder: (context) => detailTicket()),
                           );
                         },
-                        child: Text("Carl's Date"))
+                        child: Text(
+                          "Carl's Date",
+                          style: GoogleFonts.raleway(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ))
                   ],
                 ),
                 SizedBox(
@@ -112,12 +138,15 @@ class _TicketPageState extends State<TicketPage> {
                         width: 75,
                         height: 100,
                         margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset(
-                            "assets/images/card/Carl's-date.png",
+                        child: Image.asset("assets/images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),))
                   ],
                 ),
                 Row(
@@ -128,12 +157,15 @@ class _TicketPageState extends State<TicketPage> {
                         width: 75,
                         height: 100,
                         margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset(
-                            "assets/images/card/Carl's-date.png",
+                        child: Image.asset("assets/images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),))
                   ],
                 ),
                 Row(
@@ -144,12 +176,15 @@ class _TicketPageState extends State<TicketPage> {
                         width: 75,
                         height: 100,
                         margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset(
-                            "assets/images/card/Carl's-date.png",
+                        child: Image.asset("assets/images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),))
                   ],
                 ),
                 Row(
@@ -160,12 +195,15 @@ class _TicketPageState extends State<TicketPage> {
                         width: 75,
                         height: 100,
                         margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset(
-                            "assets/images/card/Carl's-date.png",
+                        child: Image.asset("assets/images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),))
                   ],
                 ),
                 Row(
@@ -176,12 +214,15 @@ class _TicketPageState extends State<TicketPage> {
                         width: 75,
                         height: 100,
                         margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset(
-                            "assets/images/card/Carl's-date.png",
+                        child: Image.asset("assets/images/card/Carl's-date.png",
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),))
                   ],
                 )
               ],
