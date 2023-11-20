@@ -41,8 +41,8 @@ class _movie_details_State extends State<movie_details> {
                               Navigator.pop(context);
                             },
                             child: Icon(
-                              CupertinoIcons.back,
-                              color: Colors.white,
+                              Icons.arrow_back_ios,
+                              color: Color(0xFFE1A20B),
                               size: 32,
                             ),
                           ),
@@ -171,7 +171,7 @@ class _movie_details_State extends State<movie_details> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orange,
+                      backgroundColor: Color(0xFFE1A20B),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
