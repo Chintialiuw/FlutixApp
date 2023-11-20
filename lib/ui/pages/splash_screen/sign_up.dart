@@ -3,6 +3,7 @@
 import 'package:flutixapp/auth/auth.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class signUp extends StatefulWidget {
   signUp({super.key});
@@ -56,54 +57,58 @@ class _signUpState extends State<signUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.only(top: 10.0, left: 20),
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
+            ),
+          ),
+        ),
+      ),
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => signIn()),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20, right: 280),
-              child: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.yellow,
-                size: 40,
-              ),
-            ),
-          ),
           Form(
             key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 35, top: 10),
+                  padding: const EdgeInsets.only(left: 20, top: 10),
                   child: Text(
                     "Create Your",
-                    style: TextStyle(
+                    style: GoogleFonts.raleway(
                       fontSize: 24,
                       color: Colors.black,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 35, top: 10),
+                  padding: const EdgeInsets.only(left: 20, top: 10),
                   child: Text(
                     "Account",
-                    style: TextStyle(
+                    style: GoogleFonts.raleway(
                       fontSize: 24,
                       color: Colors.black,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                 ),
                 Stack(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 140, top: 10),
+                    Center(
                       child: Container(
+                        margin: EdgeInsets.all(20),
                         width: 130,
                         height: 130,
                         decoration: BoxDecoration(
@@ -116,18 +121,20 @@ class _signUpState extends State<signUp> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 220, top: 115),
-                      child: Icon(
-                        Icons.add_circle,
-                        color: Color.fromARGB(255, 42, 33, 97),
-                        size: 40,
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 125.0, right: 20),
+                        child: Icon(
+                          Icons.add_circle,
+                          color: Color(0xFFE1A20B),
+                          size: 40,
+                        ),
                       ),
                     ),
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                  padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
                   child: TextFormField(
                     controller: _ctrlNama,
                     validator: (value) {
@@ -139,8 +146,9 @@ class _signUpState extends State<signUp> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide()),
                       labelText: "Full Name",
-                      labelStyle: TextStyle(color: Colors.black),
+                      labelStyle: GoogleFonts.raleway(color: Colors.black),
                       hintText: "Chintia Liu Wintin",
+                      hintStyle: GoogleFonts.raleway(color: Colors.black),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -149,7 +157,7 @@ class _signUpState extends State<signUp> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color.fromARGB(255, 170, 145, 31),
+                          color: Color(0xFFE1A20B),
                           width: 3,
                         ),
                       ),
@@ -169,8 +177,9 @@ class _signUpState extends State<signUp> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide()),
                       labelText: "Email Address",
-                      labelStyle: TextStyle(color: Colors.black),
+                      labelStyle: GoogleFonts.raleway(color: Colors.black),
                       hintText: "chintialiuw@gmail.com",
+                      hintStyle: GoogleFonts.raleway(color: Colors.black),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -179,7 +188,7 @@ class _signUpState extends State<signUp> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color.fromARGB(255, 170, 145, 31),
+                          color: Color(0xFFE1A20B),
                           width: 3,
                         ),
                       ),
@@ -200,8 +209,9 @@ class _signUpState extends State<signUp> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide()),
                       labelText: "Password",
-                      labelStyle: TextStyle(color: Colors.black),
+                      labelStyle: GoogleFonts.raleway(color: Colors.black),
                       hintText: "***********",
+                      hintStyle: GoogleFonts.raleway(color: Colors.black),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -210,7 +220,7 @@ class _signUpState extends State<signUp> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color.fromARGB(255, 170, 145, 31),
+                          color: Color(0xFFE1A20B),
                           width: 3,
                         ),
                       ),
@@ -231,8 +241,9 @@ class _signUpState extends State<signUp> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide()),
                       labelText: "Confirm Password",
-                      labelStyle: TextStyle(color: Colors.black),
+                      labelStyle: GoogleFonts.raleway(color: Colors.black),
                       hintText: "***********",
+                      hintStyle: GoogleFonts.raleway(color: Colors.black),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -241,7 +252,7 @@ class _signUpState extends State<signUp> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color.fromARGB(255, 170, 145, 31),
+                          color: Color(0xFFE1A20B),
                           width: 3,
                         ),
                       ),
@@ -251,10 +262,10 @@ class _signUpState extends State<signUp> {
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 30, left: 20),
+                      padding: const EdgeInsets.only(top: 40, left: 20, bottom: 40),
                       child: Text(
                         "Continue to Sign Up",
-                        style: TextStyle(
+                        style: GoogleFonts.raleway(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
                           fontSize: 20,
@@ -274,10 +285,10 @@ class _signUpState extends State<signUp> {
                             )
                           : Padding(
                               padding:
-                                  const EdgeInsets.only(left: 120, top: 30),
+                                  const EdgeInsets.only(left: 70, top: 40, bottom: 40, right: 20),
                               child: Icon(
                                 Icons.arrow_circle_right,
-                                color: Colors.yellow,
+                                color: Color(0xFFE1A20B),
                                 size: 60,
                               ),
                             ),
