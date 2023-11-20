@@ -3,6 +3,7 @@
 import 'package:flutixapp/ui/pages/home/ticket.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class success_checkout extends StatefulWidget {
   const success_checkout({super.key});
@@ -18,13 +19,13 @@ class _success_checkout_State extends State<success_checkout> {
       body: SafeArea(
         child: ListView(
           children: [
-            Padding(
-              padding:
-                  const EdgeInsets.only(top: 70.0, left: 20.0, right: 20.0),
-              child: Center(
-                child: Column(
-                  children: [
-                    Container(
+            Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 60.0, left: 10.0, right: 10.0),
+                    child: Container(
                       width: 250,
                       height: 300,
                       decoration: BoxDecoration(
@@ -35,72 +36,72 @@ class _success_checkout_State extends State<success_checkout> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
-                    Text(
-                      "Happy Watching !",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "You have succesfully bought the ticket",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal),
-                    ),
-                    SizedBox(height: 50),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return TicketPage();
-                            },
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    "Happy Watching !",
+                    style: GoogleFonts.raleway(
+                        color: Colors.black,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "You have succesfully bought the ticket",
+                    style: GoogleFonts.raleway(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  SizedBox(height: 80),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return TicketPage();
+                          },
                         ),
-                        minimumSize: Size(200, 50),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFE1A20B),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
-                      child: Text(
-                        "My Tickets",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      minimumSize: Size(200, 50),
+                    ),
+                    child: Text(
+                      "My Tickets",
+                      style: GoogleFonts.raleway(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return BottomNav();
-                            },
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Back to Home",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey,
+                  ),
+                  SizedBox(height: 10),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return BottomNav();
+                          },
                         ),
+                      );
+                    },
+                    child: Text(
+                      "Back to Home",
+                      style: GoogleFonts.raleway(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             ),
           ],
