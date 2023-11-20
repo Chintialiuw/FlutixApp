@@ -2,6 +2,7 @@
 
 import 'package:flutixapp/ui/pages/home/wallettopup.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'profile.dart';
 
@@ -16,6 +17,31 @@ class _myWalletState extends State<myWallet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20.0, top: 10.0),
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
+            ),
+          ),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Text(
+            "My Wallet",
+            style: GoogleFonts.raleway(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           Column(
@@ -23,33 +49,8 @@ class _myWalletState extends State<myWallet> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ProfilPage()));
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 20, left: 20),
-                            child: Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.yellow,
-                              size: 40,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, left: 220),
-                          child: Text(
-                            "My Wallet",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
                     InkWell(
                       onTap: () {},
                       child: Container(
@@ -60,13 +61,11 @@ class _myWalletState extends State<myWallet> {
                             Image.asset("images/wallet.png", fit: BoxFit.fill),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20, left: 20),
-                      child: Text(
-                        "Recent Transaction",
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.normal),
-                      ),
+                    SizedBox(height: 20),
+                    Text(
+                      "Recent Transaction",
+                      style: GoogleFonts.raleway(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Row(
                       children: [
@@ -76,12 +75,14 @@ class _myWalletState extends State<myWallet> {
                             width: 75,
                             height: 100,
                             margin: const EdgeInsets.only(
-                                left: 20, top: 20, bottom: 20),
+                               top: 20, bottom: 20),
                             child: Image.asset("images/card/Carl's-date.png",
                                 fit: BoxFit.fill),
                           ),
                         ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                    ),)
                       ],
                     ),
                     Row(
@@ -91,12 +92,14 @@ class _myWalletState extends State<myWallet> {
                           child: Container(
                             width: 75,
                             height: 100,
-                            margin: const EdgeInsets.only(left: 20, bottom: 20),
+                            margin: const EdgeInsets.only(bottom: 20),
                             child: Image.asset("images/card/Carl's-date.png",
                                 fit: BoxFit.fill),
                           ),
                         ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                    ),)
                       ],
                     ),
                     Row(
@@ -106,12 +109,14 @@ class _myWalletState extends State<myWallet> {
                           child: Container(
                             width: 75,
                             height: 100,
-                            margin: const EdgeInsets.only(left: 20, bottom: 20),
+                            margin: const EdgeInsets.only(bottom: 20),
                             child: Image.asset("images/card/Carl's-date.png",
                                 fit: BoxFit.fill),
                           ),
                         ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                    ),)
                       ],
                     ),
                     Row(
@@ -121,12 +126,14 @@ class _myWalletState extends State<myWallet> {
                           child: Container(
                             width: 75,
                             height: 100,
-                            margin: const EdgeInsets.only(left: 20, bottom: 20),
+                            margin: const EdgeInsets.only(bottom: 20),
                             child: Image.asset("images/card/Carl's-date.png",
                                 fit: BoxFit.fill),
                           ),
                         ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                    ),)
                       ],
                     ),
                     Row(
@@ -136,27 +143,41 @@ class _myWalletState extends State<myWallet> {
                           child: Container(
                             width: 75,
                             height: 100,
-                            margin: const EdgeInsets.only(left: 20, bottom: 20),
+                            margin: const EdgeInsets.only(bottom: 20),
                             child: Image.asset("images/card/Carl's-date.png",
                                 fit: BoxFit.fill),
                           ),
                         ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date"))
+                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+                    ),)
                       ],
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => wallettopup()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 26, 18, 11),
-                          foregroundColor: Color.fromARGB(255, 229, 229, 203),
-                          fixedSize: Size(250, 20)),
-                      child: Text("Top Up Wallet"),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => wallettopup()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFE1A20B),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      minimumSize: Size(200, 50),
+                    ),
+                    child: Text(
+                      "Top Up Wallet",
+                      style: GoogleFonts.raleway(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                      ),
                     ),
                   ],
                 ),
