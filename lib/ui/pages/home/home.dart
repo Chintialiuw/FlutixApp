@@ -1,4 +1,3 @@
-import 'package:flutixapp/ui/pages/home/movie_details.dart';
 import 'package:flutixapp/ui/widgets/moviecomingposter.dart';
 import 'package:flutixapp/ui/widgets/movieposter.dart';
 import 'package:flutter/material.dart';
@@ -55,40 +54,7 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
 
-  List<Movie> comingSoonMovies = [
-    Movie(
-      id: 5,
-      poster: "assets/images/card/The-Lorax.png",
-      judul: "The Lorax",
-      genre: "Animation",
-      rate: 0.0, // Atur sesuai kebutuhan
-      storyLine: "Storyline for Title 1",
-    ),
-    Movie(
-      id: 6,
-      poster: "assets/images/card/Carl's-date.png",
-      judul: "Carl's Date",
-      genre: "Animation",
-      rate: 0.0, // Atur sesuai kebutuhan
-      storyLine: "Storyline for Title 2",
-    ),
-    Movie(
-      id: 7,
-      poster: "assets/images/card/Hotel.png",
-      judul: "Hotel Transyalvania",
-      genre: "Animation",
-      rate: 0.0, // Atur sesuai kebutuhan
-      storyLine: "Storyline for Title 2",
-    ),
-    Movie(
-      id: 8,
-      poster: "assets/images/card/up.jpeg",
-      judul: "Up",
-      genre: "Animation",
-      rate: 0.0, // Atur sesuai kebutuhan
-      storyLine: "Storyline for Title 2",
-    ),
-  ];
+  List<Movie> comingSoonMovies = [];
 
   @override
   void initState() {

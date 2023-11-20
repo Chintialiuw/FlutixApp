@@ -93,7 +93,7 @@ class _splashState extends State<splash> {
               Padding(
                 padding: const EdgeInsets.only(left: 90, top: 15),
                 child: Text(
-                  "Already have an account?",
+                  "Didn't have an account?",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -109,7 +109,7 @@ class _splashState extends State<splash> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 5, top: 15),
                   child: Text(
-                    "Sign In",
+                    "Sign Up",
                     style: TextStyle(
                       color: Color.fromARGB(255, 171, 158, 37),
                       fontSize: 15,

@@ -1,4 +1,5 @@
 // moviecomingposter.dart
+import 'package:flutixapp/ui/pages/home/movie_details.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutixapp/models/models.dart';
@@ -15,7 +16,14 @@ class MovieComingPoster extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Tindakan ketika poster "coming soon" ditekan
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return movie_details();
+            },
+          ),
+        );
       },
       child: Stack(
         children: [
