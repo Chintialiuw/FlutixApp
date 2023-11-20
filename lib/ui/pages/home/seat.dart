@@ -3,6 +3,7 @@
 import 'package:flutixapp/ui/pages/home/checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class seat extends StatefulWidget {
   const seat({Key? key}) : super(key: key);
@@ -26,8 +27,8 @@ class _SeatState extends State<seat> {
         });
       },
       child: Container(
-        width: 50,
-        height: 50,
+        width: 40,
+        height: 40,
         margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         decoration: BoxDecoration(
           color: seatStatus[row][col] ? seatSelectedColor : Colors.white,
@@ -63,8 +64,9 @@ class _SeatState extends State<seat> {
               Navigator.pop(context);
             },
             child: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32
             ),
           ),
         ),
@@ -74,9 +76,9 @@ class _SeatState extends State<seat> {
           Column(
             children: [
               Container(
-                width: 360,
+                width: 320,
                 height: 10,
-                margin: EdgeInsets.only(bottom: 10),
+                margin: EdgeInsets.only(top: 20, bottom: 10),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
                     color: Color(0xFF9F816E)),
@@ -85,7 +87,10 @@ class _SeatState extends State<seat> {
                   alignment: Alignment.center,
                   child: Container(
                       margin: EdgeInsets.only(bottom: 10),
-                      child: Text("Layar Bioskop")))
+                      child: Text("Layar Bioskop",
+                      style: GoogleFonts.raleway(
+                        fontSize: 14
+                      ))))
             ],
           ),
           Column(
@@ -118,7 +123,7 @@ class _SeatState extends State<seat> {
                     padding: EdgeInsets.only(top: 10),
                     child: Text(
                       "Booked",
-                      style: TextStyle(fontSize: 12),
+                      style: GoogleFonts.raleway(fontSize: 12),
                     ),
                   ),
                 ],
@@ -139,7 +144,7 @@ class _SeatState extends State<seat> {
                     padding: EdgeInsets.only(top: 10),
                     child: Text(
                       "Available",
-                      style: TextStyle(fontSize: 12),
+                      style: GoogleFonts.raleway(fontSize: 12),
                     ),
                   ),
                 ],
@@ -159,7 +164,7 @@ class _SeatState extends State<seat> {
                     padding: EdgeInsets.only(top: 10, left: 10),
                     child: Text(
                       "Selected",
-                      style: TextStyle(fontSize: 12),
+                      style: GoogleFonts.raleway(fontSize: 12),
                     ),
                   ),
                 ],
@@ -167,43 +172,31 @@ class _SeatState extends State<seat> {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(
-                  left: 20.0,
-                  top: 50.0,
-                  bottom: 50.0,
-                  right: 100.0,
-                ),
+                padding:
+                    const EdgeInsets.only(top: 50, left: 20, bottom: 40),
                 child: Text(
                   "Confirm Your Book",
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                     color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.normal,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
                   ),
                 ),
               ),
-              Center(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return checkout();
-                        },
-                      ),
-                    );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 20.0),
-                    child: Icon(
-                      CupertinoIcons.arrow_right_circle_fill,
-                      color: Colors.orange,
-                      size: 50,
-                    ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => checkout()));
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      right: 20, top: 50, bottom: 40, left: 85),
+                  child: Icon(
+                    Icons.arrow_circle_right,
+                    color: Color(0xFFE1A20B),
+                    size: 60,
                   ),
                 ),
               ),
