@@ -12,7 +12,7 @@ import 'package:flutixapp/ui/pages/splash_screen/splash-screen.dart';
 import 'package:flutixapp/ui/pages/splash_screen/user_profile.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
-
+``
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
