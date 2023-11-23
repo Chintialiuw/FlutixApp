@@ -4,7 +4,7 @@ class Movie {
   int id;
   String poster;
   String judul;
-  String genre;
+  List<String> genre;
   double rate;
   String storyLine;
   List<Cast>? listCast;

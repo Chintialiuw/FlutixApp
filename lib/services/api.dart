@@ -16,12 +16,20 @@ class Api {
 
       for (int i = 0; i < count; i++) {
         // String start = getNowplaying["results"][i]["release_date"];
-
+        List<String> genre = [];
+        for (int j = 0; i < results[i]["genre_ids"].length; j++) {
+          final id = results[i]["genre_ids"][j];
+          final response = await http.get(Uri.parse(
+              "https://api.themoviedb.org/3/genre/$id?page=8&api_key=$apikey"));
+          var hai = json.decode(response.body) as Map<String, dynamic>;
+          genre.add(hai["name"]);
+        }
+        
         movies.add(Movie(
           id: results[i]["id"],
           poster: results[i]["poster_path"],
           judul: results[i]["title"],
-          genre: results[i]["genre_ids"],
+          genre: genre,
           rate: results[i]["vote_average"],
           storyLine: results[i]["overview"],
         ));

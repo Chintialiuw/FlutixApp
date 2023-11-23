@@ -19,40 +19,7 @@ Color textColor = const Color(0xFFF4EDE6);
 
 class _HomePageState extends State<HomePage> {
   String username = '';
-  List<Movie> movies = [
-    Movie(
-      id: 1,
-      poster: "assets/images/card/avengers.png",
-      judul: "Avengers",
-      genre: "Action",
-      rate: 7.0,
-      storyLine: "A story about superheroes saving the world.",
-    ),
-    Movie(
-      id: 2,
-      poster: "assets/images/card/despicable-me.png",
-      judul: "Despicable Me",
-      genre: "Animation",
-      rate: 8.5,
-      storyLine: "Follow the adventures of Gru and the Minions.",
-    ),
-    Movie(
-      id: 3,
-      poster: "assets/images/card/monster.png",
-      judul: "Monster, Inc.",
-      genre: "Animation",
-      rate: 8.0,
-      storyLine: "Discover the world of monsters and laughter.",
-    ),
-    Movie(
-      id: 4,
-      poster: "assets/images/card/transformers.webp",
-      judul: "Transformers",
-      genre: "Action",
-      rate: 10.0,
-      storyLine: "Robots in disguise battle for Earth.",
-    ),
-  ];
+  List<Movie> movies = [];
 
   List<Movie> comingSoonMovies = [];
 
