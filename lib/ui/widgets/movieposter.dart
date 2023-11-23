@@ -1,13 +1,12 @@
-// movieposter.dart
+// ignore_for_file: must_be_immutable
+
 import 'package:flutixapp/ui/pages/home/movie_details.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutixapp/models/models.dart';
 
-// ignore: must_be_immutable
 class MoviePoster extends StatelessWidget {
   final Movie movie;
-
   Color textColor = const Color(0xFFF4EDE6);
 
   MoviePoster({Key? key, required this.movie}) : super(key: key);
@@ -32,10 +31,10 @@ class MoviePoster extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            width: 200,
+            width: 230,
             height: 170,
             margin: const EdgeInsets.only(right: 20),
-            child: Image.asset(
+            child: Image.network(
               movie.poster,
               fit: BoxFit.fill,
               color: Colors.black.withOpacity(0.3),
@@ -48,18 +47,20 @@ class MoviePoster extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   width: 200,
                   child: Text(
-                    movie.judul,
+                    _truncateText(movie.judul, 20),
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: textColor, // Use your desired text color
+                      fontSize: 18,
+                      color: textColor,
                     ),
                   ),
                 ),
+                const SizedBox(height: 5),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
                       children: List.generate(
@@ -81,11 +82,11 @@ class MoviePoster extends StatelessWidget {
                       ),
                     const SizedBox(width: 5),
                     Text(
-                      "${movie.rate}/10",
+                      "${movie.rate.toStringAsFixed(1)}/10",
                       style: GoogleFonts.openSans(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
-                        color: textColor, // Use your desired text color
+                        color: textColor,
                       ),
                     ),
                   ],
@@ -96,5 +97,12 @@ class MoviePoster extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String _truncateText(String text, int maxLength) {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return '${text.substring(0, maxLength)}...';
   }
 }

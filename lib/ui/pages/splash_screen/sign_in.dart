@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types
 
 import 'package:flutixapp/auth/auth.dart';
-import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,7 +30,7 @@ class _signInState extends State<signIn> {
       try {
         await Auth().login(email, password);
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => confir()),
+          MaterialPageRoute(builder: (context) => BottomAppBar()),
         );
       } catch (error) {
         print('Error during login: $error');
@@ -86,10 +85,9 @@ class _signInState extends State<signIn> {
                 child: Text(
                   "Explorer!",
                   style: GoogleFonts.raleway(
-                    fontSize: 26,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold
-                  ),
+                      fontSize: 26,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],
@@ -186,7 +184,8 @@ class _signInState extends State<signIn> {
                         ),
                       )
                     : Padding(
-                        padding: const EdgeInsets.only(left: 100, top: 80, right: 20),
+                        padding: const EdgeInsets.only(
+                            left: 100, top: 80, right: 20),
                         child: Icon(
                           Icons.arrow_circle_right,
                           color: Color(0xFFE1A20B),

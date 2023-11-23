@@ -26,21 +26,21 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    loadNama(); // Memuat nama saat halaman dimuat
+    loadNama();
   }
 
   Future<void> loadNama() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      username = prefs.getString('nama') ??
-          ""; // Mendapatkan nama dari SharedPreferences
+      username = prefs.getString('nama') ?? "";
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    Future<List<Movie>> nowPlaying = Api.getMoviesNp(5);
-    Future<List<Movie>> comingSoon = Api.getMoviesNp(5);
+    Future<List<Movie>> nowPlaying = Api.getMovies('now_playing', 5);
+    Future<List<Movie>> comingSoon = Api.getMovies('upcoming', 5);
+
     return Scaffold(
       backgroundColor: bgColor,
       body: ListView(
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          username ?? "Loading...", // Tampilkan nama di sini
+                          username ?? "Loading...",
                           style: GoogleFonts.raleway(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                     } else if (snapshot.hasData) {
                       final movies = snapshot.data!;
                       return Container(
-                        height: 256,
+                        height: 156,
                         padding: const EdgeInsets.only(left: 20),
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
@@ -118,102 +118,9 @@ class _HomePageState extends State<HomePage> {
                       return const Text("there is no data");
                     }
                   }),
-              // SizedBox(
-              //   height: 140,
-              //   child: ListView.builder(
-              //     scrollDirection: Axis.horizontal,
-              //     itemCount: movies.length,
-              //     itemBuilder: (context, index) {
-              //       Movie movie = movies[index];
-              //       double rating = movie.rate / 2;
-              //       int fullStars = rating.floor();
-              //       bool hasHalfStar = (rating - fullStars) > 0;
-
-              //       return InkWell(
-              //         onTap: () {
-              //           Navigator.push(
-              //             context,
-              //             MaterialPageRoute(
-              //               builder: (context) {
-              //                 return movie_details();
-              //               },
-              //             ),
-              //           );
-              //         },
-              //         child: Stack(
-              //           children: [
-              //             Container(
-              //               width: 200,
-              //               height: 170,
-              //               margin: EdgeInsets.only(
-              //                 left: index == 0 ? 20 : 20,
-              //                 right: index == movies.length - 1 ? 40 : 0,
-              //               ),
-              //               child: Image.asset(
-              //                 movie.poster,
-              //                 fit: BoxFit.fill,
-              //                 color: Colors.black.withOpacity(0.3),
-              //                 colorBlendMode: BlendMode.darken,
-              //               ),
-              //             ),
-              //             Positioned(
-              //               left: index == 0 ? 30 : 30,
-              //               top: 90,
-              //               child: Column(
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 children: [
-              //                   Container(
-              //                     width: 200,
-              //                     child: Text(
-              //                       movie.judul,
-              //                       style: GoogleFonts.raleway(
-              //                         fontWeight: FontWeight.bold,
-              //                         fontSize: 20,
-              //                         color: textColor,
-              //                       ),
-              //                     ),
-              //                   ),
-              //                   Row(
-              //                     children: [
-              //                       Row(
-              //                         children: List.generate(
-              //                           fullStars,
-              //                           (starIndex) {
-              //                             return Icon(
-              //                               Icons.star,
-              //                               color: textColor,
-              //                               size: 17,
-              //                             );
-              //                           },
-              //                         ),
-              //                       ),
-              //                       if (hasHalfStar)
-              //                         Icon(
-              //                           Icons.star_half,
-              //                           color: textColor,
-              //                           size: 17,
-              //                         ),
-              //                       const SizedBox(width: 5),
-              //                       Text(
-              //                         "${movie.rate}/10",
-              //                         style: GoogleFonts.openSans(
-              //                           fontWeight: FontWeight.bold,
-              //                           fontSize: 15,
-              //                           color: textColor,
-              //                         ),
-              //                       ),
-              //                     ],
-              //                   ),
-              //                 ],
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //       );
-              //     },
-              //   ),
-              // ),
-              SizedBox(height: 20),
+              const SizedBox(
+                height: 10,
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

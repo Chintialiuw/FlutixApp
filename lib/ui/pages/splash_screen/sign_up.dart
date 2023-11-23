@@ -87,10 +87,9 @@ class _signUpState extends State<signUp> {
                   child: Text(
                     "Create Your",
                     style: GoogleFonts.raleway(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold
-                    ),
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
@@ -98,10 +97,9 @@ class _signUpState extends State<signUp> {
                   child: Text(
                     "Account",
                     style: GoogleFonts.raleway(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold
-                    ),
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 Stack(
@@ -123,7 +121,8 @@ class _signUpState extends State<signUp> {
                     ),
                     Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 125.0, right: 20),
+                        padding: const EdgeInsets.only(
+                            left: 20, top: 125.0, right: 20),
                         child: Icon(
                           Icons.add_circle,
                           color: Color(0xFFE1A20B),
@@ -147,7 +146,7 @@ class _signUpState extends State<signUp> {
                       border: OutlineInputBorder(borderSide: BorderSide()),
                       labelText: "Full Name",
                       labelStyle: GoogleFonts.raleway(color: Colors.black),
-                      hintText: "Chintia Liu Wintin",
+                      hintText: "Your Full Name...",
                       hintStyle: GoogleFonts.raleway(color: Colors.black),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -178,7 +177,7 @@ class _signUpState extends State<signUp> {
                       border: OutlineInputBorder(borderSide: BorderSide()),
                       labelText: "Email Address",
                       labelStyle: GoogleFonts.raleway(color: Colors.black),
-                      hintText: "chintialiuw@gmail.com",
+                      hintText: "Your Email Address...",
                       hintStyle: GoogleFonts.raleway(color: Colors.black),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -262,7 +261,8 @@ class _signUpState extends State<signUp> {
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 40, left: 20, bottom: 40),
+                      padding:
+                          const EdgeInsets.only(top: 40, left: 20, bottom: 40),
                       child: Text(
                         "Continue to Sign Up",
                         style: GoogleFonts.raleway(
@@ -275,7 +275,7 @@ class _signUpState extends State<signUp> {
                     GestureDetector(
                       onTap: () => handleSubmit(),
                       child: _loading
-                          ? const SizedBox(
+                          ? SizedBox(
                               width: 20,
                               height: 20,
                               child: CircularProgressIndicator(
@@ -284,8 +284,8 @@ class _signUpState extends State<signUp> {
                               ),
                             )
                           : Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 70, top: 40, bottom: 40, right: 20),
+                              padding: const EdgeInsets.only(
+                                  left: 70, top: 40, bottom: 40, right: 20),
                               child: Icon(
                                 Icons.arrow_circle_right,
                                 color: Color(0xFFE1A20B),
