@@ -3,6 +3,7 @@
 import 'package:flutixapp/ui/pages/splash_screen/sign_in.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class splash extends StatefulWidget {
   const splash({super.key});
@@ -16,15 +17,14 @@ class _splashState extends State<splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 130, left: 55),
+            padding: const EdgeInsets.only(top: 130.0, bottom: 20),
             child: Container(
               width: 290,
               height: 220,
               decoration: BoxDecoration(
-                color: Colors.white,
                 image: DecorationImage(
                   image: AssetImage("assets/splash/flutix-logo.png"),
                   fit: BoxFit.cover,
@@ -32,73 +32,66 @@ class _splashState extends State<splash> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 60, left: 105),
-            child: Text(
-              "New Experience",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 28,
-              ),
+          Text(
+            "New Experience",
+            style: GoogleFonts.raleway(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 28,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 25, left: 90),
-            child: Text(
-              "Watch a new movie much",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-              ),
+          SizedBox(height: 10),
+          Text(
+            "Watch a new movie much easier",
+            style: GoogleFonts.raleway(
+              color: Colors.black,
+              fontSize: 20,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10, left: 110),
-            child: Text(
-              "easier than any before",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-              ),
+          SizedBox(height: 5),
+          Text(
+            "easier than any before",
+            style: GoogleFonts.raleway(
+              color: Colors.black,
+              fontSize: 20,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 50, left: 5),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => signIn(),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(270, 45),
-                  backgroundColor: Color.fromARGB(255, 239, 203, 43),
+          SizedBox(height: 50),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => signIn(),
                 ),
-                child: Text(
-                  "Get Started",
-                  style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.white,
-                  ),
-                ),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xFFE1A20B),
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              minimumSize: Size(250, 50),
+            ),
+            child: Text(
+              "Get Started",
+              style: GoogleFonts.raleway(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
+          SizedBox(height: 10),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 90, top: 15),
-                child: Text(
-                  "Didn't have an account?",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w300,
-                  ),
+              Text(
+                "Didn't have an account?",
+                style: GoogleFonts.raleway(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w300,
                 ),
               ),
               GestureDetector(
@@ -106,15 +99,12 @@ class _splashState extends State<splash> {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) => signUp()));
                 },
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 5, top: 15),
-                  child: Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 171, 158, 37),
-                      fontSize: 15,
-                      fontWeight: FontWeight.w300,
-                    ),
+                child: Text(
+                  "  Sign Up",
+                  style: TextStyle(
+                    color: Color(0xFFE1A20B),
+                    fontSize: 15,
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
               ),
