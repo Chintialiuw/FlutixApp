@@ -2,6 +2,7 @@
 
 import 'package:flutixapp/auth/auth.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
+import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,7 +31,7 @@ class _signInState extends State<signIn> {
       try {
         await Auth().login(email, password);
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => BottomAppBar()),
+          MaterialPageRoute(builder: (context) => BottomNav()),
         );
       } catch (error) {
         print('Error during login: $error');
@@ -179,7 +180,7 @@ class _signInState extends State<signIn> {
                         width: 20,
                         height: 20,
                         child: CircularProgressIndicator(
-                          color: Colors.white,
+                          color:Color(0xFFE1A20B),
                           strokeWidth: 2,
                         ),
                       )
