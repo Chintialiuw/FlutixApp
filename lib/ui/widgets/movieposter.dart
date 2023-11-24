@@ -32,7 +32,7 @@ class MoviePoster extends StatelessWidget {
         children: [
           Container(
             width: 230,
-            height: 170,
+            height: 150,
             margin: const EdgeInsets.only(right: 20),
             child: Image.network(
               movie.poster,
@@ -42,15 +42,15 @@ class MoviePoster extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 30,
-            top: 90,
+            left: 10,
+            top: 95,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   width: 200,
                   child: Text(
-                    _truncateText(movie.judul, 20),
+                    _truncateText(movie.judul, 18),
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

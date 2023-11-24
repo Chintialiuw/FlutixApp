@@ -37,12 +37,12 @@ class MovieComingPoster extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 30,
-            top: 145,
+            left: 10,
+            top: 170,
             child: Container(
               width: 150,
               child: Text(
-                _truncateText(movie.judul, 18),
+                _truncateText(movie.judul, 11),
                 style: GoogleFonts.raleway(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
