@@ -54,4 +54,24 @@ class Api {
     }
     return movies;
   }
+
+  static Future<List<Movie>> getMovieDetails(int id) async {
+    final response = await http.get(
+        Uri.parse("https://api.themoviedb.org/3/movie/$id?api_key=$apiKey"));
+
+    List<Movie> movies = [];
+    if (response.statusCode == 200) {
+      var getMovies = json.decode(response.body) as Map<String, dynamic>;
+
+      movies.add(Movie(
+        id: getMovies["id"],
+        poster: getMovies["posterUrl"],
+        judul: getMovies["title"],
+        genre: getMovies["genre"],
+        rate: getMovies[double.parse("formattedRating")],
+        storyLine: getMovies["overview"],
+      ));
+    }
+    return movies;
+  }
 }
