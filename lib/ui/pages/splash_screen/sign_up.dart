@@ -279,7 +279,7 @@ class _signUpState extends State<signUp> {
                               width: 20,
                               height: 20,
                               child: CircularProgressIndicator(
-                                color: Colors.white,
+                                color: Color(0xFFE1A20B),
                                 strokeWidth: 2,
                               ),
                             )
