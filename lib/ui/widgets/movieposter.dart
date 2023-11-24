@@ -50,7 +50,7 @@ class MoviePoster extends StatelessWidget {
                 SizedBox(
                   width: 200,
                   child: Text(
-                    _truncateText(movie.judul, 18),
+                    _truncateText(movie.judul, 20),
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
