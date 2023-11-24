@@ -38,8 +38,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Future<List<Movie>> nowPlaying = Api.getMovies('now_playing', 5);
-    Future<List<Movie>> comingSoon = Api.getMovies('upcoming', 5);
+    Future<List<Movie>> nowPlaying = Api.getMovies('now_playing', 6);
+    Future<List<Movie>> comingSoon = Api.getMovies('upcoming', 6);
 
     return Scaffold(
       backgroundColor: bgColor,
@@ -78,10 +78,11 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Container(
                 width: 330,
-                child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 5.0),
                   child: Text(
                     "Now Playing",
                     style: GoogleFonts.raleway(
@@ -96,7 +97,9 @@ class _HomePageState extends State<HomePage> {
                   future: nowPlaying,
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
+                      return const CircularProgressIndicator(
+                        color: Color(0xFFE1A20B),
+                      );
                     } else if (snapshot.hasData) {
                       final movies = snapshot.data!;
                       return Container(
@@ -125,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: const EdgeInsets.only(left: 42),
+                    padding: const EdgeInsets.only(left: 20),
                     child: Text(
                       "Movie Category",
                       style: GoogleFonts.raleway(
@@ -133,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -229,17 +232,19 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               FutureBuilder<List<Movie>>(
                 future: comingSoon,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator();
+                    return const CircularProgressIndicator(
+                      color: Color(0xFFE1A20B),
+                    );
                   } else if (snapshot.hasData) {
                     final movies = snapshot.data!;
                     return Container(
-                      height: 256,
+                      height: 200,
                       padding: const EdgeInsets.only(left: 20),
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
@@ -256,7 +261,7 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
-              const SizedBox(height: 30),
+              SizedBox(height: 25),
               InkWell(
                 onTap: () {},
                 child: Stack(
@@ -278,19 +283,21 @@ class _HomePageState extends State<HomePage> {
                         left: 10,
                         top: 60,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("Holiday Promo",
-                                style: TextStyle(
+                                style: GoogleFonts.raleway(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                     color: textColor)),
                             Text("Min. Four User        ",
-                                style: TextStyle(
+                                style: GoogleFonts.raleway(
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold,
                                     color: textColor))
                           ],
-                        )),
+                        )
+                        ),
                   ],
                 ),
               )
