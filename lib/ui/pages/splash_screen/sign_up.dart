@@ -1,7 +1,9 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors
 
 import 'package:flutixapp/auth/auth.dart';
+import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_in.dart';
+import 'package:flutixapp/ui/pages/splash_screen/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,7 +38,7 @@ class _signUpState extends State<signUp> {
         // Registrasi berhasil, tambahkan logika setelah registrasi di sini.
         // Misalnya, pindah ke halaman lain.
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => signIn()),
+          MaterialPageRoute(builder: (context) => confir()),
         );
       } catch (error) {
         // Tangani kesalahan yang mungkin terjadi saat registrasi
