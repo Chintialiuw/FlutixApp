@@ -180,7 +180,7 @@ class _signInState extends State<signIn> {
                         width: 20,
                         height: 20,
                         child: CircularProgressIndicator(
-                          color:Color(0xFFE1A20B),
+                          color: Color(0xFFE1A20B),
                           strokeWidth: 2,
                         ),
                       )

@@ -19,7 +19,7 @@ class _uprofState extends State<uprof> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: Padding(
-          padding: const EdgeInsets.only(top: 10.0, left: 20),
+          padding: const EdgeInsets.only(top: 10.0, left: 30),
           child: InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -37,7 +37,7 @@ class _uprofState extends State<uprof> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 20),
+              padding: const EdgeInsets.only(left: 30, top: 20),
               child: Text(
                 "Select Your",
                 style: GoogleFonts.raleway(
@@ -49,7 +49,7 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 20),
+                  padding: const EdgeInsets.only(top: 10, left: 30),
                   child: Text(
                     "Genre",
                     style: GoogleFonts.raleway(
@@ -63,7 +63,7 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 30),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -94,7 +94,7 @@ class _uprofState extends State<uprof> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 20, right: 20, left: 30),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -128,7 +128,7 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 30),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -158,7 +158,7 @@ class _uprofState extends State<uprof> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 20, right: 20, left: 30),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -192,7 +192,7 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 30),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -222,7 +222,7 @@ class _uprofState extends State<uprof> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 30, right: 20),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -254,7 +254,7 @@ class _uprofState extends State<uprof> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 30, left: 20),
+              padding: const EdgeInsets.only(top: 30, left: 30),
               child: Text(
                 "Which Movie Language",
                 style: GoogleFonts.raleway(
@@ -264,7 +264,7 @@ class _uprofState extends State<uprof> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10, left: 20),
+              padding: const EdgeInsets.only(top: 10, left: 30),
               child: Text(
                 "You Prefer",
                 style: GoogleFonts.raleway(
@@ -276,7 +276,7 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 30),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -306,7 +306,7 @@ class _uprofState extends State<uprof> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 30, right: 20),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -340,7 +340,7 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 30),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -370,7 +370,7 @@ class _uprofState extends State<uprof> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 30, right: 20),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(
@@ -404,7 +404,7 @@ class _uprofState extends State<uprof> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 40, left: 20, bottom: 40),
+                  padding: const EdgeInsets.only(top: 40, left: 30, bottom: 40),
                   child: Text(
                     "Continue to Sign Up",
                     style: GoogleFonts.raleway(
