@@ -3,6 +3,7 @@
 import 'package:flutixapp/ui/pages/home/movie_details.dart';
 import 'package:flutixapp/ui/pages/home/places_date.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
+import 'package:flutixapp/ui/widgets/moviecast.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutixapp/models/models.dart';
@@ -160,6 +161,7 @@ class MovieDetails extends StatelessWidget {
                 SizedBox(height: 10),
                 Text(
                   _truncateText(movie.storyLine, 500),
+                  textAlign: TextAlign.justify,
                   style: GoogleFonts.raleway(
                     fontWeight: FontWeight.normal,
                     fontSize: 14,
@@ -178,21 +180,15 @@ class MovieDetails extends StatelessWidget {
               ],
             ),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                for (int i = 0; i < 6; i++)
-                  Container(
-                    width: 80,
-                    height: 80,
-                    margin: EdgeInsets.only(left: 20.0, top: 10.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.grey,
-                    ),
-                  ),
-              ],
+          Container(
+            width: double.infinity,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: movie.listCast!.map((cast) {
+                  return movieCast(cast: cast);
+                }).toList(),
+              ),
             ),
           ),
           Padding(
