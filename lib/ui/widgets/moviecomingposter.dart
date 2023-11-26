@@ -18,7 +18,7 @@ class MovieComingPoster extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return movie_details();
+              return movie_details(movie: movie);
             },
           ),
         );
