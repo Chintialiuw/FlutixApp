@@ -61,15 +61,17 @@ class Api {
 
     List<Movie> movies = [];
     if (response.statusCode == 200) {
-      var getMovies = json.decode(response.body) as Map<String, dynamic>;
+      var getMovie = json.decode(response.body);
 
       movies.add(Movie(
-        id: getMovies["id"],
-        poster: getMovies["posterUrl"],
-        judul: getMovies["title"],
-        genre: getMovies["genre"],
-        rate: getMovies[double.parse("formattedRating")],
-        storyLine: getMovies["overview"],
+        id: getMovie["id"],
+        poster: 'https://image.tmdb.org/t/p/w500${getMovie["poster_path"]}',
+        judul: getMovie["title"],
+        genre: (getMovie["genres"] as List<dynamic>)
+            .map((genre) => genre["name"].toString())
+            .toList(),
+        rate: getMovie["vote_average"].toDouble(),
+        storyLine: getMovie["overview"],
       ));
     }
     return movies;

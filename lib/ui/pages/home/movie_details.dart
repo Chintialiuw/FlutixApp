@@ -8,15 +8,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class movie_details extends StatefulWidget {
-  movie_details({super.key});
+class movie_details extends StatelessWidget {
+  Movie movie;
+  movie_details({super.key, required this.movie});
 
-  @override
-  State<movie_details> createState() => _movie_details_State();
-}
-
-class _movie_details_State extends State<movie_details> {
- 
   @override
   Widget build(BuildContext context) {
     var lebar = MediaQuery.of(context).size.width;
@@ -25,21 +20,23 @@ class _movie_details_State extends State<movie_details> {
         child: ListView(
           children: [
             FutureBuilder<List<Movie>>(
-                  future: Api.getMovieDetails(2),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator(
-                        color: Color(0xFFE1A20B),
-                      );
-                    } else if (snapshot.hasData) {
-                      final movies = snapshot.data!;
-                      return MovieDetails(
-                        movie: movies[2]
-                    );
-                    } else {
-                      return const Text("there is no data");
-                    }
-                  }),
+                  future: Api.getMovieDetails(movie.id),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return CircularProgressIndicator(
+                color: Color(0xFFE1A20B),
+              );
+            } else if (snapshot.hasData) {
+              final movies = snapshot.data!;
+              return MovieDetails(
+                movie: movies.first,
+              );
+            } else if (snapshot.hasError) {
+              return Text("Error: ${snapshot.error}");
+            } else {
+              return Text("There is no data");
+                  }
+  }),
           ],
         ),
       ),
