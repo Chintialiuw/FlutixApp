@@ -35,7 +35,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'FlutixApp',
       debugShowCheckedModeBanner: false,
-      //home: splash(),
 
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),

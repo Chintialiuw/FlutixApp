@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutixapp/ui/pages/home/edit_profile.dart';
 import 'package:flutixapp/ui/pages/home/myWallet.dart';
+import 'package:flutixapp/ui/pages/splash_screen/splash-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -164,13 +165,27 @@ class _ProfilePageState extends State<ProfilPage> {
                         IconButton(
                             onPressed: () {
                               FirebaseAuth.instance.signOut();
-                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return splash();
+                                  },
+                                ),
+                              );
                             },
                             icon: Icon(Icons.logout)),
                         TextButton(
                             onPressed: () {
                               FirebaseAuth.instance.signOut();
-                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return splash();
+                                  },
+                                ),
+                              );
                             },
                             style: TextButton.styleFrom(
                                 foregroundColor: Colors.black),
