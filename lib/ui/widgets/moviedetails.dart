@@ -34,14 +34,22 @@ class MovieDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            width: 400,
+            height: 300,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                  movie.poster,
+                ),
+                fit: BoxFit.fill,
+                colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.3),
+                  BlendMode.darken,
+                ),
+              ),
+            ),
             child: Stack(
               children: [
-                Image.network(
-                  movie.poster,
-                  fit: BoxFit.contain,
-                  color: Colors.black.withOpacity(0.3),
-                  colorBlendMode: BlendMode.darken,
-                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0, left: 20.0),
                   child: Align(
