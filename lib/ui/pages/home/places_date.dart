@@ -1,18 +1,15 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_constructors_in_immutables
 
+import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/ui/pages/home/seat.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class placesdate extends StatefulWidget {
-  placesdate({super.key});
+class placesdate extends StatelessWidget {
+  Movie movie;
+  placesdate({super.key, required this.movie});
 
-  @override
-  State<placesdate> createState() => _placesdateState();
-}
-
-class _placesdateState extends State<placesdate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -171,6 +168,7 @@ class _placesdateState extends State<placesdate> {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding:
@@ -186,8 +184,10 @@ class _placesdateState extends State<placesdate> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => seat()));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Seat(
+                                movie: movie,
+                              )));
                     },
                     child: Padding(
                       padding: EdgeInsets.only(

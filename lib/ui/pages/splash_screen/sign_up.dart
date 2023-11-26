@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors
+// ignore_for_file: camel_case_types, prefer_const_constructors, use_build_context_synchronously
 
 import 'package:flutixapp/auth/auth.dart';
 import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
@@ -35,8 +35,6 @@ class _signUpState extends State<signUp> {
         // Registrasi pengguna
         await Auth().regis(email, password, nama);
 
-        // Registrasi berhasil, tambahkan logika setelah registrasi di sini.
-        // Misalnya, pindah ke halaman lain.
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => confir()),
         );

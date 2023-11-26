@@ -1,23 +1,24 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_literals_to_create_immutables, library_private_types_in_public_api
-
+import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/ui/pages/home/checkout.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class seat extends StatefulWidget {
-  const seat({Key? key}) : super(key: key);
+class Seat extends StatefulWidget {
+  Movie movie;
+
+  Seat({Key? key, required this.movie}) : super(key: key);
 
   @override
   _SeatState createState() => _SeatState();
 }
 
-Color seatBookedColor = const Color(0xFFA2A69D);
-Color seatSelectedColor = const Color(0xFFE1A20B);
+Color kSeatBookedColor = const Color(0xFFA2A69D);
+Color kSeatSelectedColor = const Color(0xFFE1A20B);
 
-class _SeatState extends State<seat> {
+class _SeatState extends State<Seat> {
   List<List<bool>> seatStatus =
       List.generate(8, (index) => List.filled(6, false));
+  List<String> selectedSeats = [];
 
   Widget buildSeatContainer(String seatText, int row, int col) {
     return InkWell(
@@ -31,7 +32,7 @@ class _SeatState extends State<seat> {
         height: 40,
         margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         decoration: BoxDecoration(
-          color: seatStatus[row][col] ? seatSelectedColor : Colors.white,
+          color: seatStatus[row][col] ? kSeatSelectedColor : Colors.white,
           border: Border.all(color: Color(0xFFF8D061), width: 1),
           borderRadius: BorderRadius.circular(4),
         ),
@@ -65,8 +66,8 @@ class _SeatState extends State<seat> {
             },
             child: Icon(
               Icons.arrow_back_ios,
-              color: Color(0xFFE1A20B),
-              size: 32
+              color: Colors.black, // Ubah warna ikon panah menjadi hitam
+              size: 32,
             ),
           ),
         ),
@@ -80,17 +81,20 @@ class _SeatState extends State<seat> {
                 height: 10,
                 margin: EdgeInsets.only(top: 20, bottom: 10),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: Color(0xFF9F816E)),
+                  borderRadius: BorderRadius.circular(4),
+                  color: Color(0xFF9F816E),
+                ),
               ),
               Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      child: Text("Layar Bioskop",
-                      style: GoogleFonts.raleway(
-                        fontSize: 14
-                      ))))
+                alignment: Alignment.center,
+                child: Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  child: Text(
+                    "Layar Bioskop",
+                    style: GoogleFonts.raleway(fontSize: 14),
+                  ),
+                ),
+              ),
             ],
           ),
           Column(
@@ -101,7 +105,7 @@ class _SeatState extends State<seat> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: buildSeatRow(
                   String.fromCharCode('H'.codeUnitAt(0) - index),
-                  index, // Add this line to pass the index argument
+                  index,
                 ),
               ),
             ),
@@ -116,7 +120,7 @@ class _SeatState extends State<seat> {
                     margin: EdgeInsets.only(left: 50, right: 10, top: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(4),
-                      color: seatBookedColor,
+                      color: kSeatBookedColor,
                     ),
                   ),
                   Container(
@@ -156,7 +160,7 @@ class _SeatState extends State<seat> {
                     height: 20,
                     margin: EdgeInsets.only(left: 10, top: 10),
                     decoration: BoxDecoration(
-                      color: seatSelectedColor,
+                      color: kSeatSelectedColor,
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
@@ -172,10 +176,10 @@ class _SeatState extends State<seat> {
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 50, left: 20, bottom: 40),
+                padding: const EdgeInsets.only(top: 50, left: 20, bottom: 40),
                 child: Text(
                   "Confirm Your Book",
                   style: GoogleFonts.raleway(
@@ -185,20 +189,39 @@ class _SeatState extends State<seat> {
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => checkout()));
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      right: 20, top: 50, bottom: 40, left: 85),
-                  child: Icon(
-                    Icons.arrow_circle_right,
-                    color: Color(0xFFE1A20B),
-                    size: 60,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Logika untuk menampilkan nama kursi yang dipilih
+                      selectedSeats.clear(); // Clear existing selections
+                      for (int i = 0; i < seatStatus.length; i++) {
+                        for (int j = 0; j < seatStatus[i].length; j++) {
+                          if (seatStatus[i][j]) {
+                            selectedSeats.add(
+                                String.fromCharCode('H'.codeUnitAt(0) - i) +
+                                    (6 - j).toString());
+                          }
+                        }
+                      }
+
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                checkout(selectedSeats: selectedSeats)),
+                      );
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 20, top: 50, bottom: 40),
+                      child: Icon(
+                        Icons.arrow_circle_right,
+                        color: kSeatSelectedColor,
+                        size: 60,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ],
           )

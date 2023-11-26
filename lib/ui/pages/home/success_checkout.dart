@@ -24,7 +24,8 @@ class _success_checkout_State extends State<success_checkout> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 60.0, left: 10.0, right: 10.0),
+                    padding: const EdgeInsets.only(
+                        top: 60.0, left: 10.0, right: 10.0),
                     child: Container(
                       width: 250,
                       height: 300,
@@ -56,11 +57,23 @@ class _success_checkout_State extends State<success_checkout> {
                   SizedBox(height: 80),
                   ElevatedButton(
                     onPressed: () {
+                      Navigator.popUntil(
+                          context,
+                          (route) => route
+                              .isFirst);
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return BottomNav();
+                          },
+                        ),
+                      );
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return TicketPage();
+                            return const TicketPage();
                           },
                         ),
                       );

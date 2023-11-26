@@ -1,18 +1,15 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, must_be_immutable
 
+import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/ui/pages/home/success_checkout.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class checkout extends StatefulWidget {
-  const checkout({super.key});
+class checkout extends StatelessWidget {
+  checkout({Key? key, required this.selectedSeats}) : super(key: key);
+  List<String> selectedSeats;
 
-  @override
-  State<checkout> createState() => _checkoutState();
-}
-
-class _checkoutState extends State<checkout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +36,8 @@ class _checkoutState extends State<checkout> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, bottom: 10.0, top: 10, right: 20),
+                padding: const EdgeInsets.only(
+                    left: 20.0, bottom: 10.0, top: 10, right: 20),
                 child: Text(
                   "Check Details Below Before Checkout",
                   style: GoogleFonts.raleway(
@@ -124,6 +122,7 @@ class _checkoutState extends State<checkout> {
                 child: Column(
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "ID Order",
@@ -148,6 +147,7 @@ class _checkoutState extends State<checkout> {
                     ),
                     SizedBox(height: 10),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Cinema",
@@ -172,6 +172,7 @@ class _checkoutState extends State<checkout> {
                     ),
                     SizedBox(height: 10),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Date & Time",
@@ -196,9 +197,10 @@ class _checkoutState extends State<checkout> {
                     ),
                     SizedBox(height: 10),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "2 Tickets",
+                          "${selectedSeats.length} Tickets",
                           textAlign: TextAlign.left,
                           style: GoogleFonts.raleway(
                             color: Colors.black,
@@ -206,20 +208,23 @@ class _checkoutState extends State<checkout> {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 205),
-                        Text(
-                          "C1, C2",
-                          textAlign: TextAlign.right,
-                          style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.normal,
+                        Flexible(
+                          child: Text(
+                            selectedSeats.join(
+                                ", "), // Menampilkan kursi terpilih, dipisahkan dengan koma
+                            textAlign: TextAlign.right,
+                            style: GoogleFonts.raleway(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                         ),
                       ],
                     ),
                     SizedBox(height: 10),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Seat",
@@ -232,7 +237,7 @@ class _checkoutState extends State<checkout> {
                         ),
                         SizedBox(width: 180),
                         Text(
-                          "Rp. 50.000 x 2",
+                          "Rp. 50.000 x ${selectedSeats.length}",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -244,6 +249,7 @@ class _checkoutState extends State<checkout> {
                     ),
                     SizedBox(height: 10),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Fees",
@@ -256,7 +262,7 @@ class _checkoutState extends State<checkout> {
                         ),
                         SizedBox(width: 180),
                         Text(
-                          "Rp. 20.000 x 2",
+                          "Rp. 20.000 x ${selectedSeats.length}",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -268,6 +274,7 @@ class _checkoutState extends State<checkout> {
                     ),
                     SizedBox(height: 10),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Total",
@@ -280,7 +287,7 @@ class _checkoutState extends State<checkout> {
                         ),
                         SizedBox(width: 195),
                         Text(
-                          "Rp. 120.000",
+                          "Rp. ${formatCurrency(calculateTotal(selectedSeats.length))}",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -306,6 +313,7 @@ class _checkoutState extends State<checkout> {
                 child: Column(
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Saldo Wallet",
@@ -332,40 +340,54 @@ class _checkoutState extends State<checkout> {
                 ),
               ),
               Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.only(top: 50, left: 20, bottom: 40),
-                child: Text(
-                  "Select Your Seat",
-                  style: GoogleFonts.raleway(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 50, left: 20, bottom: 40),
+                    child: Text(
+                      "Select Your Seat",
+                      style: GoogleFonts.raleway(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 20,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => success_checkout()));
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      right: 20, top: 50, bottom: 40, left: 105),
-                  child: Icon(
-                    Icons.arrow_circle_right,
-                    color: Color(0xFFE1A20B),
-                    size: 60,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => success_checkout()));
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          right: 20, top: 50, bottom: 40, left: 105),
+                      child: Icon(
+                        Icons.arrow_circle_right,
+                        color: Color(0xFFE1A20B),
+                        size: 60,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ],
-          )
+                ],
+              )
             ],
           )
         ],
       ),
     );
   }
+}
+
+// Fungsi untuk menghitung total berdasarkan jumlah kursi
+int calculateTotal(int seatCount) {
+  int ticketPrice = 50000;
+  int feePrice = 20000;
+  return (ticketPrice * seatCount) + (feePrice * seatCount);
+}
+
+// Fungsi untuk memformat mata uang
+String formatCurrency(int amount) {
+  final formatter = NumberFormat("#,###", "id_ID");
+  return formatter.format(amount);
 }
