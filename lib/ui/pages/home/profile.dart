@@ -164,11 +164,13 @@ class _ProfilePageState extends State<ProfilPage> {
                         IconButton(
                             onPressed: () {
                               FirebaseAuth.instance.signOut();
+                              Navigator.pop(context);
                             },
                             icon: Icon(Icons.logout)),
                         TextButton(
                             onPressed: () {
                               FirebaseAuth.instance.signOut();
+                              Navigator.pop(context);
                             },
                             style: TextButton.styleFrom(
                                 foregroundColor: Colors.black),
