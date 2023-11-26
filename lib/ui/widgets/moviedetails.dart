@@ -106,12 +106,41 @@ class MovieDetails extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 3),
           Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Center(
+                  child: Text(
+                    movie.languageStr(),
+                    style: GoogleFonts.raleway(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  "Genre",
+                  style: GoogleFonts.raleway(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  movie.genre.join(", "),
+                  style: GoogleFonts.raleway(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(height: 20),
                 Text(
                   "StoryLine",
                   style: GoogleFonts.raleway(
@@ -159,7 +188,8 @@ class MovieDetails extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 80.0, right: 80.0, top: 40.0, bottom: 40.0),
+            padding: const EdgeInsets.only(
+                left: 80.0, right: 80.0, top: 40.0, bottom: 40.0),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(

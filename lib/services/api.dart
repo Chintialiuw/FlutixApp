@@ -56,24 +56,33 @@ class Api {
   }
 
   static Future<List<Movie>> getMovieDetails(int id) async {
-    final response = await http.get(
-        Uri.parse("https://api.themoviedb.org/3/movie/$id?api_key=$apiKey"));
+  final response = await http.get(
+    Uri.parse("https://api.themoviedb.org/3/movie/$id?api_key=$apiKey"),
+  );
 
-    List<Movie> movies = [];
-    if (response.statusCode == 200) {
-      var getMovie = json.decode(response.body);
+  List<Movie> movies = [];
+  if (response.statusCode == 200) {
+    var getMovie = json.decode(response.body);
 
-      movies.add(Movie(
-        id: getMovie["id"],
-        poster: 'https://image.tmdb.org/t/p/w500${getMovie["poster_path"]}',
-        judul: getMovie["title"],
-        genre: (getMovie["genres"] as List<dynamic>)
-            .map((genre) => genre["name"].toString())
-            .toList(),
-        rate: getMovie["vote_average"].toDouble(),
-        storyLine: getMovie["overview"],
-      ));
+    List<String> genres = [];
+    if (getMovie["genres"] != null && getMovie["genres"].length > 0) {
+      genres = (getMovie["genres"] as List<dynamic>)
+          .map((genre) => genre["name"].toString())
+          .toList();
     }
-    return movies;
+
+    movies.add(Movie(
+      id: getMovie["id"],
+      poster: 'https://image.tmdb.org/t/p/w500${getMovie["poster_path"]}',
+      judul: getMovie["title"],
+      genre: genres,
+      language: getMovie["original_language"] ?? "",
+      rate: getMovie["vote_average"].toDouble(),
+      storyLine: getMovie["overview"],
+    ));
   }
+  return movies;
+}
+
+
 }
