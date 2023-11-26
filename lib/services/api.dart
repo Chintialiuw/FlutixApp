@@ -79,10 +79,31 @@ class Api {
       language: getMovie["original_language"] ?? "",
       rate: getMovie["vote_average"].toDouble(),
       storyLine: getMovie["overview"],
+      listCast: await getMovieCasts(id),
     ));
   }
   return movies;
 }
 
+static Future<List<Cast>> getMovieCasts(int id) async {
+    final response = await http.get(Uri.parse(
+        "https://api.themoviedb.org/3/movie/$id/credits?api_key=$apiKey"));
 
+    List<Cast> casts = [];
+    if (response.statusCode == 200) {
+      var getCasts = json.decode(response.body) as Map<String, dynamic>;
+      var results = getCasts["cast"];
+      for (int i = 0; i < results.length; i++) {
+        casts.add(
+          Cast(
+            id: results[i]["id"] ?? "",
+            nama: results[i]["name"] ?? "",
+            foto: results[i]["profile_path"] ?? "",
+          ),
+        );
+      }
+    }
+
+    return casts;
+  }
 }
