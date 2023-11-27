@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_constructors_in_immutables
+// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_constructors_in_immutables, must_be_immutable
 
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/ui/pages/home/seat.dart';

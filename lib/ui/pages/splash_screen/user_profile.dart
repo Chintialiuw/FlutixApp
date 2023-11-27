@@ -1,5 +1,3 @@
-import 'package:flutixapp/ui/pages/home/home.dart';
-import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +22,7 @@ class _uprofState extends State<uprof> {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios,
               color: Color(0xFFE1A20B),
               size: 32,
@@ -73,7 +71,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors
                             .black, // Atur tingkat kegelapan sesuai kebutuhan
                         image: DecorationImage(
@@ -104,7 +102,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
                           image: AssetImage("assets/splash/music.jpeg"),
@@ -138,7 +136,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
                           image: AssetImage("assets/splash/actionn.jpeg"),
@@ -168,7 +166,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
                           image: AssetImage("assets/splash/drama.jpeg"),
@@ -202,7 +200,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
                           image: AssetImage("assets/splash/adventure.jpeg"),
@@ -232,7 +230,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
                           image: AssetImage("assets/splash/crime.jpeg"),
@@ -286,7 +284,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
                           image: AssetImage("assets/splash/indo.jpg"),
@@ -316,7 +314,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
                           image: AssetImage("assets/splash/english.jpg"),
@@ -350,7 +348,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
                           image: AssetImage("assets/splash/japan.jpeg"),
@@ -380,7 +378,7 @@ class _uprofState extends State<uprof> {
                     child: Container(
                       width: 150,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         image: DecorationImage(
                           image: AssetImage("assets/splash/korea.jpg"),
@@ -418,11 +416,11 @@ class _uprofState extends State<uprof> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => BottomNav()));
+                        MaterialPageRoute(builder: (context) => const BottomNav()));
                   },
-                  child: Padding(
+                  child: const Padding(
                     padding:
-                        const EdgeInsets.only(right: 35, top: 40, bottom: 40),
+                        EdgeInsets.only(right: 35, top: 40, bottom: 40),
                     child: Icon(
                       Icons.arrow_circle_right,
                       color: Color(0xFFE1A20B),

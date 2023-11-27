@@ -1,12 +1,10 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_constructors_in_immutables
+// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_constructors_in_immutables, must_be_immutable
 
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/services/services.dart';
-import 'package:flutixapp/ui/pages/home/places_date.dart';
 import 'package:flutixapp/ui/widgets/moviedetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class movie_details extends StatelessWidget {
   Movie movie;
@@ -14,7 +12,6 @@ class movie_details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var lebar = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: ListView(

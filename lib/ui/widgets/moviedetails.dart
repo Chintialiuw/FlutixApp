@@ -1,6 +1,5 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:flutixapp/ui/pages/home/movie_details.dart';
 import 'package:flutixapp/ui/pages/home/places_date.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutixapp/ui/widgets/moviecast.dart';
