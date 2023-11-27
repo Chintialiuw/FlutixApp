@@ -4,7 +4,6 @@ import 'package:flutixapp/ui/pages/home/wallettopup.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'profile.dart';
 
 class myWallet extends StatefulWidget {
   const myWallet({super.key});

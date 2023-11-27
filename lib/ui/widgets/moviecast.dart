@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, must_be_immutable
+
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/services/services.dart';
 import 'package:flutter/material.dart';

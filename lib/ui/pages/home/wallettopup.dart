@@ -1,6 +1,5 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:flutixapp/ui/pages/home/myWallet.dart';
 import 'package:flutixapp/ui/pages/home/successtopup.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

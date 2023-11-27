@@ -1,4 +1,3 @@
-import 'package:flutixapp/ui/pages/splash_screen/sign_in.dart';
 import 'package:flutixapp/ui/pages/splash_screen/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
