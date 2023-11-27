@@ -402,6 +402,7 @@ class _uprofState extends State<uprof> {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 40, left: 30, bottom: 40),
@@ -420,8 +421,8 @@ class _uprofState extends State<uprof> {
                         MaterialPageRoute(builder: (context) => BottomNav()));
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 70, right: 20, top: 40, bottom: 40),
+                    padding:
+                        const EdgeInsets.only(right: 35, top: 40, bottom: 40),
                     child: Icon(
                       Icons.arrow_circle_right,
                       color: Color(0xFFE1A20B),

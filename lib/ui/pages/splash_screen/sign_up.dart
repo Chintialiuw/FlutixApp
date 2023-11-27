@@ -259,6 +259,7 @@ class _signUpState extends State<signUp> {
                   ),
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding:
@@ -275,12 +276,16 @@ class _signUpState extends State<signUp> {
                     GestureDetector(
                       onTap: () => handleSubmit(),
                       child: _loading
-                          ? SizedBox(
-                              width: 20,
-                              height: 20,
-                              child: CircularProgressIndicator(
-                                color: Color(0xFFE1A20B),
-                                strokeWidth: 2,
+                          ? Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 70, top: 40, bottom: 40, right: 20),
+                              child: SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  color: Color(0xFFE1A20B),
+                                  strokeWidth: 2,
+                                ),
                               ),
                             )
                           : Padding(

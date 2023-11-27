@@ -162,6 +162,7 @@ class _signInState extends State<signIn> {
             ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 85, left: 20),
@@ -176,12 +177,16 @@ class _signInState extends State<signIn> {
               GestureDetector(
                 onTap: () => handleSubmit(),
                 child: _loading
-                    ? const SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: CircularProgressIndicator(
-                          color: Color(0xFFE1A20B),
-                          strokeWidth: 2,
+                    ? Padding(
+                        padding: const EdgeInsets.only(
+                            left: 100, top: 80, right: 20),
+                        child: const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            color: Color(0xFFE1A20B),
+                            strokeWidth: 2,
+                          ),
                         ),
                       )
                     : Padding(

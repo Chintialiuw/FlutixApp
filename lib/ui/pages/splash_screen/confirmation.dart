@@ -117,9 +117,10 @@ class _confirState extends State<confir> {
             ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 80, left: 20, bottom: 40),
+                padding: const EdgeInsets.only(top: 110, left: 20, bottom: 40),
                 child: Text(
                   "Yes, I am In",
                   style: GoogleFonts.raleway(
@@ -135,7 +136,8 @@ class _confirState extends State<confir> {
                       .push(MaterialPageRoute(builder: (context) => uprof()));
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 155, right: 20, top: 100, bottom: 40),
+                  padding: const EdgeInsets.only(
+                      left: 155, right: 20, top: 100, bottom: 40),
                   child: Icon(
                     Icons.arrow_circle_right,
                     color: Color(0xFFE1A20B),
