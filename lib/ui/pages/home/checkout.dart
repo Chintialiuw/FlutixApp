@@ -7,11 +7,16 @@ import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class checkout extends StatelessWidget {
-  checkout({Key? key, required this.selectedSeats}) : super(key: key);
+  checkout({Key? key, required this.selectedSeats, required this.movies});
   List<String> selectedSeats;
+  Movie movies;
 
   @override
   Widget build(BuildContext context) {
+    double rating = movies.rate / 2;
+    int fullStars = rating.floor();
+    bool hasHalfStar = (rating - fullStars) > 0;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -51,8 +56,11 @@ class checkout extends StatelessWidget {
                   Container(
                     width: 90,
                     height: 110,
-                    color: Colors.grey,
                     margin: EdgeInsets.only(left: 20.0, top: 10.0),
+                    child: Image.network(
+                      movies.poster,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +68,7 @@ class checkout extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Text(
-                          "Monster Inc",
+                          movies.judul,
                           style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 20,
@@ -71,7 +79,7 @@ class checkout extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Text(
-                          "Adventure - Indonesia",
+                          movies.genre.join(", "),
                           style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 14,
@@ -82,26 +90,36 @@ class checkout extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 7.0),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            for (int i = 0; i < 4; i++)
-                              Icon(
-                                Icons.star_rounded,
+                            Row(
+                              children: List.generate(
+                                fullStars,
+                                (starIndex) {
+                                  return const Icon(
+                                    Icons.star,
+                                    color: Colors.black,
+                                    size: 16,
+                                  );
+                                },
+                              ),
+                            ),
+                            if (hasHalfStar)
+                              const Icon(
+                                Icons.star_half,
                                 color: Colors.black,
                                 size: 16,
                               ),
-                            Icon(
-                              Icons.star_half_rounded,
-                              color: Colors.black,
-                              size: 16,
-                            ),
+                            const SizedBox(width: 5),
                             Text(
-                              "  8 / 10",
+                              "${movies.rate.toStringAsFixed(1)}/10",
                               style: GoogleFonts.openSans(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 14,
                                 color: Colors.black,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
