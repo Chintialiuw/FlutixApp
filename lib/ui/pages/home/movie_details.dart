@@ -17,23 +17,27 @@ class movie_details extends StatelessWidget {
         child: ListView(
           children: [
             FutureBuilder<List<Movie>>(
-                  future: Api.getMovieDetails(movie.id),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator(
-                color: Color(0xFFE1A20B),
-              );
-            } else if (snapshot.hasData) {
-              final movies = snapshot.data!;
-              return MovieDetails(
-                movie: movies.first,
-              );
-            } else if (snapshot.hasError) {
-              return Text("Error: ${snapshot.error}");
-            } else {
-              return Text("There is no data");
-                  }
-  }),
+              future: Api.getMovieDetails(movie.id),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    heightFactor: 25,
+                    child: CircularProgressIndicator(
+                      color: Color(0xFFE1A20B),
+                    ),
+                  );
+                } else if (snapshot.hasData) {
+                  final movies = snapshot.data!;
+                  return MovieDetails(
+                    movie: movies.first,
+                  );
+                } else if (snapshot.hasError) {
+                  return Text("Error: ${snapshot.error}");
+                } else {
+                  return Text("There is no data");
+                }
+              },
+            ),
           ],
         ),
       ),

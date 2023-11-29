@@ -5,11 +5,27 @@ import 'package:flutixapp/ui/pages/home/success_checkout.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:math';
 
 class checkout extends StatelessWidget {
   checkout({Key? key, required this.selectedSeats, required this.movies});
   List<String> selectedSeats;
   Movie movies;
+
+  String generateOrderId() {
+    Random random = Random();
+    List<int> orderIds = [];
+
+    while (orderIds.length < 5) {
+      int orderId = random.nextInt(1000);
+      if (!orderIds.contains(orderId)) {
+        orderIds.add(orderId);
+      }
+    }
+
+    String orderIdString = orderIds.join('');
+    return orderIdString;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +93,8 @@ class checkout extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
+                        padding: const EdgeInsets.only(
+                            left: 8.0, top: 10, bottom: 10),
                         child: Text(
                           movies.genre.join(", "),
                           style: GoogleFonts.raleway(
@@ -153,7 +170,7 @@ class checkout extends StatelessWidget {
                         ),
                         SizedBox(width: 135),
                         Text(
-                          "2208199612389",
+                          generateOrderId(),
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,

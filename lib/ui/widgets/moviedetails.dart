@@ -72,7 +72,8 @@ class MovieDetails extends StatelessWidget {
           const SizedBox(height: 20),
           Center(
             child: Text(
-              _truncateText(movie.judul, 20),
+              movie.judul,
+              textAlign: TextAlign.center,
               style: GoogleFonts.raleway(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
