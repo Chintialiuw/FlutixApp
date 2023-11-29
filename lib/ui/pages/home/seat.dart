@@ -210,8 +210,10 @@ class _SeatState extends State<Seat> {
 
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                            builder: (context) =>
-                                checkout(selectedSeats: selectedSeats)),
+                            builder: (context) => checkout(
+                                  selectedSeats: selectedSeats,
+                                  movies: widget.movie,
+                                )),
                       );
                     },
                     child: Padding(

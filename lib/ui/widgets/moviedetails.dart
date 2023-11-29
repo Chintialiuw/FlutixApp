@@ -25,7 +25,7 @@ class MovieDetails extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return BottomNav();
+              return const BottomNav();
             },
           ),
         );
@@ -58,7 +58,7 @@ class MovieDetails extends StatelessWidget {
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_back_ios,
                         color: Color(0xFFE1A20B),
                         size: 32,
@@ -69,7 +69,7 @@ class MovieDetails extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Center(
             child: Text(
               _truncateText(movie.judul, 20),
@@ -80,7 +80,7 @@ class MovieDetails extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 3),
+          const SizedBox(height: 3),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +89,7 @@ class MovieDetails extends StatelessWidget {
                 children: List.generate(
                   fullStars,
                   (starIndex) {
-                    return Icon(
+                    return const Icon(
                       Icons.star,
                       color: Colors.black,
                       size: 16,
@@ -98,7 +98,7 @@ class MovieDetails extends StatelessWidget {
                 ),
               ),
               if (hasHalfStar)
-                Icon(
+                const Icon(
                   Icons.star_half,
                   color: Colors.black,
                   size: 16,
@@ -114,7 +114,7 @@ class MovieDetails extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 3),
+          const SizedBox(height: 3),
           Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 20.0),
             child: Column(
@@ -130,7 +130,7 @@ class MovieDetails extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   "Genre",
                   style: GoogleFonts.raleway(
@@ -139,7 +139,7 @@ class MovieDetails extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   movie.genre.join(", "),
                   style: GoogleFonts.raleway(
@@ -148,7 +148,7 @@ class MovieDetails extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   "StoryLine",
                   style: GoogleFonts.raleway(
@@ -157,7 +157,7 @@ class MovieDetails extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   _truncateText(movie.storyLine, 500),
                   textAlign: TextAlign.justify,
@@ -167,7 +167,7 @@ class MovieDetails extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   "Cast",
                   style: GoogleFonts.raleway(
@@ -206,12 +206,12 @@ class MovieDetails extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFFE1A20B),
+                backgroundColor: const Color(0xFFE1A20B),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
-                minimumSize: Size(200, 50),
+                minimumSize: const Size(200, 50),
               ),
               child: Text(
                 "Continue to Book",
