@@ -23,7 +23,7 @@ class _EditProfileState extends State<EditProfile> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 20.0, top: 10.0),
+          padding: const EdgeInsets.only(top: 10.0, left: 20),
           child: InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -89,6 +89,7 @@ class _EditProfileState extends State<EditProfile> {
                       ),
                       child: TextField(
                         controller: _controllerPass,
+                        obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: "Password",
@@ -102,6 +103,7 @@ class _EditProfileState extends State<EditProfile> {
                       ),
                       child: TextField(
                         controller: _controllerConfPass,
+                        obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: "Confirm Password",
@@ -110,28 +112,28 @@ class _EditProfileState extends State<EditProfile> {
                       ),
                     ),
                     Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFE1A20B),
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                      padding: const EdgeInsets.all(50.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFFE1A20B),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          minimumSize: Size(200, 50),
+                        ),
+                        child: Text(
+                          "Update Now",
+                          style: GoogleFonts.raleway(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                      minimumSize: Size(200, 50),
                     ),
-                    child: Text(
-                      "Update Now",
-                      style: GoogleFonts.raleway(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
                   ],
                 ),
               ),

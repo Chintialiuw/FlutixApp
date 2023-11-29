@@ -327,20 +327,20 @@ class _wallettopupState extends State<wallettopup> {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFE1A20B),
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      minimumSize: Size(200, 50),
-                    ),
-                    child: Text(
-                      "Top Up My Wallet",
-                      style: GoogleFonts.raleway(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                          backgroundColor: Color(0xFFE1A20B),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          minimumSize: Size(200, 50),
+                        ),
+                        child: Text(
+                          "Top Up My Wallet",
+                          style: GoogleFonts.raleway(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     )
                   ],

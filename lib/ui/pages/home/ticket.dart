@@ -19,19 +19,6 @@ class _TicketPageState extends State<TicketPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 20.0, top: 10.0),
-          child: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(
-              Icons.arrow_back_ios,
-              color: Color(0xFFE1A20B),
-              size: 32,
-            ),
-          ),
-        ),
         title: Padding(
           padding: const EdgeInsets.only(top: 10.0),
           child: Text(
@@ -142,11 +129,16 @@ class _TicketPageState extends State<TicketPage> {
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Carl's Date",
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                          ),))
+                          ),
+                        ))
                   ],
                 ),
                 Row(
@@ -161,11 +153,16 @@ class _TicketPageState extends State<TicketPage> {
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Carl's Date",
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                          ),))
+                          ),
+                        ))
                   ],
                 ),
                 Row(
@@ -180,11 +177,16 @@ class _TicketPageState extends State<TicketPage> {
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Carl's Date",
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                          ),))
+                          ),
+                        ))
                   ],
                 ),
                 Row(
@@ -199,11 +201,16 @@ class _TicketPageState extends State<TicketPage> {
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Carl's Date",
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                          ),))
+                          ),
+                        ))
                   ],
                 ),
                 Row(
@@ -218,11 +225,16 @@ class _TicketPageState extends State<TicketPage> {
                             fit: BoxFit.fill),
                       ),
                     ),
-                    TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Carl's Date",
+                          style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                          ),))
+                          ),
+                        ))
                   ],
                 )
               ],

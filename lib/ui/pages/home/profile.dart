@@ -38,23 +38,6 @@ class _ProfilePageState extends State<ProfilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 20.0, top: 10.0),
-          child: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(
-              Icons.arrow_back_ios,
-              color: Color(0xFFE1A20B),
-              size: 32,
-            ),
-          ),
-        ),
-      ),
       body: ListView(
         children: [
           Column(
