@@ -53,4 +53,28 @@ class Auth {
       throw error;
     }
   }
+
+ Future<UserCredential?> genre(List<String> pilihGenre) async {
+    try {
+      UserCredential userCredential = await _auth.signInAnonymously();
+
+      // Perbarui dokumen pengguna di Firestore dengan genre yang dipilih
+      await _firestore.collection('users').doc(userCredential.user?.uid).set({
+        'pilihGenre': pilihGenre,
+      });
+
+      // Simpan email ke SharedPreferences
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('email', userCredential.user?.email ?? '');
+
+      // Convert List<String> ke String dan simpan ke SharedPreferences
+      String genreString = pilihGenre.join(',');
+      await prefs.setString('pilihGenre', genreString);
+
+      return userCredential;
+    } catch (error) {
+      print("Error: $error");
+      return null;
+    }
+  }
 }

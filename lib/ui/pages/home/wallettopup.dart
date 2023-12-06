@@ -10,6 +10,15 @@ class wallettopup extends StatefulWidget {
   @override
   State<wallettopup> createState() => _wallettopupState();
 }
+// class walletTopUp{
+//   int harga;
+
+//   walletTopUp(this.harga);
+// }
+
+// List<walletTopUp> TopUp =[
+  
+// ]
 
 class _wallettopupState extends State<wallettopup> {
   @override
