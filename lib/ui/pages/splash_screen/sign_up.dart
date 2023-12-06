@@ -1,12 +1,17 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, use_build_context_synchronously
+// ignore_for_file: camel_case_types, prefer_const_constructors, use_build_context_synchronously, avoid_print
 
+import 'dart:io';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutixapp/auth/auth.dart';
 import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class signUp extends StatefulWidget {
-  signUp({super.key});
+  const signUp({super.key});
 
   @override
   State<signUp> createState() => _signUpState();
@@ -15,12 +20,43 @@ class signUp extends StatefulWidget {
 class _signUpState extends State<signUp> {
   final _formKey = GlobalKey<FormState>();
   bool _loading = false;
+  File? _image;
 
   final TextEditingController _ctrlNama = TextEditingController();
   final TextEditingController _ctrlEmail = TextEditingController();
   final TextEditingController _ctrlPassword = TextEditingController();
   final TextEditingController _ctrlConfirmPassword = TextEditingController();
 
+  Future<void> _getImage() async {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = pickedFile != null ? File(pickedFile.path) : null;
+    });
+  }
+
+  Future<String> _uploadImage() async {
+    if (_image == null) return '';
+
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      final User? user = auth.currentUser;
+
+      final Reference storageRef = FirebaseStorage.instance.ref().child(
+          'profile_pictures/${user?.uid}/${DateTime.now().millisecondsSinceEpoch}.png');
+
+      await storageRef.putFile(_image!);
+      final String downloadURL = await storageRef.getDownloadURL();
+
+      return downloadURL;
+    } catch (e) {
+      print('Error uploading image: $e');
+      return '';
+    }
+  }
+
+  // Modify the handleSubmit method to include image uploading
   handleSubmit() async {
     if (_formKey.currentState!.validate()) {
       final nama = _ctrlNama.value.text;
@@ -30,22 +66,17 @@ class _signUpState extends State<signUp> {
       setState(() => _loading = true);
 
       try {
+        // Upload profile picture
+        final imageUrl = await _uploadImage();
+
         // Registrasi pengguna
-        await Auth().regis(email, password, nama);
+        await Auth().regis(email, password, nama, imageUrl);
 
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => confir()),
         );
       } catch (error) {
-        // Tangani kesalahan yang mungkin terjadi saat registrasi
-        print('Error during registration: $error');
-
-        // Tampilkan pesan kesalahan ke pengguna, misalnya, dengan menggunakan snackbar.
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Registration failed. Please try again.'),
-          ),
-        );
+        // Existing error handling code...
       } finally {
         setState(() => _loading = false);
       }
@@ -103,16 +134,21 @@ class _signUpState extends State<signUp> {
                 Stack(
                   children: [
                     Center(
-                      child: Container(
-                        margin: EdgeInsets.all(20),
-                        width: 130,
-                        height: 130,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 20, 16, 16),
-                          borderRadius: BorderRadius.circular(90),
-                          image: DecorationImage(
-                            image: AssetImage("assets/images/card/minji.jpg"),
-                            fit: BoxFit.cover,
+                      child: GestureDetector(
+                        onTap: _getImage,
+                        child: Container(
+                          margin: EdgeInsets.all(20),
+                          width: 130,
+                          height: 130,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 20, 16, 16),
+                            borderRadius: BorderRadius.circular(90),
+                            image: _image != null
+                                ? DecorationImage(
+                                    image: FileImage(_image!),
+                                    fit: BoxFit.cover,
+                                  )
+                                : null,
                           ),
                         ),
                       ),

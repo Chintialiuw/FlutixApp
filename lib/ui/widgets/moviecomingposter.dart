@@ -41,7 +41,7 @@ class MovieComingPoster extends StatelessWidget {
           Positioned(
             left: 10,
             top: 170,
-            child: Container(
+            child: SizedBox(
               width: 150,
               child: Text(
                 _truncateText(movie.judul, 11),

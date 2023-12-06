@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, use_build_context_synchronously
 
 import 'package:flutixapp/auth/auth.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
@@ -35,12 +35,6 @@ class _signInState extends State<signIn> {
         );
       } catch (error) {
         print('Error during login: $error');
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Login failed. Please try again.'),
-          ),
-        );
       } finally {
         setState(() => _loading = false);
       }

@@ -40,9 +40,9 @@ class _MyAppState extends State<MyApp> {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return BottomNav();
+            return const BottomNav();
           } else {
-            return splash();
+            return const splash();
           }
         },
       ),

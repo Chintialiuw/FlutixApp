@@ -381,7 +381,7 @@ class checkout extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(top: 50, left: 20, bottom: 40),
                     child: Text(
-                      "Select Your Seat",
+                      "Checkout Now",
                       style: GoogleFonts.raleway(
                         color: Colors.black,
                         fontWeight: FontWeight.w400,

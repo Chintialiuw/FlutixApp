@@ -13,20 +13,20 @@ class confir extends StatefulWidget {
 class _confirState extends State<confir> {
   String username = '';
   String email = '';
+  String profilePictureUrl = '';
 
   @override
   void initState() {
     super.initState();
-    loadNama(); // Memuat nama saat halaman dimuat
+    loadProfile(); // Load profile information when the page is loaded
   }
 
-  Future<void> loadNama() async {
+  Future<void> loadProfile() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      username = prefs.getString('nama') ??
-          ""; // Mendapatkan nama dari SharedPreferences
-      email = prefs.getString('email') ??
-          ""; // Mendapatkan nama dari SharedPreferences
+      username = prefs.getString('nama') ?? "";
+      email = prefs.getString('email') ?? "";
+      profilePictureUrl = prefs.getString('profilePictureUrl') ?? "";
     });
   }
 
@@ -42,7 +42,7 @@ class _confirState extends State<confir> {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios,
               color: Color(0xFFE1A20B),
               size: 32,
@@ -83,10 +83,14 @@ class _confirState extends State<confir> {
                     width: 130,
                     height: 130,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 20, 16, 16),
+                      color: const Color.fromARGB(255, 20, 16, 16),
                       borderRadius: BorderRadius.circular(90),
                       image: DecorationImage(
-                        image: AssetImage("assets/images/card/minji.jpg"),
+                        image: profilePictureUrl.isNotEmpty
+                            ? NetworkImage(profilePictureUrl)
+                                as ImageProvider<Object> // Explicit cast
+                            : const AssetImage(
+                                "assets/images/card/profile.png"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -131,11 +135,11 @@ class _confirState extends State<confir> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => uprof()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const uprof()));
                 },
-                child: Padding(
-                  padding: const EdgeInsets.only(
+                child: const Padding(
+                  padding: EdgeInsets.only(
                       left: 155, right: 20, top: 100, bottom: 40),
                   child: Icon(
                     Icons.arrow_circle_right,

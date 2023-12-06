@@ -2,7 +2,6 @@
 
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/ui/pages/home/seat.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -100,7 +99,7 @@ class _placesdateState extends State<placesdate> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '$namaHari',
+                            namaHari,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.raleway(
                                 color: pilihTanggal == index
@@ -110,7 +109,7 @@ class _placesdateState extends State<placesdate> {
                                 fontWeight: FontWeight.normal),
                           ),
                           Text(
-                            '$tanggal',
+                            tanggal,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.openSans(
                                 color: pilihTanggal == index

@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, library_private_types_in_public_api
 
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/ui/pages/home/checkout.dart';
@@ -32,10 +32,10 @@ class _SeatState extends State<Seat> {
       child: Container(
         width: 40,
         height: 40,
-        margin: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         decoration: BoxDecoration(
           color: seatStatus[row][col] ? kSeatSelectedColor : Colors.white,
-          border: Border.all(color: Color(0xFFF8D061), width: 1),
+          border: Border.all(color: const Color(0xFFF8D061), width: 1),
           borderRadius: BorderRadius.circular(4),
         ),
         child: Align(
@@ -66,7 +66,7 @@ class _SeatState extends State<Seat> {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios,
               color: Colors.black, // Ubah warna ikon panah menjadi hitam
               size: 32,
@@ -81,16 +81,16 @@ class _SeatState extends State<Seat> {
               Container(
                 width: 320,
                 height: 10,
-                margin: EdgeInsets.only(top: 20, bottom: 10),
+                margin: const EdgeInsets.only(top: 20, bottom: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: Color(0xFF9F816E),
+                  color: const Color(0xFF9F816E),
                 ),
               ),
               Align(
                 alignment: Alignment.center,
                 child: Container(
-                  margin: EdgeInsets.only(bottom: 10),
+                  margin: const EdgeInsets.only(bottom: 10),
                   child: Text(
                     "Layar Bioskop",
                     style: GoogleFonts.raleway(fontSize: 14),
@@ -119,14 +119,14 @@ class _SeatState extends State<Seat> {
                   Container(
                     width: 20,
                     height: 20,
-                    margin: EdgeInsets.only(left: 50, right: 10, top: 10),
+                    margin: const EdgeInsets.only(left: 50, right: 10, top: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(4),
                       color: kSeatBookedColor,
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Text(
                       "Booked",
                       style: GoogleFonts.raleway(fontSize: 12),
@@ -139,15 +139,15 @@ class _SeatState extends State<Seat> {
                   Container(
                     width: 20,
                     height: 20,
-                    margin: EdgeInsets.only(left: 10, right: 10, top: 10),
+                    margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(color: Color(0xFFF8D061), width: 1),
+                      border: Border.all(color: const Color(0xFFF8D061), width: 1),
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Text(
                       "Available",
                       style: GoogleFonts.raleway(fontSize: 12),
@@ -160,14 +160,14 @@ class _SeatState extends State<Seat> {
                   Container(
                     width: 20,
                     height: 20,
-                    margin: EdgeInsets.only(left: 10, top: 10),
+                    margin: const EdgeInsets.only(left: 10, top: 10),
                     decoration: BoxDecoration(
                       color: kSeatSelectedColor,
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 10, left: 10),
+                    padding: const EdgeInsets.only(top: 10, left: 10),
                     child: Text(
                       "Selected",
                       style: GoogleFonts.raleway(fontSize: 12),
@@ -217,7 +217,7 @@ class _SeatState extends State<Seat> {
                       );
                     },
                     child: Padding(
-                      padding: EdgeInsets.only(right: 20, top: 50, bottom: 40),
+                      padding: const EdgeInsets.only(right: 20, top: 50, bottom: 40),
                       child: Icon(
                         Icons.arrow_circle_right,
                         color: kSeatSelectedColor,
