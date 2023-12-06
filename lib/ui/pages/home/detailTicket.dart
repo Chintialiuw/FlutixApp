@@ -3,6 +3,8 @@
 import 'package:flutixapp/ui/pages/home/ticket.dart';
 import 'package:flutter/material.dart';
 
+import '../../../models/models.dart';
+
 class detailTicket extends StatefulWidget {
   const detailTicket({super.key});
 
@@ -11,6 +13,7 @@ class detailTicket extends StatefulWidget {
 }
 
 class _detailTicketState extends State<detailTicket> {
+  Movie? movies;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,22 +54,25 @@ class _detailTicketState extends State<detailTicket> {
                         width: 276,
                         height: 131,
                         margin: const EdgeInsets.only(top: 20, left: 20),
-                        child: Image.asset("assets/images/card/monster.png",
-                            fit: BoxFit.fill),
+                        child: Image.network(
+                          movies?.poster ?? "",
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
-                    Text("Monster, Inc.",
+                    Text(movies?.judul ?? "",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal)),
-                    Text("Adventure - Indonesia",
+                    Text("Adventure - Indonesia", //movies?.genre ?? ""
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 12,
                             fontWeight: FontWeight.normal)),
                     Row(
                       children: List.generate(5, (index) {
+                        //movies?.rate ?? "",
                         return Icon(
                           Icons.star,
                           color: Colors.yellow,

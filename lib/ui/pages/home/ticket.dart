@@ -5,6 +5,9 @@ import 'package:flutixapp/ui/pages/home/detailTicket.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../models/models.dart';
+import '../../widgets/myTiketPage.dart';
+
 class TicketPage extends StatefulWidget {
   const TicketPage({super.key});
 
@@ -13,6 +16,7 @@ class TicketPage extends StatefulWidget {
 }
 
 class _TicketPageState extends State<TicketPage> {
+  Movie? movies;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,157 +88,58 @@ class _TicketPageState extends State<TicketPage> {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
+                Column(
                   children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 75,
-                        height: 100,
-                        margin: const EdgeInsets.only(left: 20),
-                        child: Image.asset("assets/images/card/Carl's-date.png",
-                            fit: BoxFit.fill),
-                      ),
-                    ),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => detailTicket()),
-                          );
-                        },
-                        child: Text(
-                          "Carl's Date",
-                          style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => detailTicket()));
+                          },
+                          child: Container(
+                            width: 75,
+                            height: 100,
+                            margin: const EdgeInsets.only(left: 20),
+                            child: Image.network(
+                              movies?.poster ?? "",
+                              fit: BoxFit.fill,
+                            ),
                           ),
-                        ))
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 75,
-                        height: 100,
-                        margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset("assets/images/card/Carl's-date.png",
-                            fit: BoxFit.fill),
-                      ),
-                    ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Carl's Date",
-                          style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Column(
+                            children: [
+                              Text(
+                                movies?.judul ?? "",
+                                style: GoogleFonts.raleway(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "Carl's Date",
+                                style: GoogleFonts.raleway(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "Carl's Date",
+                                style: GoogleFonts.raleway(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
-                        ))
-                  ],
-                ),
-                Row(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 75,
-                        height: 100,
-                        margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset("assets/images/card/Carl's-date.png",
-                            fit: BoxFit.fill),
-                      ),
-                    ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Carl's Date",
-                          style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ))
-                  ],
-                ),
-                Row(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 75,
-                        height: 100,
-                        margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset("assets/images/card/Carl's-date.png",
-                            fit: BoxFit.fill),
-                      ),
-                    ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Carl's Date",
-                          style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ))
-                  ],
-                ),
-                Row(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 75,
-                        height: 100,
-                        margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset("assets/images/card/Carl's-date.png",
-                            fit: BoxFit.fill),
-                      ),
-                    ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Carl's Date",
-                          style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ))
-                  ],
-                ),
-                Row(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 75,
-                        height: 100,
-                        margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Image.asset("assets/images/card/Carl's-date.png",
-                            fit: BoxFit.fill),
-                      ),
-                    ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Carl's Date",
-                          style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ))
+                        ),
+                      ],
+                    )
                   ],
                 )
               ],
