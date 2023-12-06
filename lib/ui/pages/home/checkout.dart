@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, must_be_immutable
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/ui/pages/home/success_checkout.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,14 @@ class checkout extends StatelessWidget {
   String namaJam;
   String namaHari;
 
-    checkout({Key? key, required this.movies, required this.namaJam, required this.namaHari, required this.selectedSeats, required this.namaBioskop}) : super(key: key);
+  checkout(
+      {Key? key,
+      required this.movies,
+      required this.namaJam,
+      required this.namaHari,
+      required this.selectedSeats,
+      required this.namaBioskop})
+      : super(key: key);
   String generateOrderId() {
     Random random = Random();
     List<int> orderIds = [];
@@ -195,7 +203,6 @@ class checkout extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        
                         Text(
                           namaBioskop,
                           textAlign: TextAlign.right,
@@ -392,6 +399,20 @@ class checkout extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
+                      CollectionReference historiCheckCollection =
+                          FirebaseFirestore.instance.collection('historyCheck');
+                      Map<String, dynamic> checkoutData = {
+                        'orderId': generateOrderId(),
+                        'movieTitle': movies.judul,
+                        'cinema': namaBioskop,
+                        'dateTime': '$namaHari, $namaJam',
+                        'selectedSeats': selectedSeats,
+                        'ticketPrice': 50000,
+                        'feePrice': 20000,
+                        'total': calculateTotal(selectedSeats.length),
+                      };
+                      historiCheckCollection.add(checkoutData);
+
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => success_checkout()));
                     },
