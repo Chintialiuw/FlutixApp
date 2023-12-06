@@ -79,10 +79,10 @@ class _HomePageState extends State<HomePage> {
                                     "assets/images/card/minji.jpg"),
                           );
                         } else {
-                          return CircleAvatar(
+                          return const CircleAvatar(
                             radius: 30,
-                            backgroundImage: const AssetImage(
-                                "assets/images/card/minji.jpg"),
+                            backgroundImage:
+                                AssetImage("assets/images/card/minji.jpg"),
                           );
                         }
                       },
