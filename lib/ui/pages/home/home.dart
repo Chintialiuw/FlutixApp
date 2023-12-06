@@ -19,6 +19,7 @@ Color textColor = const Color(0xFFF4EDE6);
 
 class _HomePageState extends State<HomePage> {
   String username = '';
+  String profilePictureUrl = '';
   List<Movie> movies = [];
 
   List<Movie> comingSoonMovies = [];
@@ -26,14 +27,20 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    loadNama();
+    loadProfile();
   }
 
-  Future<void> loadNama() async {
+  Future<void> loadProfile() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       username = prefs.getString('nama') ?? "";
+      profilePictureUrl = prefs.getString('profilePictureUrl') ?? "";
     });
+  }
+
+  Future<String> _loadProfileImage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('profilePictureUrl') ?? "";
   }
 
   @override
@@ -52,10 +59,33 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const CircleAvatar(
-                      radius: 30,
-                      backgroundImage:
-                          AssetImage("assets/images/card/minji.jpg"),
+                    FutureBuilder<String>(
+                      future:
+                          _loadProfileImage(), // Panggil fungsi di dalam HomePage
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const CircularProgressIndicator(
+                            color: Color(0xFFE1A20B),
+                          );
+                        } else if (snapshot.hasData) {
+                          final profilePictureUrl = snapshot.data!;
+                          return CircleAvatar(
+                            radius: 30,
+                            backgroundImage: profilePictureUrl.isNotEmpty
+                                ? NetworkImage(profilePictureUrl)
+                                    as ImageProvider<Object>?
+                                : const AssetImage(
+                                    "assets/images/card/minji.jpg"),
+                          );
+                        } else {
+                          return CircleAvatar(
+                            radius: 30,
+                            backgroundImage: const AssetImage(
+                                "assets/images/card/minji.jpg"),
+                          );
+                        }
+                      },
                     ),
                     const SizedBox(
                       width: 20,
@@ -78,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 width: 330,
                 child: Padding(
@@ -261,7 +291,7 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               InkWell(
                 onTap: () {},
                 child: Stack(
@@ -296,8 +326,7 @@ class _HomePageState extends State<HomePage> {
                                     fontWeight: FontWeight.bold,
                                     color: textColor))
                           ],
-                        )
-                        ),
+                        )),
                   ],
                 ),
               )

@@ -18,21 +18,26 @@ class ProfilPage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilPage> {
   String username = '';
   String email = '';
+  String profilePictureUrl = '';
 
   @override
   void initState() {
     super.initState();
-    loadNama(); // Memuat nama saat halaman dimuat
+    loadProfile();
   }
 
-  Future<void> loadNama() async {
+  Future<void> loadProfile() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      username = prefs.getString('nama') ??
-          ""; // Mendapatkan nama dari SharedPreferences
-      email = prefs.getString('email') ??
-          ""; // Mendapatkan nama dari SharedPreferences
+      username = prefs.getString('nama') ?? "";
+      email = prefs.getString('email') ?? "";
+      profilePictureUrl = prefs.getString('profilePictureUrl') ?? "";
     });
+  }
+
+  Future<String> _loadProfileImage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('profilePictureUrl') ?? "";
   }
 
   @override
@@ -46,10 +51,33 @@ class _ProfilePageState extends State<ProfilPage> {
                 padding: EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    const CircleAvatar(
-                      radius: 50,
-                      backgroundImage:
-                          AssetImage("assets/images/card/minji.jpg"),
+                    FutureBuilder<String>(
+                      future:
+                          _loadProfileImage(), // Panggil fungsi di dalam HomePage
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const CircularProgressIndicator(
+                            color: Color(0xFFE1A20B),
+                          );
+                        } else if (snapshot.hasData) {
+                          final profilePictureUrl = snapshot.data!;
+                          return CircleAvatar(
+                            radius: 50,
+                            backgroundImage: profilePictureUrl.isNotEmpty
+                                ? NetworkImage(profilePictureUrl)
+                                    as ImageProvider<Object>?
+                                : const AssetImage(
+                                    "assets/images/card/minji.jpg"),
+                          );
+                        } else {
+                          return CircleAvatar(
+                            radius: 50,
+                            backgroundImage: const AssetImage(
+                                "assets/images/card/minji.jpg"),
+                          );
+                        }
+                      },
                     ),
                     const SizedBox(height: 10),
                     Text(

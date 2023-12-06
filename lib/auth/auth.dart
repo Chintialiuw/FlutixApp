@@ -27,6 +27,8 @@ class Auth {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('email', email);
       prefs.setString('nama', fullName);
+      prefs.setString('profilePictureUrl',
+          profilePictureUrl!); // Pastikan url tidak null, dan pastikan bahwa ini adalah URL yang valid
 
       return userCredential;
     } catch (error) {
