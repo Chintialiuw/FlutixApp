@@ -8,7 +8,11 @@ import 'package:google_fonts/google_fonts.dart';
 class Seat extends StatefulWidget {
   Movie movie;
 
-  Seat({Key? key, required this.movie}) : super(key: key);
+  Seat({Key? key, required this.movie, required this.namaJam,required this.namaHari, required this.namaBioskop}) : super(key: key);
+  
+  String namaBioskop;
+  String namaJam;
+  String namaHari;
 
   @override
   _SeatState createState() => _SeatState();
@@ -211,6 +215,9 @@ class _SeatState extends State<Seat> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                             builder: (context) => checkout(
+                                  namaBioskop: widget.namaBioskop,
+                                  namaJam: widget.namaJam,
+                                  namaHari: widget.namaHari,
                                   selectedSeats: selectedSeats,
                                   movies: widget.movie,
                                 )),

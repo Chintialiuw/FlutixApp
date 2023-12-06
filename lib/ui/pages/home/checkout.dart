@@ -8,10 +8,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 
 class checkout extends StatelessWidget {
-  checkout({Key? key, required this.selectedSeats, required this.movies});
   List<String> selectedSeats;
   Movie movies;
+  String namaBioskop;
+  String namaJam;
+  String namaHari;
 
+    checkout({Key? key, required this.movies, required this.namaJam, required this.namaHari, required this.selectedSeats, required this.namaBioskop}) : super(key: key);
   String generateOrderId() {
     Random random = Random();
     List<int> orderIds = [];
@@ -168,7 +171,6 @@ class checkout extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 135),
                         Text(
                           generateOrderId(),
                           textAlign: TextAlign.right,
@@ -193,9 +195,9 @@ class checkout extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 120),
+                        
                         Text(
-                          "Paris Van Java Mall",
+                          namaBioskop,
                           textAlign: TextAlign.right,
                           style: GoogleFonts.raleway(
                             color: Colors.black,
@@ -218,9 +220,8 @@ class checkout extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 130),
                         Text(
-                          "Sat 21, 12:00",
+                          "$namaHari, $namaJam",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
