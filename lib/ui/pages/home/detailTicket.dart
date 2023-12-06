@@ -2,6 +2,7 @@
 
 import 'package:flutixapp/ui/pages/home/ticket.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class detailTicket extends StatefulWidget {
   const detailTicket({super.key});
@@ -14,6 +15,31 @@ class _detailTicketState extends State<detailTicket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.only(top: 10.0, left: 20),
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
+            ),
+          ),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Text(
+            "Ticket",
+            style: GoogleFonts.raleway(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           Column(
@@ -22,29 +48,6 @@ class _detailTicketState extends State<detailTicket> {
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => TicketPage()));
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 20, left: 20),
-                            child: Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.yellow,
-                              size: 40,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Ticket",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
                     InkWell(
                       onTap: () {},
                       child: Container(

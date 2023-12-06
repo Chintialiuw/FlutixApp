@@ -57,57 +57,132 @@ class _EditProfileState extends State<EditProfile> {
                       backgroundImage: AssetImage("images/card/minji.jpg"),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 40,
-                        bottom: 10,
-                      ),
-                      child: TextField(
+                      padding:
+                          const EdgeInsets.only(top: 40, left: 20, right: 20),
+                      child: TextFormField(
                         controller: _controllerNama,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Insert your full name';
+                          }
+                          return null;
+                        },
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(borderSide: BorderSide()),
                           labelText: "Full Name",
-                          hintText: "Type Here ...",
+                          labelStyle: GoogleFonts.raleway(color: Colors.black),
+                          hintText: "Your Full Name...",
+                          hintStyle: GoogleFonts.raleway(color: Colors.black),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.grey,
+                              width: 3,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFE1A20B),
+                              width: 3,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 10,
-                      ),
-                      child: TextField(
+                      padding:
+                          const EdgeInsets.only(top: 30, left: 20, right: 20),
+                      child: TextFormField(
                         controller: _controllerEmail,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Insert your email address';
+                          }
+                          return null;
+                        },
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(borderSide: BorderSide()),
                           labelText: "Email Address",
-                          hintText: "Type Here ...",
+                          labelStyle: GoogleFonts.raleway(color: Colors.black),
+                          hintText: "Your Email Address...",
+                          hintStyle: GoogleFonts.raleway(color: Colors.black),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.grey,
+                              width: 3,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFE1A20B),
+                              width: 3,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 10,
-                      ),
-                      child: TextField(
+                      padding:
+                          const EdgeInsets.only(top: 30, left: 20, right: 20),
+                      child: TextFormField(
                         controller: _controllerPass,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Insert your password';
+                          }
+                          return null;
+                        },
                         obscureText: true,
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(borderSide: BorderSide()),
                           labelText: "Password",
-                          hintText: "Type Here ...",
+                          labelStyle: GoogleFonts.raleway(color: Colors.black),
+                          hintText: "***********",
+                          hintStyle: GoogleFonts.raleway(color: Colors.black),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.grey,
+                              width: 3,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFE1A20B),
+                              width: 3,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 10,
-                      ),
-                      child: TextField(
+                      padding:
+                          const EdgeInsets.only(top: 30, left: 20, right: 20),
+                      child: TextFormField(
                         controller: _controllerConfPass,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Insert your confirm password';
+                          }
+                          return null;
+                        },
                         obscureText: true,
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(borderSide: BorderSide()),
                           labelText: "Confirm Password",
-                          hintText: "Type Here ...",
+                          labelStyle: GoogleFonts.raleway(color: Colors.black),
+                          hintText: "***********",
+                          hintStyle: GoogleFonts.raleway(color: Colors.black),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.grey,
+                              width: 3,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFE1A20B),
+                              width: 3,
+                            ),
+                          ),
                         ),
                       ),
                     ),
