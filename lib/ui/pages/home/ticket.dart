@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../models/models.dart';
-import '../../widgets/myTiketPage.dart';
 
 class TicketPage extends StatefulWidget {
   const TicketPage({super.key});

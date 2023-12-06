@@ -17,12 +17,22 @@ class wallettopup extends StatefulWidget {
 // }
 
 // List<walletTopUp> TopUp =[
-  
+
 // ]
 
 class _wallettopupState extends State<wallettopup> {
+  TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var lebar = MediaQuery.of(context).size.width;
+    List<String> template = [
+      "50.000",
+      "100.000",
+      "150.000",
+      "200.000",
+      "500.000",
+      "1.000.000"
+    ];
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -58,20 +68,18 @@ class _wallettopupState extends State<wallettopup> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(),
-                      child: Text(
-                        "Amount",
-                        style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16),
-                      ),
+                    Text(
+                      "Amount",
+                      style: GoogleFonts.raleway(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 1),
                       child: TextField(
-                        style: TextStyle(color: Colors.white),
+                        controller: _controller,
+                        style: TextStyle(color: Colors.black),
                         onChanged: (value) {},
                         decoration: InputDecoration(
                             filled: true,
@@ -99,231 +107,54 @@ class _wallettopupState extends State<wallettopup> {
                             fontSize: 16),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Column(
-                          children: [
-                            InkWell(
-                              onTap: () {},
-                              child: Container(
-                                width: 120,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "IDR",
-                                      style: GoogleFonts.raleway(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                    Text(
-                                      "50.000",
-                                      style: GoogleFonts.openSans(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                  ],
-                                ),
+                    // ListView.builder untuk menampilkan daftar template
+                    ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: template.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding: EdgeInsets.symmetric(vertical: 3),
+                          child: GestureDetector(
+                            onTap: () {
+                              _controller.text = template[index];
+                            },
+                            child: Container(
+                              height: 60,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                color: _controller.text == template[index]
+                                    ? Colors
+                                        .black // Ubah warna jika template dipilih
+                                    : Colors.grey,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "IDR",
+                                    style: GoogleFonts.raleway(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16),
+                                  ),
+                                  Text(
+                                    template[index],
+                                    style: GoogleFonts.raleway(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16),
+                                  ),
+                                ],
                               ),
                             ),
-                            SizedBox(
-                              height: 25,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  Navigator.pushNamed(context, 'myticket');
-                                });
-                              },
-                              child: Container(
-                                width: 120,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "IDR",
-                                      style: GoogleFonts.raleway(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                    Text(
-                                      "150.000",
-                                      style: GoogleFonts.openSans(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 25,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: Container(
-                                width: 120,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "IDR",
-                                      style: GoogleFonts.raleway(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                    Text(
-                                      "500.000",
-                                      style: GoogleFonts.openSans(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 25,
-                        ),
-                        Column(
-                          children: [
-                            InkWell(
-                              onTap: () {},
-                              child: Container(
-                                width: 120,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "IDR",
-                                      style: GoogleFonts.raleway(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                    Text(
-                                      "100.000",
-                                      style: GoogleFonts.openSans(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 25,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: Container(
-                                width: 120,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "IDR",
-                                      style: GoogleFonts.raleway(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                    Text(
-                                      "200.000",
-                                      style: GoogleFonts.openSans(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 25,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              child: Container(
-                                width: 120,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "IDR",
-                                      style: GoogleFonts.raleway(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                    Text(
-                                      "1.000.000",
-                                      style: GoogleFonts.openSans(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                          ],
-                        ),
-                      ],
+                          ),
+                        );
+                      },
                     ),
+
                     SizedBox(
-                      height: 90,
+                      height: 40,
                     ),
                     Align(
                       alignment: Alignment.center,

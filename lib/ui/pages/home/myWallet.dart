@@ -4,7 +4,6 @@ import 'package:flutixapp/ui/pages/home/wallettopup.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class myWallet extends StatefulWidget {
   const myWallet({super.key});
 
@@ -73,83 +72,21 @@ class _myWalletState extends State<myWallet> {
                           child: Container(
                             width: 75,
                             height: 100,
-                            margin: const EdgeInsets.only(
-                               top: 20, bottom: 20),
+                            margin: const EdgeInsets.only(top: 20, bottom: 20),
                             child: Image.asset("images/card/Carl's-date.png",
                                 fit: BoxFit.fill),
                           ),
                         ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-                    ),)
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: 75,
-                            height: 100,
-                            margin: const EdgeInsets.only(bottom: 20),
-                            child: Image.asset("images/card/Carl's-date.png",
-                                fit: BoxFit.fill),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Carl's Date",
+                            style: GoogleFonts.raleway(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
                           ),
-                        ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-                    ),)
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: 75,
-                            height: 100,
-                            margin: const EdgeInsets.only(bottom: 20),
-                            child: Image.asset("images/card/Carl's-date.png",
-                                fit: BoxFit.fill),
-                          ),
-                        ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-                    ),)
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: 75,
-                            height: 100,
-                            margin: const EdgeInsets.only(bottom: 20),
-                            child: Image.asset("images/card/Carl's-date.png",
-                                fit: BoxFit.fill),
-                          ),
-                        ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-                    ),)
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: 75,
-                            height: 100,
-                            margin: const EdgeInsets.only(bottom: 20),
-                            child: Image.asset("images/card/Carl's-date.png",
-                                fit: BoxFit.fill),
-                          ),
-                        ),
-                        TextButton(onPressed: () {}, child: Text("Carl's Date", style: GoogleFonts.raleway(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-                    ),)
+                        )
                       ],
                     ),
                     Center(
@@ -162,20 +99,20 @@ class _myWalletState extends State<myWallet> {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFE1A20B),
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      minimumSize: Size(200, 50),
-                    ),
-                    child: Text(
-                      "Top Up Wallet",
-                      style: GoogleFonts.raleway(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                          backgroundColor: Color(0xFFE1A20B),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          minimumSize: Size(200, 50),
+                        ),
+                        child: Text(
+                          "Top Up Wallet",
+                          style: GoogleFonts.raleway(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ],
