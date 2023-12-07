@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class wallettopup extends StatefulWidget {
-  const wallettopup({super.key});
+  const wallettopup({Key? key}) : super(key: key);
 
   @override
   State<wallettopup> createState() => _wallettopupState();
@@ -164,13 +164,23 @@ class _wallettopupState extends State<wallettopup> {
                           int templateValue = int.tryParse(
                                   _controller.text.replaceAll(".", "")) ??
                               0;
-                          int newBalance = currentBalance + templateValue;
-                          print("New Balance: $newBalance");
+                          int newTopUpAmount = templateValue;
+
+                          // int updatedBalance = currentBalance + newTopUpAmount;
+
+                          // Update the currentBalance with the new total
+                          setState(() {
+                            currentBalance += newTopUpAmount;
+                          });
+
+                          print("New Balance: $currentBalance");
 
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => successtopup(newBalance)),
+                              builder: (context) =>
+                                  successtopup(currentBalance),
+                            ),
                           );
                         },
                         style: ElevatedButton.styleFrom(

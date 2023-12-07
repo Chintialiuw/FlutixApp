@@ -53,26 +53,25 @@ class _myWalletState extends State<myWallet> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Stack(
-                      children: [
-                        Container(
-                          width: 276,
-                          height: 131,
-                          margin: const EdgeInsets.only(top: 20, left: 20),
-                          child: Image.asset("assets/images/wallet/wallet.png",
-                              fit: BoxFit.fill),
-                        ),
-                        Text(
-                          "IDR ${widget.saldo ?? 0}",
-                          style: GoogleFonts.raleway(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          "Available Balance",
-                          style: GoogleFonts.raleway(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    Container(
+                      width: 276,
+                      height: 131,
+                      margin: const EdgeInsets.only(top: 20, left: 20),
+                      child: Image.asset("assets/images/wallet/wallet.png",
+                          fit: BoxFit.fill),
+                    ),
+                    Text(
+                      "IDR ${widget.saldo ?? 0}",
+                      style: GoogleFonts.raleway(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Available Balance",
+                      style: GoogleFonts.raleway(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 20),
                     Text(
