@@ -90,7 +90,7 @@ class _uprofState extends State<uprof> {
                     padding: const EdgeInsets.only(top: 20, left: 30),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
+                        Color.fromARGB(255, 0, 0, 0)
                             .withOpacity(0.2),
                         BlendMode.darken,
                       ),
@@ -101,7 +101,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('Horror');
                             textColorMap['Horror'] =
                                 (textColorMap['Horror'] == Colors.white)
-                                    ? Colors.deepOrange
+                                    ? Color.fromARGB(255, 228, 127, 248)
                                     : Colors.white;
                           });
                         },
@@ -132,8 +132,8 @@ class _uprofState extends State<uprof> {
                         const EdgeInsets.only(top: 20, right: 20, left: 30),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
-                            .withOpacity(0.2),
+                       Color.fromARGB(255, 0, 0, 0)
+                            .withOpacity(0.5),
                         BlendMode.darken,
                       ),
                       child: GestureDetector(
@@ -143,7 +143,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('Music');
                             textColorMap['Music'] =
                                 (textColorMap['Music'] == Colors.white)
-                                    ? Colors.deepOrange
+                                    ? Color.fromARGB(255, 228, 127, 248)
                                     : Colors.white;
                           });
                         },
@@ -178,8 +178,8 @@ class _uprofState extends State<uprof> {
                     padding: const EdgeInsets.only(top: 20, left: 30),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
-                            .withOpacity(0.2),
+                        Color.fromARGB(255, 0, 0, 0)
+                            .withOpacity(0.5),
                         BlendMode.darken,
                       ),
                       child: GestureDetector(
@@ -189,7 +189,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('Action');
                             textColorMap['Action'] =
                                 (textColorMap['Action'] == Colors.white)
-                                    ? Colors.deepOrange
+                                      ? Color.fromARGB(255, 228, 127, 248)
                                     : Colors.white;
                           });
                         },
@@ -221,8 +221,8 @@ class _uprofState extends State<uprof> {
                         const EdgeInsets.only(top: 20, right: 20, left: 30),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
-                            .withOpacity(0.2),
+                        Color.fromARGB(255, 0, 0, 0)
+                            .withOpacity(0.4),
                         BlendMode.darken,
                       ),
                       child: GestureDetector(
@@ -232,7 +232,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('Drama');
                             textColorMap['Drama'] =
                                 (textColorMap['Drama'] == Colors.white)
-                                    ? Colors.deepOrange
+                                    ? Color.fromARGB(255, 228, 127, 248)
                                     : Colors.white;
                           });
                         },
@@ -267,8 +267,8 @@ class _uprofState extends State<uprof> {
                     padding: const EdgeInsets.only(top: 20, left: 30),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
-                            .withOpacity(0.2),
+                        Color.fromARGB(255, 0, 0, 0)
+                            .withOpacity(0.3),
                         BlendMode.darken,
                       ),
                       child: GestureDetector(
@@ -278,7 +278,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('Adventure');
                             textColorMap['Adventure'] =
                                 (textColorMap['Adventure'] == Colors.white)
-                                    ? Colors.deepOrange
+                                    ? Color.fromARGB(255, 228, 127, 248)
                                     : Colors.white;
                           });
                         },
@@ -310,8 +310,8 @@ class _uprofState extends State<uprof> {
                         const EdgeInsets.only(top: 20, left: 30, right: 20),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
-                            .withOpacity(0.2),
+                        Color.fromARGB(255, 0, 0, 0)
+                            .withOpacity(0.3),
                         BlendMode.darken,
                       ),
                       child: GestureDetector(
@@ -321,7 +321,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('Crime');
                             textColorMap['Crime'] =
                                 (textColorMap['Crime'] == Colors.white)
-                                    ? Colors.deepOrange
+                                      ? Color.fromARGB(255, 228, 127, 248)
                                     : Colors.white;
                           });
                         },
@@ -376,8 +376,8 @@ class _uprofState extends State<uprof> {
                     padding: const EdgeInsets.only(top: 20, left: 30),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
-                            .withOpacity(0.2),
+                        Color.fromARGB(255, 0, 0, 0)
+                            .withOpacity(0.3),
                         BlendMode.darken,
                       ),
                       child: GestureDetector(
@@ -387,7 +387,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('Indonesian');
                             textColorMap['Indonesian'] =
                                 (textColorMap['Indonesian'] == Colors.white)
-                                    ? Colors.deepOrange
+                                    ? Color.fromARGB(255, 228, 127, 248)
                                     : Colors.white;
                           });
                         },
@@ -419,8 +419,8 @@ class _uprofState extends State<uprof> {
                         const EdgeInsets.only(top: 20, left: 30, right: 20),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
-                            .withOpacity(0.2),
+                        Color.fromARGB(255, 0, 0, 0)
+                            .withOpacity(0.3),
                         BlendMode.darken,
                       ),
                       child: GestureDetector(
@@ -430,7 +430,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('English');
                             textColorMap['English'] =
                                 (textColorMap['English'] == Colors.white)
-                                    ? Colors.deepOrange
+                                    ? Color.fromARGB(255, 228, 127, 248)
                                     : Colors.white;
                           });
                         },
@@ -465,8 +465,8 @@ class _uprofState extends State<uprof> {
                     padding: const EdgeInsets.only(top: 20, left: 30),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
-                            .withOpacity(0.2),
+                        Color.fromARGB(255, 0, 0, 0)
+                            .withOpacity(0.3),
                         BlendMode.darken,
                       ),
                       child: GestureDetector(
@@ -476,7 +476,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('Japanase');
                             textColorMap['Japanase'] =
                                 (textColorMap['Japanase'] == Colors.white)
-                                    ? Colors.deepOrange
+                                    ? Color.fromARGB(255, 228, 127, 248)
                                     : Colors.white;
                           });
                         },
@@ -508,8 +508,8 @@ class _uprofState extends State<uprof> {
                         const EdgeInsets.only(top: 20, left: 30, right: 20),
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(
-                        const Color.fromARGB(255, 171, 162, 162)
-                            .withOpacity(0.2),
+                        Color.fromARGB(255, 0, 0, 0)
+                            .withOpacity(0.3),
                         BlendMode.darken,
                       ),
                       child: GestureDetector(
@@ -519,7 +519,7 @@ class _uprofState extends State<uprof> {
                             inputGenre.add('Korean');
                             textColorMap['Korean'] =
                                 (textColorMap['Korean'] == Colors.white)
-                                    ? Colors.deepOrange
+                                    ? Color.fromARGB(255, 228, 127, 248) 
                                     : Colors.white;
                           });
                         },
