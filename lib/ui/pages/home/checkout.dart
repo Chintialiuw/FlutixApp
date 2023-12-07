@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, must_be_immutable
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/ui/pages/home/success_checkout.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +9,20 @@ import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 
 class checkout extends StatelessWidget {
-  checkout({Key? key, required this.selectedSeats, required this.movies});
   List<String> selectedSeats;
   Movie movies;
+  String namaBioskop;
+  String namaJam;
+  String namaHari;
 
+  checkout(
+      {Key? key,
+      required this.movies,
+      required this.namaJam,
+      required this.namaHari,
+      required this.selectedSeats,
+      required this.namaBioskop})
+      : super(key: key);
   String generateOrderId() {
     Random random = Random();
     List<int> orderIds = [];
@@ -168,7 +179,6 @@ class checkout extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 135),
                         Text(
                           generateOrderId(),
                           textAlign: TextAlign.right,
@@ -193,9 +203,8 @@ class checkout extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 120),
                         Text(
-                          "Paris Van Java Mall",
+                          namaBioskop,
                           textAlign: TextAlign.right,
                           style: GoogleFonts.raleway(
                             color: Colors.black,
@@ -218,9 +227,8 @@ class checkout extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 130),
                         Text(
-                          "Sat 21, 12:00",
+                          "$namaHari, $namaJam",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -381,7 +389,7 @@ class checkout extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(top: 50, left: 20, bottom: 40),
                     child: Text(
-                      "Select Your Seat",
+                      "Checkout Now",
                       style: GoogleFonts.raleway(
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
@@ -391,6 +399,20 @@ class checkout extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
+                      CollectionReference historiCheckCollection =
+                          FirebaseFirestore.instance.collection('historyCheck');
+                      Map<String, dynamic> checkoutData = {
+                        'orderId': generateOrderId(),
+                        'movieTitle': movies.judul,
+                        'cinema': namaBioskop,
+                        'dateTime': '$namaHari, $namaJam',
+                        'selectedSeats': selectedSeats,
+                        'ticketPrice': 50000,
+                        'feePrice': 20000,
+                        'total': calculateTotal(selectedSeats.length),
+                      };
+                      historiCheckCollection.add(checkoutData);
+
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => success_checkout()));
                     },

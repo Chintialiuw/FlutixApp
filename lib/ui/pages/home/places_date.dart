@@ -32,6 +32,9 @@ class _placesdateState extends State<placesdate> {
 
   int pilihTanggal = -1;
   Map<String, int> pilihJamMap = {};
+  String pilihBioskop = "";
+  String pilihJam = "";
+  String pilihHari = "";
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +82,7 @@ class _placesdateState extends State<placesdate> {
                     onTap: () {
                       setState(() {
                         pilihTanggal = index;
+                        pilihHari = "$namaHari , $tanggal";
                       });
                     },
                     child: Container(
@@ -99,7 +103,7 @@ class _placesdateState extends State<placesdate> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '$namaHari',
+                            namaHari,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.raleway(
                                 color: pilihTanggal == index
@@ -109,7 +113,7 @@ class _placesdateState extends State<placesdate> {
                                 fontWeight: FontWeight.normal),
                           ),
                           Text(
-                            '$tanggal',
+                            tanggal,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.openSans(
                                 color: pilihTanggal == index
@@ -166,6 +170,8 @@ class _placesdateState extends State<placesdate> {
                                 onTap: () {
                                   setState(() {
                                     pilihJamMap[namaBioskop] = i;
+                                    pilihBioskop = namaBioskop;
+                                    pilihJam = jam[i];
                                   });
                                 },
                                 child: Container(
@@ -226,6 +232,9 @@ class _placesdateState extends State<placesdate> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Seat(
                                   movie: widget.movie,
+                                  namaBioskop: pilihBioskop,
+                                  namaJam: pilihJam,
+                                  namaHari: pilihHari,
                                 )));
                       },
                       child: Padding(
