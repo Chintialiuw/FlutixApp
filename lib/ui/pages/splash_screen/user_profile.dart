@@ -1,570 +1,208 @@
+// ignore_for_file: constant_identifier_names, camel_case_types, use_build_context_synchronously
+
 import 'package:flutixapp/auth/auth.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
+import 'package:flutixapp/ui/widgets/moviepref.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class uprof extends StatefulWidget {
-  const uprof({super.key});
+  const uprof({Key? key}) : super(key: key);
 
   @override
   State<uprof> createState() => _uprofState();
 }
 
-List<String> inputGenre = [];
+enum MovieGenre { Horror, Music, Action, Drama, Adventure, Crime }
+
+enum MovieLanguage { Indonesian, English, Japanase, Korean }
 
 class _uprofState extends State<uprof> {
-  Map<String, Color> textColorMap = {
-    'Horror': Colors.white,
-    'Music': Colors.white,
-    'Action': Colors.white,
-    'Drama': Colors.white,
-    'Adventure': Colors.white,
-    'Crime': Colors.white,
-    'Indonesian': Colors.white,
-    'English': Colors.white,
-    'Japanase': Colors.white,
-    'Korean': Colors.white,
+  Map<MovieGenre, Color> textColorMap = {
+    MovieGenre.Horror: Colors.white,
+    MovieGenre.Music: Colors.white,
+    MovieGenre.Action: Colors.white,
+    MovieGenre.Drama: Colors.white,
+    MovieGenre.Adventure: Colors.white,
+    MovieGenre.Crime: Colors.white,
   };
 
-  Color textColor = Colors.white;
+  Map<MovieLanguage, Color> languageColorMap = {
+    MovieLanguage.Indonesian: Colors.white,
+    MovieLanguage.English: Colors.white,
+    MovieLanguage.Japanase: Colors.white,
+    MovieLanguage.Korean: Colors.white,
+  };
 
-  Future<void> _saveGenre() async {
-    await Auth().genre(inputGenre);
+  List<MovieGenre> genrePref = [];
+  List<MovieLanguage> languagePref = [];
 
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => const BottomNav()),
-    );
+  void _handleGenreTap(MovieGenre genre) {
+    setState(() {
+      if (genrePref.contains(genre)) {
+        genrePref.remove(genre);
+      } else {
+        genrePref.add(genre);
+      }
+      textColorMap[genre] = (textColorMap[genre] == Colors.white)
+          ? const Color.fromARGB(255, 228, 127, 248)
+          : Colors.white;
+    });
+  }
+
+  void _handleLanguageTap(MovieLanguage language) {
+    setState(() {
+      if (languagePref.contains(language)) {
+        languagePref.remove(language);
+      } else {
+        languagePref.add(language);
+      }
+      languageColorMap[language] = (languageColorMap[language] == Colors.white)
+          ? const Color.fromARGB(255, 228, 127, 248)
+          : Colors.white;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          leading: Padding(
-            padding: const EdgeInsets.only(top: 10.0, left: 30),
-            child: InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(
-                Icons.arrow_back_ios,
-                color: Color(0xFFE1A20B),
-                size: 32,
-              ),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.only(top: 10.0, left: 30),
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
             ),
           ),
         ),
-        body: ListView(scrollDirection: Axis.vertical, children: [
+      ),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 20),
-                child: Text(
-                  "Select Your",
-                  style: GoogleFonts.raleway(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
+              const TextWidget(
+                  text: "Select Your",
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+              const TextWidget(
+                  text: "Genre", fontSize: 24, fontWeight: FontWeight.bold),
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 30),
-                    child: Text(
-                      "Genre",
-                      style: GoogleFonts.raleway(
-                          fontSize: 24,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                    ),
+                  GenreContainer(
+                    imagePath: "assets/splash/horror.jpg",
+                    label: "Horror",
+                    textColor: textColorMap[MovieGenre.Horror]!,
+                    onTap: () => _handleGenreTap(MovieGenre.Horror),
+                  ),
+                  GenreContainer(
+                    imagePath: "assets/splash/music.jpeg",
+                    label: "Music",
+                    textColor: textColorMap[MovieGenre.Music]!,
+                    onTap: () => _handleGenreTap(MovieGenre.Music),
                   ),
                 ],
               ),
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 30),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.2),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('Horror');
-                            textColorMap['Horror'] =
-                                (textColorMap['Horror'] == Colors.white)
-                                    ? Color.fromARGB(255, 228, 127, 248)
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/horror.jpg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Horror",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['Horror'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  GenreContainer(
+                    imagePath: "assets/splash/action.jpg",
+                    label: "Action",
+                    textColor: textColorMap[MovieGenre.Action]!,
+                    onTap: () => _handleGenreTap(MovieGenre.Action),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 20, right: 20, left: 30),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                       Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.5),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('Music');
-                            textColorMap['Music'] =
-                                (textColorMap['Music'] == Colors.white)
-                                    ? Color.fromARGB(255, 228, 127, 248)
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/music.jpeg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Music",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['Music'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  GenreContainer(
+                    imagePath: "assets/splash/drama.jpeg",
+                    label: "Drama",
+                    textColor: textColorMap[MovieGenre.Drama]!,
+                    onTap: () => _handleGenreTap(MovieGenre.Drama),
                   ),
                 ],
               ),
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 30),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.5),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('Action');
-                            textColorMap['Action'] =
-                                (textColorMap['Action'] == Colors.white)
-                                      ? Color.fromARGB(255, 228, 127, 248)
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/action.jpg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Action",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['Action'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  GenreContainer(
+                    imagePath: "assets/splash/adventure.jpeg",
+                    label: "Adventure",
+                    textColor: textColorMap[MovieGenre.Adventure]!,
+                    onTap: () => _handleGenreTap(MovieGenre.Adventure),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 20, right: 20, left: 30),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.4),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('Drama');
-                            textColorMap['Drama'] =
-                                (textColorMap['Drama'] == Colors.white)
-                                    ? Color.fromARGB(255, 228, 127, 248)
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/drama.jpeg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Drama",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['Drama'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  GenreContainer(
+                    imagePath: "assets/splash/crime.jpeg",
+                    label: "Crime",
+                    textColor: textColorMap[MovieGenre.Crime]!,
+                    onTap: () => _handleGenreTap(MovieGenre.Crime),
+                  ),
+                ],
+              ),
+              const TextWidget(
+                  text: "Which Movie Language",
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+              const TextWidget(
+                  text: "You Prefer",
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+              Row(
+                children: [
+                  LanguageContainer(
+                    imagePath: "assets/splash/indo.jpg",
+                    label: "Indonesian",
+                    textColor: languageColorMap[MovieLanguage.Indonesian]!,
+                    onTap: () => _handleLanguageTap(MovieLanguage.Indonesian),
+                  ),
+                  LanguageContainer(
+                    imagePath: "assets/splash/english.jpg",
+                    label: "English",
+                    textColor: languageColorMap[MovieLanguage.English]!,
+                    onTap: () => _handleLanguageTap(MovieLanguage.English),
                   ),
                 ],
               ),
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 30),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.3),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('Adventure');
-                            textColorMap['Adventure'] =
-                                (textColorMap['Adventure'] == Colors.white)
-                                    ? Color.fromARGB(255, 228, 127, 248)
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/adventure.jpeg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Adventure",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['Adventure'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  LanguageContainer(
+                    imagePath: "assets/splash/japan.jpeg",
+                    label: "Japanase",
+                    textColor: languageColorMap[MovieLanguage.Japanase]!,
+                    onTap: () => _handleLanguageTap(MovieLanguage.Japanase),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 20, left: 30, right: 20),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.3),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('Crime');
-                            textColorMap['Crime'] =
-                                (textColorMap['Crime'] == Colors.white)
-                                      ? Color.fromARGB(255, 228, 127, 248)
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/crime.jpeg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Crime",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['Crime'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30, left: 30),
-                child: Text(
-                  "Which Movie Language",
-                  style: GoogleFonts.raleway(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10, left: 30),
-                child: Text(
-                  "You Prefer",
-                  style: GoogleFonts.raleway(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 30),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.3),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('Indonesian');
-                            textColorMap['Indonesian'] =
-                                (textColorMap['Indonesian'] == Colors.white)
-                                    ? Color.fromARGB(255, 228, 127, 248)
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/indo.jpg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Indonesian",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['Indonesian'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 20, left: 30, right: 20),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.3),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('English');
-                            textColorMap['English'] =
-                                (textColorMap['English'] == Colors.white)
-                                    ? Color.fromARGB(255, 228, 127, 248)
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/english.jpg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "English",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['English'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 30),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.3),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('Japanase');
-                            textColorMap['Japanase'] =
-                                (textColorMap['Japanase'] == Colors.white)
-                                    ? Color.fromARGB(255, 228, 127, 248)
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/japan.jpeg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Japanase",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['Japanase'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 20, left: 30, right: 20),
-                    child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Color.fromARGB(255, 0, 0, 0)
-                            .withOpacity(0.3),
-                        BlendMode.darken,
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            inputGenre.clear();
-                            inputGenre.add('Korean');
-                            textColorMap['Korean'] =
-                                (textColorMap['Korean'] == Colors.white)
-                                    ? Color.fromARGB(255, 228, 127, 248) 
-                                    : Colors.white;
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 100,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            image: DecorationImage(
-                              image: AssetImage("assets/splash/korea.jpg"),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Korean",
-                              style: GoogleFonts.raleway(
-                                  color: textColorMap['Korean'],
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  LanguageContainer(
+                    imagePath: "assets/splash/korea.jpg",
+                    label: "Korean",
+                    textColor: languageColorMap[MovieLanguage.Korean]!,
+                    onTap: () => _handleLanguageTap(MovieLanguage.Korean),
                   ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 40, left: 30, bottom: 40),
-                    child: Text(
-                      "Continue to Sign Up",
-                      style: GoogleFonts.raleway(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 20,
-                      ),
-                    ),
+                  const TextWidget(
+                    text: "Continue to Sign Up",
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
                   ),
                   GestureDetector(
-                    onTap: _saveGenre,
+                    onTap: () async {
+                      // Panggil metode savePreferences
+                      await Auth().savePreferences(genrePref, languagePref);
+
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BottomNav(),
+                        ),
+                      );
+                    },
                     child: const Padding(
                       padding: EdgeInsets.only(right: 35, top: 40, bottom: 40),
                       child: Icon(
@@ -578,7 +216,8 @@ class _uprofState extends State<uprof> {
               ),
             ],
           ),
-        ]));
+        ],
+      ),
+    );
   }
 }
-

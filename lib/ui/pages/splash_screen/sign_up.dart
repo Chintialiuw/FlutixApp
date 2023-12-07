@@ -320,7 +320,36 @@ class _signUpState extends State<signUp> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () => handleSubmit(),
+                      onTap: () async {
+                        // Mendapatkan email dari controller
+                        String email = _ctrlEmail.text;
+
+                        // Memastikan email tidak kosong
+                        if (email.isNotEmpty) {
+                          setState(() => _loading = true);
+
+                          try {
+                            // Upload profile picture
+                            final imageUrl = await _uploadImage();
+
+                            // Registrasi pengguna
+                            await Auth().regis(email, _ctrlPassword.text,
+                                _ctrlNama.text, imageUrl, 300000);
+
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => confir()),
+                            );
+                          } catch (error) {
+                            // Handle error
+                            print('Error during registration: $error');
+                          } finally {
+                            setState(() => _loading = false);
+                          }
+                        } else {
+                          // Handle case when email is empty
+                          print('Email is empty');
+                        }
+                      },
                       child: _loading
                           ? Padding(
                               padding: const EdgeInsets.only(
