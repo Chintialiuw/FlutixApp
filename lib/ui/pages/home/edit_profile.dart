@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../models/models.dart';
 
@@ -13,11 +14,70 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
-  Profile? user;
+  final _formKey = GlobalKey<FormState>();
+  bool _loading = false;
+
+  //Profile? user;
+  String username = '';
+  String email = '';
+  String profilePictureUrl = '';
+  String oldPass = "";
+  String newPass = "";
+
+  @override
+  void initState() {
+    super.initState();
+    loadProfile();
+  }
+  
+
+  Future<void> loadProfile() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = prefs.getString('nama') ?? "";
+      email = prefs.getString('email') ?? "";
+      oldPass = prefs.getString('password') ?? "";
+      newPass = prefs.getString(_controllerNewPass.text) ?? "";
+
+      profilePictureUrl = prefs.getString('profilePictureUrl') ?? "";
+    });
+  }
+
+  Future<String> _loadProfileImage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('profilePictureUrl') ?? "";
+  }
+
   final TextEditingController _controllerNama = TextEditingController();
   final TextEditingController _controllerEmail = TextEditingController();
-  final TextEditingController _controllerPass = TextEditingController();
-  final TextEditingController _controllerConfPass = TextEditingController();
+  final TextEditingController _controllerOldPass = TextEditingController();
+  final TextEditingController _controllerNewPass = TextEditingController();
+
+  handleSubmit() async {
+    if (_formKey.currentState!.validate()) {
+      final nama = _controllerNama.value.text;
+      final email = _controllerEmail.value.text;
+      final password = _controllerNewPass.value.text;
+
+      setState(() => _loading = true);
+
+      // try {
+      //   // Upload profile picture
+      //   final imageUrl = await _uploadImage();
+
+      //   // Registrasi pengguna
+      //   await Auth().regis(email, password, nama, imageUrl, 300000);
+
+      //   Navigator.of(context).push(
+      //     MaterialPageRoute(builder: (context) => confir()),
+      //   );
+      // } catch (error) {
+      //   // Existing error handling code...
+      // } finally {
+      //   setState(() => _loading = false);
+      // }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,11 +115,39 @@ class _EditProfileState extends State<EditProfile> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: NetworkImage(
-                        user?.foto ?? "",
-                      ),
+                    // CircleAvatar(
+                    //   radius: 50,
+                    //   backgroundImage: NetworkImage(
+                    //     user?.foto ?? "",
+                    //   ),
+                    // ),
+                    FutureBuilder<String>(
+                      future:
+                          _loadProfileImage(), // Panggil fungsi di dalam HomePage
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const CircularProgressIndicator(
+                            color: Color(0xFFE1A20B),
+                          );
+                        } else if (snapshot.hasData) {
+                          final profilePictureUrl = snapshot.data!;
+                          return CircleAvatar(
+                            radius: 50,
+                            backgroundImage: profilePictureUrl.isNotEmpty
+                                ? NetworkImage(profilePictureUrl)
+                                    as ImageProvider<Object>?
+                                : const AssetImage(
+                                    "assets/images/card/minji.jpg"),
+                          );
+                        } else {
+                          return CircleAvatar(
+                            radius: 50,
+                            backgroundImage: const AssetImage(
+                                "assets/images/card/minji.jpg"),
+                          );
+                        }
+                      },
                     ),
                     Padding(
                         padding:
@@ -78,7 +166,7 @@ class _EditProfileState extends State<EditProfile> {
                             labelText: "Full Name",
                             labelStyle:
                                 GoogleFonts.raleway(color: Colors.black),
-                            hintText: user?.nama ?? "",
+                            hintText: username ?? "Loading...",
                             hintStyle: GoogleFonts.raleway(color: Colors.black),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -99,19 +187,20 @@ class _EditProfileState extends State<EditProfile> {
                             const EdgeInsets.only(top: 30, left: 20, right: 20),
                         child: TextFormField(
                           controller: _controllerEmail,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Insert your email address';
-                            }
-                            return null;
-                          },
+                          // validator: (value) {
+                          //   if (value == null || value.isEmpty) {
+                          //     return 'Insert your email address';
+                          //   }
+                          //   return null;
+                          // },
                           decoration: InputDecoration(
+                            enabled: false,
                             border:
                                 OutlineInputBorder(borderSide: BorderSide()),
-                            labelText: "Email Address",
-                            labelStyle:
-                                GoogleFonts.raleway(color: Colors.black),
-                            hintText: user?.email ?? "",
+                            // labelText: "Email Address",
+                            // labelStyle:
+                            //     GoogleFonts.raleway(color: Colors.black),
+                            hintText: email ?? "Loading...",
                             hintStyle: GoogleFonts.raleway(color: Colors.black),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -131,17 +220,11 @@ class _EditProfileState extends State<EditProfile> {
                       padding:
                           const EdgeInsets.only(top: 30, left: 20, right: 20),
                       child: TextFormField(
-                        controller: _controllerPass,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Insert your password';
-                          }
-                          return null;
-                        },
+                        controller: _controllerOldPass,
                         obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(borderSide: BorderSide()),
-                          labelText: "Password",
+                          labelText: "Old Password",
                           labelStyle: GoogleFonts.raleway(color: Colors.black),
                           hintText: "***********",
                           hintStyle: GoogleFonts.raleway(color: Colors.black),
@@ -164,17 +247,11 @@ class _EditProfileState extends State<EditProfile> {
                       padding:
                           const EdgeInsets.only(top: 30, left: 20, right: 20),
                       child: TextFormField(
-                        controller: _controllerConfPass,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Insert your confirm password';
-                          }
-                          return null;
-                        },
+                        controller: _controllerNewPass,
                         obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(borderSide: BorderSide()),
-                          labelText: "Confirm Password",
+                          labelText: "New Password",
                           labelStyle: GoogleFonts.raleway(color: Colors.black),
                           hintText: "***********",
                           hintStyle: GoogleFonts.raleway(color: Colors.black),
@@ -197,7 +274,29 @@ class _EditProfileState extends State<EditProfile> {
                       padding: const EdgeInsets.all(50.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          if (_controllerOldPass != oldPass) {
+                            setState(() {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: Text(
+                                        "Konfirmasi Password Lama Salah !"),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("OK"),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            });
+                          } else {
+                            handleSubmit();
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFFE1A20B),
