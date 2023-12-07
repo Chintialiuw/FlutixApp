@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutixapp/firebase_options.dart';
+import 'package:flutixapp/providers/walletBalance.dart';
 import 'package:flutixapp/ui/pages/home/home.dart';
 import 'package:flutixapp/ui/pages/home/seat.dart';
 import 'package:flutixapp/ui/pages/splash_screen/confirmation.dart';
@@ -12,13 +13,19 @@ import 'package:flutixapp/ui/pages/splash_screen/splash-screen.dart';
 import 'package:flutixapp/ui/pages/splash_screen/user_profile.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => WalletBalance(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {

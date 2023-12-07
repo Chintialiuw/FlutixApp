@@ -2,6 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutixapp/models/models.dart';
+import 'package:flutixapp/providers/walletBalance.dart';
 import 'package:flutixapp/ui/pages/home/success_checkout.dart';
 import 'package:flutixapp/ui/pages/home/wallettopup.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +10,16 @@ import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 
-class checkout extends StatelessWidget {
+import 'package:provider/provider.dart';
+
+
+class checkout extends StatefulWidget {
   List<String> selectedSeats;
   Movie movies;
   String namaBioskop;
   String namaJam;
   String namaHari;
   int saldo;
-  bool _isAda = true;
 
   checkout(
       {Key? key,
@@ -27,6 +30,14 @@ class checkout extends StatelessWidget {
       required this.saldo,
       required this.namaBioskop})
       : super(key: key);
+
+  @override
+  State<checkout> createState() => _checkoutState();
+}
+
+class _checkoutState extends State<checkout> {
+  bool _isAda = true;
+
   String generateOrderId() {
     Random random = Random();
     List<int> orderIds = [];
@@ -44,7 +55,8 @@ class checkout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double rating = movies.rate / 2;
+    final walletProvider = Provider.of<WalletBalance>(context);
+    double rating = widget.movies.rate / 2;
     int fullStars = rating.floor();
     bool hasHalfStar = (rating - fullStars) > 0;
 
@@ -89,7 +101,7 @@ class checkout extends StatelessWidget {
                     height: 110,
                     margin: EdgeInsets.only(left: 20.0, top: 10.0),
                     child: Image.network(
-                      movies.poster,
+                      widget.movies.poster,
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -101,7 +113,7 @@ class checkout extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(
-                            movies.judul,
+                            widget.movies.judul,
                             style: GoogleFonts.raleway(
                               color: Colors.black,
                               fontSize: 20,
@@ -115,7 +127,7 @@ class checkout extends StatelessWidget {
                         padding: const EdgeInsets.only(
                             left: 8.0, top: 10, bottom: 10),
                         child: Text(
-                          movies.genre.join(", "),
+                          widget.movies.genre.join(", "),
                           style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 14,
@@ -149,7 +161,7 @@ class checkout extends StatelessWidget {
                               ),
                             const SizedBox(width: 5),
                             Text(
-                              "${movies.rate.toStringAsFixed(1)}/10",
+                              "${widget.movies.rate.toStringAsFixed(1)}/10",
                               style: GoogleFonts.openSans(
                                 fontWeight: FontWeight.normal,
                                 fontSize: 14,
@@ -212,7 +224,7 @@ class checkout extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          namaBioskop,
+                          widget.namaBioskop,
                           textAlign: TextAlign.right,
                           style: GoogleFonts.raleway(
                             color: Colors.black,
@@ -236,7 +248,7 @@ class checkout extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "$namaHari, $namaJam",
+                          "${widget.namaHari}, ${widget.namaJam}",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -251,7 +263,7 @@ class checkout extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "${selectedSeats.length} Tickets",
+                          "${widget.selectedSeats.length} Tickets",
                           textAlign: TextAlign.left,
                           style: GoogleFonts.raleway(
                             color: Colors.black,
@@ -261,7 +273,7 @@ class checkout extends StatelessWidget {
                         ),
                         Flexible(
                           child: Text(
-                            selectedSeats.join(
+                            widget.selectedSeats.join(
                                 ", "), // Menampilkan kursi terpilih, dipisahkan dengan koma
                             textAlign: TextAlign.right,
                             style: GoogleFonts.raleway(
@@ -288,7 +300,7 @@ class checkout extends StatelessWidget {
                         ),
                         SizedBox(width: 180),
                         Text(
-                          "Rp. 50.000 x ${selectedSeats.length}",
+                          "Rp. 50.000 x ${widget.selectedSeats.length}",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -313,7 +325,7 @@ class checkout extends StatelessWidget {
                         ),
                         SizedBox(width: 180),
                         Text(
-                          "Rp. 20.000 x ${selectedSeats.length}",
+                          "Rp. 20.000 x ${widget.selectedSeats.length}",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -338,7 +350,7 @@ class checkout extends StatelessWidget {
                         ),
                         SizedBox(width: 195),
                         Text(
-                          "Rp. ${formatCurrency(calculateTotal(selectedSeats.length))}",
+                          "Rp. ${formatCurrency(calculateTotal(widget.selectedSeats.length))}",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -376,7 +388,7 @@ class checkout extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Rp. ${formatCurrency(saldo)}",
+                          "Rp. ${formatCurrency(widget.saldo)}",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -406,19 +418,19 @@ class checkout extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      int totalCost = calculateTotal(selectedSeats.length);
+                      int totalCost = calculateTotal(widget.selectedSeats.length);
 
-                      if (saldo >= totalCost) {
-                        // Sufficient balance, proceed with the checkout
+                      if (widget.saldo >= totalCost) {
+                        walletProvider.deductBalance(totalCost);
                         CollectionReference historiCheckCollection =
                             FirebaseFirestore.instance
                                 .collection('historyCheck');
                         Map<String, dynamic> checkoutData = {
                           'orderId': generateOrderId(),
-                          'movieTitle': movies.judul,
-                          'cinema': namaBioskop,
-                          'dateTime': '$namaHari, $namaJam',
-                          'selectedSeats': selectedSeats,
+                          'movieTitle': widget.movies.judul,
+                          'cinema': widget.namaBioskop,
+                          'dateTime': '${widget.namaHari}, ${widget.namaJam}',
+                          'selectedSeats': widget.selectedSeats,
                           'ticketPrice': 50000,
                           'feePrice': 20000,
                           'total': totalCost,
@@ -440,11 +452,11 @@ class checkout extends StatelessWidget {
                             ? Icons.arrow_circle_right
                             : Icons.account_balance_wallet_rounded,
                         color: _isAda
-                            ? Color(0xFFE1A20B) // Color for arrow icon
-                            : Colors.red, // Color for wallet icon
+                            ? Color(0xFFE1A20B)
+                            : Colors.red, 
                         size: _isAda
-                            ? 60 // Size for arrow icon
-                            : 40, // Size for wallet icon
+                            ? 60 
+                            : 40,
                       ),
                     ),
                   ),
