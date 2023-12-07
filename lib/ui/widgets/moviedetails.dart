@@ -9,9 +9,10 @@ import 'package:flutixapp/models/models.dart';
 
 class MovieDetails extends StatelessWidget {
   final Movie movie;
+  bool isComing;
   Color textColor = const Color(0xFFF4EDE6);
 
-  MovieDetails({Key? key, required this.movie}) : super(key: key);
+  MovieDetails({Key? key, required this.movie, required this.isComing}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -191,38 +192,40 @@ class MovieDetails extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
+         Padding(
             padding: const EdgeInsets.symmetric(horizontal: 95, vertical: 40),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return placesdate(
-                        movie: movie,
+            child: isComing == true
+                ? SizedBox.shrink() // Jika isComing true, maka button tidak ditampilkan
+                : ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return placesdate(
+                              movie: movie,
+                            );
+                          },
+                        ),
                       );
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFE1A20B),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      minimumSize: const Size(200, 50),
+                    ),
+                    child: Text(
+                      "Continue to Book",
+                      style: GoogleFonts.raleway(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFE1A20B),
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                minimumSize: const Size(200, 50),
-              ),
-              child: Text(
-                "Continue to Book",
-                style: GoogleFonts.raleway(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
+         ),
         ],
       ),
     );
