@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,7 +31,6 @@ class _EditProfileState extends State<EditProfile> {
     super.initState();
     loadProfile();
   }
-  
 
   Future<void> loadProfile() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -223,10 +224,11 @@ class _EditProfileState extends State<EditProfile> {
                         controller: _controllerOldPass,
                         obscureText: true,
                         decoration: InputDecoration(
+                          enabled: false,
                           border: OutlineInputBorder(borderSide: BorderSide()),
-                          labelText: "Old Password",
-                          labelStyle: GoogleFonts.raleway(color: Colors.black),
-                          hintText: "***********",
+                          // labelText: "Password",
+                          // labelStyle: GoogleFonts.raleway(color: Colors.black),
+                          hintText: "********",
                           hintStyle: GoogleFonts.raleway(color: Colors.black),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -243,60 +245,97 @@ class _EditProfileState extends State<EditProfile> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 30, left: 20, right: 20),
-                      child: TextFormField(
-                        controller: _controllerNewPass,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(borderSide: BorderSide()),
-                          labelText: "New Password",
-                          labelStyle: GoogleFonts.raleway(color: Colors.black),
-                          hintText: "***********",
-                          hintStyle: GoogleFonts.raleway(color: Colors.black),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.grey,
-                              width: 3,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFE1A20B),
-                              width: 3,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding:
+                    //       const EdgeInsets.only(top: 30, left: 20, right: 20),
+                    //   child: TextFormField(
+                    //     controller: _controllerNewPass,
+                    //     obscureText: true,
+                    //     decoration: InputDecoration(
+                    //       border: OutlineInputBorder(borderSide: BorderSide()),
+                    //       labelText: "New Password",
+                    //       labelStyle: GoogleFonts.raleway(color: Colors.black),
+                    //       hintText: "***********",
+                    //       hintStyle: GoogleFonts.raleway(color: Colors.black),
+                    //       enabledBorder: OutlineInputBorder(
+                    //         borderSide: BorderSide(
+                    //           color: Colors.grey,
+                    //           width: 3,
+                    //         ),
+                    //       ),
+                    //       focusedBorder: OutlineInputBorder(
+                    //         borderSide: BorderSide(
+                    //           color: Color(0xFFE1A20B),
+                    //           width: 3,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     Padding(
                       padding: const EdgeInsets.all(50.0),
                       child: ElevatedButton(
-                        onPressed: () {
-                          if (_controllerOldPass != oldPass) {
-                            setState(() {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    content: Text(
-                                        "Konfirmasi Password Lama Salah !"),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text("OK"),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                        onPressed: () async {
+                          // if (_controllerOldPass.text != oldPass ||
+                          //     _controllerNewPass.text.isEmpty) {
+                          //   print('oldPass: $oldPass');
+                          //   showDialog(
+                          //     context: context,
+                          //     builder: (BuildContext context) {
+                          //       return AlertDialog(
+                          //         title: Text("Perubahan Dibatalkan"),
+                          //         content: Text(
+                          //             "Konfirmasi Password Lama Salah atau Password Baru Kosong!"),
+                          //         actions: [
+                          //           TextButton(
+                          //             onPressed: () {
+                          //               Navigator.of(context).pop();
+                          //             },
+                          //             child: Text("OK"),
+                          //           ),
+                          //         ],
+                          //       );
+                          //     },
+                          //   );
+                          // } else {
+                          //   FirebaseFirestore firestore =
+                          //       FirebaseFirestore.instance;
+                          //   CollectionReference users =
+                          //       firestore.collection('users');
+                          //   User? user = FirebaseAuth.instance.currentUser;
+
+                          //   //handleSubmit();
+                          //   String id = FirebaseAuth.instance.currentUser!.uid;
+                          //   await users.doc(id).update({
+                          //     "fullName": _controllerNama.text.isEmpty
+                          //         ? user!.displayName ?? ""
+                          //         : _controllerNama.text.toString(),
+                          //   });
+
+                          //   await FirebaseAuth.instance.currentUser!
+                          //       .updatePassword(_controllerNewPass.text);
+
+                          //   // Tambahan: setelah perubahan berhasil, mungkin Anda ingin menampilkan pesan atau melakukan tindakan lainnya.
+                          // }
+                            FirebaseFirestore firestore =
+                                FirebaseFirestore.instance;
+                            CollectionReference users =
+                                firestore.collection('users');
+                            User? user = FirebaseAuth.instance.currentUser;
+
+                            //handleSubmit();
+                            String id = FirebaseAuth.instance.currentUser!.uid;
+                            await users.doc(id).update({
+                              "fullName": _controllerNama.text.isEmpty
+                                  ? user!.displayName ?? ""
+                                  : _controllerNama.text.toString(),
                             });
-                          } else {
-                            handleSubmit();
-                          }
+
+                            Navigator.of(context).pop();
+
+                            // await FirebaseAuth.instance.currentUser!
+                            //     .updatePassword(_controllerNewPass.text);
+                        
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFFE1A20B),
