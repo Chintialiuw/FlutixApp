@@ -148,22 +148,34 @@ class _signUpState extends State<signUp> {
                                     image: FileImage(_image!),
                                     fit: BoxFit.cover,
                                   )
-                                : null,
+                                : DecorationImage(
+                                    image: const AssetImage(
+                                        "assets/images/card/profile.png"),
+                                    fit: BoxFit.cover,
+                                  ),
                           ),
                         ),
                       ),
                     ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20, top: 125.0, right: 20),
-                        child: Icon(
-                          Icons.add_circle,
-                          color: Color(0xFFE1A20B),
-                          size: 40,
-                        ),
-                      ),
-                    ),
+                    _image == null
+                        ? Center(
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20, top: 125.0, right: 20),
+                              child: Icon(
+                                Icons.add_circle,
+                                color: Color(0xFFE1A20B),
+                                size: 40,
+                              ),
+                            ),
+                          )
+                        : Center(
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20, top: 125.0, right: 20),
+                              child: SizedBox(),
+                            ),
+                          ),
                   ],
                 ),
                 Padding(

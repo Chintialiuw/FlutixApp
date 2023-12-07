@@ -6,8 +6,8 @@ class Auth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<UserCredential> regis(
-      String email, String password, String fullName, String imageUrl) async {
+  Future<UserCredential> regis(String email, String password, String fullName,
+      String? profilePictureUrl) async {
     try {
       final userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -19,16 +19,20 @@ class Auth {
       await _firestore.collection('users').doc(userCredential.user?.uid).set({
         'email': email,
         'fullName': fullName,
+        'profilePictureUrl':
+            profilePictureUrl ?? '', // Provide a default value if null
       });
 
       // Simpan nama ke SharedPreferences
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('email', email);
       prefs.setString('nama', fullName);
+      prefs.setString('profilePictureUrl',
+          profilePictureUrl!); // Pastikan url tidak null, dan pastikan bahwa ini adalah URL yang valid
 
       return userCredential;
     } catch (error) {
-      throw error;
+      rethrow;
     }
   }
 
@@ -50,11 +54,11 @@ class Auth {
       await prefs.setString('email', userDoc['email']);
       prefs.setString('nama', userDoc['fullName']);
     } catch (error) {
-      throw error;
+      rethrow;
     }
   }
 
- Future<UserCredential?> genre(List<String> pilihGenre) async {
+  Future<UserCredential?> genre(List<String> pilihGenre) async {
     try {
       UserCredential userCredential = await _auth.signInAnonymously();
 

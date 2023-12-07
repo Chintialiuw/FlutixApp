@@ -1,3 +1,4 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutixapp/ui/pages/splash_screen/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,6 +29,14 @@ class _confirState extends State<confir> {
       email = prefs.getString('email') ?? "";
       profilePictureUrl = prefs.getString('profilePictureUrl') ?? "";
     });
+  }
+
+  ImageProvider<Object>? _getImageProvider() {
+    if (profilePictureUrl.isNotEmpty) {
+      return NetworkImage(profilePictureUrl);
+    } else {
+      return const AssetImage("assets/images/card/profile.png");
+    }
   }
 
   @override
@@ -86,11 +95,7 @@ class _confirState extends State<confir> {
                       color: const Color.fromARGB(255, 20, 16, 16),
                       borderRadius: BorderRadius.circular(90),
                       image: DecorationImage(
-                        image: profilePictureUrl.isNotEmpty
-                            ? NetworkImage(profilePictureUrl)
-                                as ImageProvider<Object> // Explicit cast
-                            : const AssetImage(
-                                "assets/images/card/profile.png"),
+                        image: _getImageProvider()!,
                         fit: BoxFit.cover,
                       ),
                     ),
