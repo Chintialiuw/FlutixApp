@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../models/models.dart';
+
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
 
@@ -11,6 +13,7 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  Profile? user;
   final TextEditingController _controllerNama = TextEditingController();
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPass = TextEditingController();
@@ -54,7 +57,9 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     CircleAvatar(
                       radius: 50,
-                      backgroundImage: AssetImage("images/card/minji.jpg"),
+                      backgroundImage: NetworkImage(
+                        user?.foto ?? "",
+                      ),
                     ),
                     Padding(
                         padding:
@@ -73,7 +78,7 @@ class _EditProfileState extends State<EditProfile> {
                             labelText: "Full Name",
                             labelStyle:
                                 GoogleFonts.raleway(color: Colors.black),
-                            hintText: "Your Full Name...",
+                            hintText: user?.nama ?? "",
                             hintStyle: GoogleFonts.raleway(color: Colors.black),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -106,7 +111,7 @@ class _EditProfileState extends State<EditProfile> {
                             labelText: "Email Address",
                             labelStyle:
                                 GoogleFonts.raleway(color: Colors.black),
-                            hintText: "Your Email Address...",
+                            hintText: user?.email ?? "",
                             hintStyle: GoogleFonts.raleway(color: Colors.black),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
