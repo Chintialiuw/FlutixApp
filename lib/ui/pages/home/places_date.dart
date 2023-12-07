@@ -8,7 +8,8 @@ import 'package:intl/intl.dart';
 
 class placesdate extends StatefulWidget {
   Movie movie;
-  placesdate({super.key, required this.movie});
+  int? saldo;
+  placesdate({super.key, required this.movie, required this.saldo});
 
   @override
   State<placesdate> createState() => _placesdateState();
@@ -235,6 +236,7 @@ class _placesdateState extends State<placesdate> {
                                   namaBioskop: pilihBioskop,
                                   namaJam: pilihJam,
                                   namaHari: pilihHari,
+                                  saldo: widget.saldo!,
                                 )));
                       },
                       child: Padding(

@@ -8,11 +8,12 @@ import 'package:google_fonts/google_fonts.dart';
 class Seat extends StatefulWidget {
   Movie movie;
 
-  Seat({Key? key, required this.movie, required this.namaJam,required this.namaHari, required this.namaBioskop}) : super(key: key);
+  Seat({Key? key, required this.movie, required this.namaJam, required this.namaHari, required this.namaBioskop, required this.saldo}) : super(key: key);
   
   String namaBioskop;
   String namaJam;
   String namaHari;
+  int saldo;
 
   @override
   _SeatState createState() => _SeatState();
@@ -219,6 +220,7 @@ class _SeatState extends State<Seat> {
                                   namaJam: widget.namaJam,
                                   namaHari: widget.namaHari,
                                   selectedSeats: selectedSeats,
+                                  saldo: widget.saldo,
                                   movies: widget.movie,
                                 )),
                       );

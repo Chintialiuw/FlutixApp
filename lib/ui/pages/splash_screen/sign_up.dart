@@ -70,7 +70,7 @@ class _signUpState extends State<signUp> {
         final imageUrl = await _uploadImage();
 
         // Registrasi pengguna
-        await Auth().regis(email, password, nama, imageUrl, 0);
+        await Auth().regis(email, password, nama, imageUrl, 300000);
 
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => confir()),

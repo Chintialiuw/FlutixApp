@@ -10,9 +10,10 @@ import 'package:flutixapp/models/models.dart';
 class MovieDetails extends StatelessWidget {
   final Movie movie;
   bool isComing;
+  int? saldo;
   Color textColor = const Color(0xFFF4EDE6);
 
-  MovieDetails({Key? key, required this.movie, required this.isComing}) : super(key: key);
+  MovieDetails({Key? key, required this.movie, required this.saldo, required this.isComing}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -203,6 +204,7 @@ class MovieDetails extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) {
                             return placesdate(
+                              saldo: saldo!,
                               movie: movie,
                             );
                           },

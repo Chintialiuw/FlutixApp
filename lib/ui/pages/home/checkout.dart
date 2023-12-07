@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/ui/pages/home/success_checkout.dart';
+import 'package:flutixapp/ui/pages/home/wallettopup.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +15,8 @@ class checkout extends StatelessWidget {
   String namaBioskop;
   String namaJam;
   String namaHari;
+  int saldo;
+  bool _isAda = true;
 
   checkout(
       {Key? key,
@@ -21,6 +24,7 @@ class checkout extends StatelessWidget {
       required this.namaJam,
       required this.namaHari,
       required this.selectedSeats,
+      required this.saldo,
       required this.namaBioskop})
       : super(key: key);
   String generateOrderId() {
@@ -339,7 +343,7 @@ class checkout extends StatelessWidget {
                           style: GoogleFonts.openSans(
                             color: Colors.black,
                             fontSize: 16,
-                            fontWeight: FontWeight.normal,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
@@ -371,9 +375,8 @@ class checkout extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        SizedBox(width: 135),
                         Text(
-                          "Rp. 560.000",
+                          "Rp. ${formatCurrency(saldo)}",
                           textAlign: TextAlign.right,
                           style: GoogleFonts.openSans(
                             color: Colors.black,
@@ -403,30 +406,45 @@ class checkout extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      CollectionReference historiCheckCollection =
-                          FirebaseFirestore.instance.collection('historyCheck');
-                      Map<String, dynamic> checkoutData = {
-                        'orderId': generateOrderId(),
-                        'movieTitle': movies.judul,
-                        'cinema': namaBioskop,
-                        'dateTime': '$namaHari, $namaJam',
-                        'selectedSeats': selectedSeats,
-                        'ticketPrice': 50000,
-                        'feePrice': 20000,
-                        'total': calculateTotal(selectedSeats.length),
-                      };
-                      historiCheckCollection.add(checkoutData);
+                      int totalCost = calculateTotal(selectedSeats.length);
 
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => success_checkout()));
+                      if (saldo >= totalCost) {
+                        // Sufficient balance, proceed with the checkout
+                        CollectionReference historiCheckCollection =
+                            FirebaseFirestore.instance
+                                .collection('historyCheck');
+                        Map<String, dynamic> checkoutData = {
+                          'orderId': generateOrderId(),
+                          'movieTitle': movies.judul,
+                          'cinema': namaBioskop,
+                          'dateTime': '$namaHari, $namaJam',
+                          'selectedSeats': selectedSeats,
+                          'ticketPrice': 50000,
+                          'feePrice': 20000,
+                          'total': totalCost,
+                        };
+                        historiCheckCollection.add(checkoutData);
+
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => success_checkout()));
+                      } else {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => wallettopup()));
+                      }
                     },
                     child: Padding(
                       padding: EdgeInsets.only(
                           right: 20, top: 50, bottom: 40, left: 105),
                       child: Icon(
-                        Icons.arrow_circle_right,
-                        color: Color(0xFFE1A20B),
-                        size: 60,
+                        _isAda
+                            ? Icons.arrow_circle_right
+                            : Icons.account_balance_wallet_rounded,
+                        color: _isAda
+                            ? Color(0xFFE1A20B) // Color for arrow icon
+                            : Colors.red, // Color for wallet icon
+                        size: _isAda
+                            ? 60 // Size for arrow icon
+                            : 40, // Size for wallet icon
                       ),
                     ),
                   ),

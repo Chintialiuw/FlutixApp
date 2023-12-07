@@ -20,7 +20,7 @@ Color textColor = const Color(0xFFF4EDE6);
 class _HomePageState extends State<HomePage> {
   String username = '';
   String profilePictureUrl = '';
-  int saldo = 0;
+  int? saldo;
   List<Movie> movies = [];
 
   List<Movie> comingSoonMovies = [];
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       username = prefs.getString('nama') ?? "";
       profilePictureUrl = prefs.getString('profilePictureUrl') ?? "";
-      saldo = prefs.getInt('saldo') ?? 0;
+      saldo = prefs.getInt('saldo');
     });
   }
 
@@ -141,6 +141,7 @@ class _HomePageState extends State<HomePage> {
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (_, i) {
                             return MoviePoster(
+                              saldo: saldo!,
                               //nama widget
                               movie: movies[i], //movies[i].nama dls
                             );
@@ -282,6 +283,7 @@ class _HomePageState extends State<HomePage> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (_, i) {
                           return MovieComingPoster(
+                            saldo: saldo!,
                             movie: movies[i],
                           );
                         },

@@ -9,7 +9,8 @@ import 'package:flutter/material.dart';
 class movie_details extends StatelessWidget {
   Movie movie;
   bool isComing;
-  movie_details({super.key, required this.movie, required this.isComing});
+  int? saldo;
+  movie_details({super.key, required this.movie, required this.saldo, required this.isComing});
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,7 @@ class movie_details extends StatelessWidget {
                   return MovieDetails(
                     movie: movies.first,
                     isComing: isComing,
+                    saldo: saldo!,
                   );
                 } else if (snapshot.hasError) {
                   return Text("Error: ${snapshot.error}");
