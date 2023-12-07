@@ -92,14 +92,18 @@ class checkout extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text(
-                          movies.judul,
-                          style: GoogleFonts.raleway(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.normal,
+                      Container(
+                        constraints: BoxConstraints(maxWidth: 250),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            movies.judul,
+                            style: GoogleFonts.raleway(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.normal,
+                            ),
+                            textAlign: TextAlign.left,
                           ),
                         ),
                       ),
