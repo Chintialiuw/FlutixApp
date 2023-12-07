@@ -7,7 +7,7 @@ class Auth {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<UserCredential> regis(String email, String password, String fullName,
-      String? profilePictureUrl) async {
+      double saldo, String? profilePictureUrl) async {
     try {
       final userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -20,7 +20,8 @@ class Auth {
         'email': email,
         'fullName': fullName,
         'profilePictureUrl':
-            profilePictureUrl ?? '', // Provide a default value if null
+            profilePictureUrl ?? '',
+        'saldo' : saldo,
       });
 
       // Simpan nama ke SharedPreferences
@@ -28,8 +29,8 @@ class Auth {
       await prefs.setString('email', email);
       prefs.setString('nama', fullName);
       prefs.setString('profilePictureUrl',
-          profilePictureUrl!); // Pastikan url tidak null, dan pastikan bahwa ini adalah URL yang valid
-
+          profilePictureUrl!);
+      prefs.setDouble('saldo', saldo);
       return userCredential;
     } catch (error) {
       rethrow;
