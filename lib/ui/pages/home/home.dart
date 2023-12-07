@@ -20,6 +20,7 @@ Color textColor = const Color(0xFFF4EDE6);
 class _HomePageState extends State<HomePage> {
   String username = '';
   String profilePictureUrl = '';
+  int saldo = 0;
   List<Movie> movies = [];
 
   List<Movie> comingSoonMovies = [];
@@ -35,6 +36,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       username = prefs.getString('nama') ?? "";
       profilePictureUrl = prefs.getString('profilePictureUrl') ?? "";
+      saldo = prefs.getInt('saldo') ?? 0;
     });
   }
 
@@ -99,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "IDR 500.000",
+                          "IDR $saldo",
                           style: GoogleFonts.openSans(
                               fontSize: 14, fontWeight: FontWeight.bold),
                         ),
