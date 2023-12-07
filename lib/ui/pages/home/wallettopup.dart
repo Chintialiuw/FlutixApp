@@ -22,6 +22,7 @@ class wallettopup extends StatefulWidget {
 
 class _wallettopupState extends State<wallettopup> {
   TextEditingController _controller = TextEditingController();
+  int currentBalance = 0;
   @override
   Widget build(BuildContext context) {
     var lebar = MediaQuery.of(context).size.width;
@@ -160,10 +161,16 @@ class _wallettopupState extends State<wallettopup> {
                       alignment: Alignment.center,
                       child: ElevatedButton(
                         onPressed: () {
+                          int templateValue = int.tryParse(
+                                  _controller.text.replaceAll(".", "")) ??
+                              0;
+                          int newBalance = currentBalance + templateValue;
+                          print("New Balance: $newBalance");
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => successtopup()),
+                                builder: (context) => successtopup(newBalance)),
                           );
                         },
                         style: ElevatedButton.styleFrom(

@@ -5,14 +5,10 @@ import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class successtopup extends StatefulWidget {
-  const successtopup({super.key});
+class successtopup extends StatelessWidget {
+  final int newBalance;
 
-  @override
-  State<successtopup> createState() => _successtopupState();
-}
-
-class _successtopupState extends State<successtopup> {
+  const successtopup(this.newBalance);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,14 +20,14 @@ class _successtopupState extends State<successtopup> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 60.0, left: 10.0, right: 10.0),
+                    padding: const EdgeInsets.only(
+                        top: 60.0, left: 10.0, right: 10.0),
                     child: Container(
                       width: 250,
                       height: 300,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage(
-                              "assets/images/card/money.png"),
+                          image: AssetImage("assets/images/wallet/money.png"),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
@@ -56,12 +52,10 @@ class _successtopupState extends State<successtopup> {
                   SizedBox(height: 80),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) {
-                            return myWallet();
-                          },
+                          builder: (context) => myWallet(saldo: newBalance),
                         ),
                       );
                     },

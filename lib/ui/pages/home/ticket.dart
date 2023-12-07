@@ -101,7 +101,7 @@ class _TicketPageState extends State<TicketPage> {
                             height: 100,
                             margin: const EdgeInsets.only(left: 20),
                             child: Image.network(
-                              movies?.poster ?? "",
+                              movies?.judul ?? "",
                               fit: BoxFit.fill,
                             ),
                           ),
