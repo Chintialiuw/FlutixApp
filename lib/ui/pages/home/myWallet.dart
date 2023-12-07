@@ -5,13 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class myWallet extends StatefulWidget {
-  const myWallet({super.key});
+  final int? saldo;
+
+  const myWallet({Key? key, this.saldo}) : super(key: key);
 
   @override
   State<myWallet> createState() => _myWalletState();
 }
 
 class _myWalletState extends State<myWallet> {
+  // int? saldo;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,15 +53,26 @@ class _myWalletState extends State<myWallet> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 276,
-                        height: 131,
-                        margin: const EdgeInsets.only(top: 20, left: 20),
-                        child:
-                            Image.asset("images/wallet.png", fit: BoxFit.fill),
-                      ),
+                    Stack(
+                      children: [
+                        Container(
+                          width: 276,
+                          height: 131,
+                          margin: const EdgeInsets.only(top: 20, left: 20),
+                          child: Image.asset("assets/images/wallet/wallet.png",
+                              fit: BoxFit.fill),
+                        ),
+                        Text(
+                          "IDR ${widget.saldo ?? 0}",
+                          style: GoogleFonts.raleway(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "Available Balance",
+                          style: GoogleFonts.raleway(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                     SizedBox(height: 20),
                     Text(
@@ -73,7 +88,8 @@ class _myWalletState extends State<myWallet> {
                             width: 75,
                             height: 100,
                             margin: const EdgeInsets.only(top: 20, bottom: 20),
-                            child: Image.asset("images/card/Carl's-date.png",
+                            child: Image.asset(
+                                "assets/images/card/Carl's-date.png",
                                 fit: BoxFit.fill),
                           ),
                         ),
