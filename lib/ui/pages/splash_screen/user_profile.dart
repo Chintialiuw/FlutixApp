@@ -45,7 +45,7 @@ class _uprofState extends State<uprof> {
         genrePref.add(genre);
       }
       textColorMap[genre] = (textColorMap[genre] == Colors.white)
-          ? const Color.fromARGB(255, 228, 127, 248)
+          ? Color(0xFFE1A20B)
           : Colors.white;
     });
   }
@@ -58,7 +58,7 @@ class _uprofState extends State<uprof> {
         languagePref.add(language);
       }
       languageColorMap[language] = (languageColorMap[language] == Colors.white)
-          ? const Color.fromARGB(255, 228, 127, 248)
+          ? Color(0xFFE1A20B)
           : Colors.white;
     });
   }
@@ -195,7 +195,7 @@ class _uprofState extends State<uprof> {
                     onTap: () async {
                       // Panggil metode savePreferences
                       await Auth().savePreferences(genrePref, languagePref);
-
+      
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
