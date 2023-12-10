@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, must_be_immutable
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutixapp/models/models.dart';
 import 'package:flutixapp/providers/walletBalance.dart';
 import 'package:flutixapp/ui/pages/home/success_checkout.dart';
@@ -421,11 +422,15 @@ class _checkoutState extends State<checkout> {
                           calculateTotal(widget.selectedSeats.length);
 
                       if (widget.saldo >= totalCost) {
+                        String id =
+                                  FirebaseAuth.instance.currentUser!.uid;
                         walletProvider.deductBalance(totalCost);
                         CollectionReference historiCheckCollection =
                             FirebaseFirestore.instance
                                 .collection('historyCheck');
                         Map<String, dynamic> checkoutData = {
+                          'idCust' : id,
+                          'moviePoster' :  widget.movies.poster,
                           'orderId': generateOrderId(),
                           'movieTitle': widget.movies.judul,
                           'cinema': widget.namaBioskop,
