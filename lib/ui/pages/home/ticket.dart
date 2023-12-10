@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutixapp/ui/pages/home/detailTicket.dart';
+import 'package:flutixapp/ui/widgets/bottomnav.dart';
+import 'package:flutixapp/ui/widgets/historyCheck.dart';
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
@@ -16,6 +19,10 @@ class TicketPage extends StatefulWidget {
 
 class _TicketPageState extends State<TicketPage> {
   Movie? movies;
+
+  Color buttonColorNew = Colors.transparent;
+  Color buttonColorUsed = Colors.transparent;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +34,10 @@ class _TicketPageState extends State<TicketPage> {
           child: Text(
             "My Tickets",
             style: GoogleFonts.raleway(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
           ),
         ),
       ),
@@ -43,9 +53,14 @@ class _TicketPageState extends State<TicketPage> {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            buttonColorNew = Color(0xFFE1A20B);
+                            buttonColorUsed = Colors.transparent;
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFE1A20B),
+                          backgroundColor: buttonColorNew,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -64,9 +79,14 @@ class _TicketPageState extends State<TicketPage> {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            buttonColorUsed = Color(0xFFE1A20B);
+                            buttonColorNew = Colors.transparent;
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFE1A20B),
+                          backgroundColor: buttonColorUsed,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -85,61 +105,25 @@ class _TicketPageState extends State<TicketPage> {
                   ],
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => detailTicket()));
-                          },
-                          child: Container(
-                            width: 75,
-                            height: 100,
-                            margin: const EdgeInsets.only(left: 20),
-                            child: Image.network(
-                              movies?.judul ?? "",
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Column(
-                            children: [
-                              Text(
-                                movies?.judul ?? "",
-                                style: GoogleFonts.raleway(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "Carl's Date",
-                                style: GoogleFonts.raleway(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "Carl's Date",
-                                style: GoogleFonts.raleway(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => detailTicket(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 500,
+                    child: buttonColorNew == Color(0xFFE1A20B)
+                        ? buildHistoryList(true)
+                        : buildHistoryList(false),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
                 )
               ],
             ),
