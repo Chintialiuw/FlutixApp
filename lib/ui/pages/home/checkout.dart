@@ -12,7 +12,6 @@ import 'dart:math';
 
 import 'package:provider/provider.dart';
 
-
 class checkout extends StatefulWidget {
   List<String> selectedSeats;
   Movie movies;
@@ -418,7 +417,8 @@ class _checkoutState extends State<checkout> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      int totalCost = calculateTotal(widget.selectedSeats.length);
+                      int totalCost =
+                          calculateTotal(widget.selectedSeats.length);
 
                       if (widget.saldo >= totalCost) {
                         walletProvider.deductBalance(totalCost);
@@ -448,14 +448,17 @@ class _checkoutState extends State<checkout> {
                       padding: EdgeInsets.only(
                           right: 20, top: 50, bottom: 40, left: 105),
                       child: Icon(
-                        _isAda
+                        widget.saldo >=
+                                calculateTotal(widget.selectedSeats.length)
                             ? Icons.arrow_circle_right
                             : Icons.account_balance_wallet_rounded,
-                        color: _isAda
+                        color: widget.saldo >=
+                                calculateTotal(widget.selectedSeats.length)
                             ? Color(0xFFE1A20B)
-                            : Colors.red, 
-                        size: _isAda
-                            ? 60 
+                            : Colors.red,
+                        size: widget.saldo >=
+                                calculateTotal(widget.selectedSeats.length)
+                            ? 60
                             : 40,
                       ),
                     ),
