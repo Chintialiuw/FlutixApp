@@ -422,15 +422,26 @@ class _checkoutState extends State<checkout> {
                           calculateTotal(widget.selectedSeats.length);
 
                       if (widget.saldo >= totalCost) {
-                        String id =
-                                  FirebaseAuth.instance.currentUser!.uid;
+                        String id = FirebaseAuth.instance.currentUser!.uid;
                         walletProvider.deductBalance(totalCost);
+                        
+                        int saldo;
+
+                        saldo = widget.saldo - totalCost;
+                        print("Total Saldo Sekarang : $saldo");
+
+                        CollectionReference users =
+                            FirebaseFirestore.instance.collection('users');
+                        users.doc(FirebaseAuth.instance.currentUser!.uid).update({
+                          'saldo': saldo,
+                        });
+
                         CollectionReference historiCheckCollection =
                             FirebaseFirestore.instance
                                 .collection('historyCheck');
                         Map<String, dynamic> checkoutData = {
-                          'idCust' : id,
-                          'moviePoster' :  widget.movies.poster,
+                          'idCust': id,
+                          'moviePoster': widget.movies.poster,
                           'orderId': generateOrderId(),
                           'movieTitle': widget.movies.judul,
                           'cinema': widget.namaBioskop,
