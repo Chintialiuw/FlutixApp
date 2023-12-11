@@ -9,6 +9,7 @@ Widget buildHistoryList(bool isDescending) {
     
     future: FirebaseFirestore.instance
         .collection('historyCheck')
+        .where('idCust', isEqualTo: id)
         //.where('idCust', isEqualTo: id)
         //.orderBy('orderID', descending: isDescending)
         .orderBy('dateTime', descending: isDescending)
