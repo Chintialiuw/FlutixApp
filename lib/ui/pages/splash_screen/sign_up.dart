@@ -66,17 +66,23 @@ class _signUpState extends State<signUp> {
       setState(() => _loading = true);
 
       try {
-        // Upload profile picture
+        // Upload gambar profil
         final imageUrl = await _uploadImage();
 
-        // Registrasi pengguna
-        await Auth().regis(email, password, nama, imageUrl, 300000);
+        // Mendaftarkan pengguna
+        final userCredential =
+            await Auth().regis(email, password, nama, imageUrl, 300000);
+
+        // Mengambil dan menampilkan saldo
+        final saldo = await Auth().getSaldo(userCredential.user!.uid);
+        //print('Saldo Pengguna: $saldo');
 
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => confir()),
         );
       } catch (error) {
-        // Existing error handling code...
+        // Tangani kesalahan
+        print('Error saat pendaftaran: $error');
       } finally {
         setState(() => _loading = false);
       }

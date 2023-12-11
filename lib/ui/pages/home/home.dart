@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     loadProfile();
+    updateProfile();
   }
 
   Future<void> loadProfile() async {
@@ -38,6 +39,10 @@ class _HomePageState extends State<HomePage> {
       profilePictureUrl = prefs.getString('profilePictureUrl') ?? "";
       saldo = prefs.getInt('saldo');
     });
+  }
+
+  Future<void> updateProfile() async {
+    await loadProfile();
   }
 
   Future<String> _loadProfileImage() async {

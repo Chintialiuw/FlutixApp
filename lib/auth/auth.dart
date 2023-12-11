@@ -7,6 +7,16 @@ class Auth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  Future<int> getSaldo(String userId) async {
+    try {
+      DocumentSnapshot userDoc =
+          await _firestore.collection('users').doc(userId).get();
+      return userDoc['saldo'] ?? 0;
+    } catch (error) {
+      rethrow;
+    }
+  }
+
   Future<UserCredential> regis(String email, String password, String fullName,
       String? profilePictureUrl, int saldo) async {
     try {
@@ -24,12 +34,15 @@ class Auth {
         'saldo': saldo
       });
 
-      // Simpan nama ke SharedPreferences
+      // Simpan nama dan saldo ke SharedPreferences
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('email', email);
       prefs.setString('nama', fullName);
       prefs.setString('profilePictureUrl', profilePictureUrl ?? '');
       prefs.setInt("saldo", saldo);
+
+      // Update saldo di SharedPreferences
+      await prefs.setInt("saldo", saldo);
 
       return userCredential;
     } catch (error) {
@@ -54,6 +67,10 @@ class Auth {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('email', userDoc['email']);
       prefs.setString('nama', userDoc['fullName']);
+
+      // Update saldo di SharedPreferences
+      int saldo = userDoc['saldo'] ?? 0;
+      prefs.setInt("saldo", saldo);
     } catch (error) {
       rethrow;
     }
@@ -69,8 +86,9 @@ class Auth {
       if (user != null) {
         // Menyimpan preferensi ke Firestore di koleksi users
         await _firestore.collection('users').doc(user.uid).update({
-          'genrePref':
-              genrePref.map((genre) => genre.toString().split('.').last).toList(),
+          'genrePref': genrePref
+              .map((genre) => genre.toString().split('.').last)
+              .toList(),
           'languagePref': languagePref
               .map((language) => language.toString().split('.').last)
               .toList(),
