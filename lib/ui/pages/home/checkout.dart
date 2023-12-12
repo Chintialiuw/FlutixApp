@@ -421,7 +421,7 @@ class _checkoutState extends State<checkout> {
 
                       if (widget.saldo >= totalCost) {
                         String id = FirebaseAuth.instance.currentUser!.uid;
-                        walletProvider.deductBalance(totalCost);
+                        //walletProvider.deductBalance(totalCost);
                         
                         int saldo;
 

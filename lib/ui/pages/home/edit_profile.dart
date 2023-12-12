@@ -155,12 +155,12 @@ class _EditProfileState extends State<EditProfile> {
                             const EdgeInsets.only(top: 40, left: 20, right: 20),
                         child: TextFormField(
                           controller: _controllerNama,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Insert your full name';
-                            }
-                            return null;
-                          },
+                          // validator: (value) {
+                          //   if (value == null || value.isEmpty) {
+                          //     return 'Insert your full name';
+                          //   }
+                          //   return null;
+                          // },
                           decoration: InputDecoration(
                             border:
                                 OutlineInputBorder(borderSide: BorderSide()),
