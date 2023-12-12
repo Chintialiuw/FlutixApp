@@ -105,7 +105,7 @@ class _TicketPageState extends State<TicketPage> {
                   ],
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 InkWell(
                   onTap: () {

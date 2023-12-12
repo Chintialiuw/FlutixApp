@@ -36,8 +36,6 @@ class checkout extends StatefulWidget {
 }
 
 class _checkoutState extends State<checkout> {
-  bool _isAda = true;
-
   String generateOrderId() {
     Random random = Random();
     List<int> orderIds = [];

@@ -29,7 +29,7 @@ Widget buildHistoryList(bool isDescending) {
           itemBuilder: (context, index) {
             var ticketData = snapshot.data!.docs[index];
             return Padding(
-              padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+              padding: const EdgeInsets.only(bottom: 10.0),
               child: ListTile(
                 leading: Container(
                   width: 100,
