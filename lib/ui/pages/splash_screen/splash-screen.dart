@@ -83,7 +83,7 @@ class _splashState extends State<splash> {
           ),
           SizedBox(height: 10),
           Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
