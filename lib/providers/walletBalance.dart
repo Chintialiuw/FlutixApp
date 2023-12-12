@@ -16,9 +16,4 @@ class WalletBalance extends ChangeNotifier {
       notifyListeners();
     }
   }
-
-  void addBalance(int amount) {
-    _balance += amount;
-    notifyListeners();
-  }
 }
