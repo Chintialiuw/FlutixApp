@@ -1,8 +1,11 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutixapp/ui/pages/home/successtopup.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class wallettopup extends StatefulWidget {
   const wallettopup({Key? key}) : super(key: key);
@@ -10,6 +13,16 @@ class wallettopup extends StatefulWidget {
   @override
   State<wallettopup> createState() => _wallettopupState();
 }
+
+// Membuat objek Timestamp
+Timestamp timestamp = Timestamp.now();
+
+// Mengonversi Timestamp menjadi DateTime
+DateTime dateTime = timestamp.toDate();
+
+// Memformat DateTime menjadi string sesuai kebutuhan
+String formattedDate = DateFormat('MMMM d, y h:mm:ss a').format(dateTime);
+
 // class walletTopUp{
 //   int harga;
 
@@ -160,17 +173,39 @@ class _wallettopupState extends State<wallettopup> {
                     Align(
                       alignment: Alignment.center,
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           int templateValue = int.tryParse(
                                   _controller.text.replaceAll(".", "")) ??
                               0;
                           int newTopUpAmount = templateValue;
 
-                          // int updatedBalance = currentBalance + newTopUpAmount;
+                          CollectionReference usersCollection =
+                              FirebaseFirestore.instance.collection('users');
 
-                          // Update the currentBalance with the new total
+                          String id = FirebaseAuth.instance.currentUser!.uid;
+
+                          DocumentSnapshot userSnapshot =
+                              await usersCollection.doc(id).get();
+                          int currentBalance = userSnapshot.get('saldo');
+
+                          int updatedBalance = currentBalance + newTopUpAmount;
+
+                          await usersCollection
+                              .doc(id)
+                              .update({'saldo': updatedBalance});
+
                           setState(() {
-                            currentBalance += newTopUpAmount;
+                            currentBalance = updatedBalance;
+
+                            CollectionReference historiTopupCollection =
+                                FirebaseFirestore.instance
+                                    .collection('historyTopup');
+                            Map<String, dynamic> checkoutTopup = {
+                              'idCust': id,
+                              'waktu' : formattedDate,
+                              'saldoTopUp': templateValue,
+                            };
+                            historiTopupCollection.add(checkoutTopup);
                           });
 
                           print("New Balance: $currentBalance");

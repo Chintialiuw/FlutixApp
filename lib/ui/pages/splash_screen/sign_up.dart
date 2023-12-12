@@ -71,7 +71,7 @@ class _signUpState extends State<signUp> {
 
         // Mendaftarkan pengguna
         final userCredential =
-            await Auth().regis(email, password, nama, imageUrl, 300000);
+            await Auth().regis(email, password, nama, imageUrl, 0);
 
         // Mengambil dan menampilkan saldo
         final saldo = await Auth().getSaldo(userCredential.user!.uid);
@@ -340,7 +340,7 @@ class _signUpState extends State<signUp> {
 
                             // Registrasi pengguna
                             await Auth().regis(email, _ctrlPassword.text,
-                                _ctrlNama.text, imageUrl, 300000);
+                                _ctrlNama.text, imageUrl, 0);
 
                             Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) => confir()),

@@ -55,7 +55,7 @@ class successtopup extends StatelessWidget {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => myWallet(saldo: newBalance),
+                          builder: (context) => myWallet(),
                         ),
                       );
                     },
