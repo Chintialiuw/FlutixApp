@@ -1,7 +1,10 @@
 import 'package:flutixapp/ui/pages/home/home.dart';
 import 'package:flutixapp/ui/pages/home/profile.dart';
 import 'package:flutixapp/ui/pages/home/ticket.dart';
+import 'package:flutixapp/ui/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
@@ -13,7 +16,7 @@ class BottomNav extends StatefulWidget {
 Color buttonColor = const Color(0xFFE1A20B);
 
 class _BottomNavState extends State<BottomNav> {
-  int _selectedIndex = 0;
+  // int _selectedIndex = 0;
 
   final List<Widget> _pages = [
     const HomePage(),
@@ -23,8 +26,9 @@ class _BottomNavState extends State<BottomNav> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages[_selectedIndex],
+    final statusProvider = Provider.of<StatusProvider>(context);
+    return Scaffold(            
+      body: _pages[statusProvider.currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.grey[100],
@@ -52,11 +56,9 @@ class _BottomNavState extends State<BottomNav> {
           ),
         ],
         selectedItemColor: buttonColor,
-        currentIndex: _selectedIndex,
-        onTap: (int index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+          currentIndex: statusProvider.currentIndex,
+        onTap: (index) {          
+            statusProvider.updateCurrentIndex(index);          
         },
       ),
     );

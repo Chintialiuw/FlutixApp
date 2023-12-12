@@ -1,7 +1,9 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutixapp/ui/pages/home/ticket.dart';
+import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../models/models.dart';
 
@@ -28,9 +30,7 @@ class _detailTicketState extends State<detailTicket> {
                     Row(
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => TicketPage()));
+                          onTap: () {Navigator.pop(context);
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(top: 20, left: 20),
