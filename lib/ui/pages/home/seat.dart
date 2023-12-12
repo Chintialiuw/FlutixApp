@@ -66,14 +66,14 @@ class _SeatState extends State<Seat> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: Padding(
-          padding: const EdgeInsets.only(top: 10.0),
+          padding: const EdgeInsets.only(left: 20.0, top: 10.0),
           child: InkWell(
             onTap: () {
               Navigator.pop(context);
             },
             child: const Icon(
               Icons.arrow_back_ios,
-              color: Colors.black, // Ubah warna ikon panah menjadi hitam
+              color:  Color(0xFFE1A20B),
               size: 32,
             ),
           ),
