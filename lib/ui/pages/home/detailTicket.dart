@@ -3,6 +3,7 @@
 import 'package:flutixapp/ui/pages/home/ticket.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../models/models.dart';
@@ -19,68 +20,70 @@ class _detailTicketState extends State<detailTicket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20.0, top: 10.0),
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Color(0xFFE1A20B),
+              size: 32,
+            ),
+          ),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Text(
+            "Ticket",
+            style: GoogleFonts.raleway(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                padding:
+                    const EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {Navigator.pop(context);
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 20, left: 20),
-                            child: Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.yellow,
-                              size: 40,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Ticket",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    Container(
+                      width: 300,
+                      height: 150,
+                      color: Colors.grey,
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 276,
-                        height: 131,
-                        margin: const EdgeInsets.only(top: 20, left: 20),
-                        child: Image.network(
-                          movies?.poster ?? "",
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                    Text(movies?.judul ?? "",
-                        style: TextStyle(
+                    SizedBox(height: 5.0),
+                    Text("Judul Movie",
+                        style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.normal)),
-                    Text("Adventure - Indonesia", //movies?.genre ?? ""
-                        style: TextStyle(
+                    Text("Genre - Bahasa",
+                        style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 12,
                             fontWeight: FontWeight.normal)),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(5, (index) {
-                        //movies?.rate ?? "",
                         return Icon(
                           Icons.star,
-                          color: Colors.yellow,
+                          color: Color(0xFFE1A20B),
                           size: 12,
                         );
                       }),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 20),
                     Row(
                       children: [
                         Text("Cinema",
@@ -167,12 +170,12 @@ class _detailTicketState extends State<detailTicket> {
                           ],
                         ),
                         Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5),
-                          child: CircleAvatar(
-                            radius: 50,
-                            // backgroundImage: Image.network(user.foto).image,
-                          ),
+                        Container(
+                          width: 60,
+                          height: 60,
+                          child: Image.asset(
+                              "assets/images/wallet/barcode.png",
+                              fit: BoxFit.fill),
                         ),
                       ],
                     ),

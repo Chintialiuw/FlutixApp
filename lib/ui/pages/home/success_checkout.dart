@@ -1,7 +1,7 @@
 
 
 import 'package:flutixapp/ui/pages/home/ticket.dart';
-import 'package:flutixapp/ui/provider.dart';
+import 'package:flutixapp/providers/provider.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

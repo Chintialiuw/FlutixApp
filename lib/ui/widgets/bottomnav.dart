@@ -1,7 +1,7 @@
 import 'package:flutixapp/ui/pages/home/home.dart';
 import 'package:flutixapp/ui/pages/home/profile.dart';
 import 'package:flutixapp/ui/pages/home/ticket.dart';
-import 'package:flutixapp/ui/provider.dart';
+import 'package:flutixapp/providers/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

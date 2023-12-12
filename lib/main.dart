@@ -12,7 +12,7 @@ import 'package:flutixapp/ui/pages/splash_screen/sign_in.dart';
 import 'package:flutixapp/ui/pages/splash_screen/sign_up.dart';
 import 'package:flutixapp/ui/pages/splash_screen/splash-screen.dart';
 import 'package:flutixapp/ui/pages/splash_screen/user_profile.dart';
-import 'package:flutixapp/ui/provider.dart';
+import 'package:flutixapp/providers/provider.dart';
 import 'package:flutixapp/ui/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
